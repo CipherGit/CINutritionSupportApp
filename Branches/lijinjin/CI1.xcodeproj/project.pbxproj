@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8221FF6F1E5D9031000D3463 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8221FF6E1E5D9031000D3463 /* MainViewController.swift */; };
+		8223FB411E5D761300763E52 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8223FB401E5D761300763E52 /* Patient.swift */; };
 		823264901E5C9B1400E38E21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8232648F1E5C9B1400E38E21 /* AppDelegate.swift */; };
 		823264921E5C9B1400E38E21 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823264911E5C9B1400E38E21 /* FirstViewController.swift */; };
 		823264941E5C9B1400E38E21 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823264931E5C9B1400E38E21 /* SecondViewController.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8221FF6E1E5D9031000D3463 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8223FB401E5D761300763E52 /* Patient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		8232648C1E5C9B1400E38E21 /* CI1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CI1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8232648F1E5C9B1400E38E21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		823264911E5C9B1400E38E21 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 				823264981E5C9B1400E38E21 /* Assets.xcassets */,
 				8232649A1E5C9B1400E38E21 /* LaunchScreen.storyboard */,
 				8232649D1E5C9B1400E38E21 /* Info.plist */,
+				8223FB401E5D761300763E52 /* Patient.swift */,
+				8221FF6E1E5D9031000D3463 /* MainViewController.swift */,
 			);
 			path = CI1;
 			sourceTree = "<group>";
@@ -266,8 +272,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				823264941E5C9B1400E38E21 /* SecondViewController.swift in Sources */,
+				8223FB411E5D761300763E52 /* Patient.swift in Sources */,
 				823264901E5C9B1400E38E21 /* AppDelegate.swift in Sources */,
 				823264921E5C9B1400E38E21 /* FirstViewController.swift in Sources */,
+				8221FF6F1E5D9031000D3463 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +526,7 @@
 				823264B81E5C9B1500E38E21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		823264B91E5C9B1500E38E21 /* Build configuration list for PBXNativeTarget "CI1Tests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +535,7 @@
 				823264BB1E5C9B1500E38E21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		823264BC1E5C9B1500E38E21 /* Build configuration list for PBXNativeTarget "CI1UITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +544,7 @@
 				823264BE1E5C9B1500E38E21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
