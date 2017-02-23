@@ -24,11 +24,10 @@ class TestingTableViewController: UITableViewController , UISearchResultsUpdatin
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if patients.isEmpty == true {
-            //Initialize String
-            self.patients += ["John"]
-            self.patients += ["Mary"]
-        }
+        //Initialize String
+        self.patients += ["John"]
+        self.patients += ["Mary"]
+                
         
         //Adding patient name to the patient 
         print(stringPassed)
@@ -93,6 +92,16 @@ class TestingTableViewController: UITableViewController , UISearchResultsUpdatin
            cell.textLabel?.text = self.filteredPatients[indexPath.row]
         }
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let navController = segue.destination as? UINavigationController
+        if let newPatientVC : AddScreenViewController = navController?.visibleViewController as? AddScreenViewController  {
+            newPatientVC.updateClosure = {[weak self] name in
+                self?.patients.append(name)
+                self?.tableView.reloadData()
+            }
+        }
     }
 
 }
