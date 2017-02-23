@@ -12,7 +12,7 @@
         <!--Patients-->
         <scene sceneID="spb-TJ-CKN">
             <objects>
-                <tableViewController storyboardIdentifier="TestingTableViewController" id="j7w-Ec-R7C" customClass="TestingTableViewController" customModule="TestingTablewithSearchBar" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TestingTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="j7w-Ec-R7C" customClass="TestingTableViewController" customModule="TestingTablewithSearchBar" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="OQh-he-AYB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,19 +35,19 @@
                     <navigationItem key="navigationItem" title="Patients" id="SZR-mT-W0C">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ddk-Gg-SJf">
                             <connections>
-                                <segue destination="Mz7-ky-CB4" kind="presentation" id="CPX-WA-1mP"/>
+                                <segue destination="xEm-rV-5T7" kind="presentation" id="CPX-WA-1mP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ba-56-whm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-546" y="995"/>
+            <point key="canvasLocation" x="-546" y="951"/>
         </scene>
-        <!--Add Screen View Controller-->
+        <!--Add New Patient-->
         <scene sceneID="0lK-fp-cc1">
             <objects>
-                <viewController id="Mz7-ky-CB4" customClass="AddScreenViewController" customModule="TestingTablewithSearchBar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddScreenViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Mz7-ky-CB4" customClass="AddScreenViewController" customModule="TestingTablewithSearchBar" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="asQ-de-ZRp"/>
                         <viewControllerLayoutGuide type="bottom" id="Ldr-u1-2t9"/>
@@ -57,31 +57,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVg-QA-KOQ">
-                                <rect key="frame" x="16" y="79" width="59" height="21"/>
+                                <rect key="frame" x="33" y="213" width="59" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B4l-tL-zog">
-                                <rect key="frame" x="94" y="75" width="200" height="30"/>
+                                <rect key="frame" x="111" y="209" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKP-w2-dtq">
-                                <rect key="frame" x="144" y="132" width="86" height="44"/>
+                                <rect key="frame" x="161" y="266" width="86" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="btnSaveClicked:" destination="Mz7-ky-CB4" eventType="touchUpInside" id="iuk-qs-gi1"/>
-                                    <segue destination="IfY-tq-39U" kind="presentation" id="PWb-rE-ERf"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Add New Patient" id="BGd-nj-0CR">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="4R0-Pd-rHR">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="n3X-EF-Pjq">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="btnCancel:" destination="Mz7-ky-CB4" eventType="touchUpInside" id="SxQ-AP-bNn"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="lableName" destination="FVg-QA-KOQ" id="YNd-fh-OqW"/>
                         <outlet property="textFieldName" destination="B4l-tL-zog" id="2i8-Bk-PA4"/>
@@ -89,14 +100,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oBA-uO-bwm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1018" y="152"/>
+            <point key="canvasLocation" x="1480.8" y="949.47526236881572"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="v2P-g7-5Rl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IfY-tq-39U" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dpd-tM-H8S">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Dpd-tM-H8S">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -107,7 +118,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W6W-px-aaq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-546" y="45"/>
+            <point key="canvasLocation" x="-546" y="152"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="aVT-E5-JYq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xEm-rV-5T7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Xh8-9h-a5k">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Mz7-ky-CB4" kind="relationship" relationship="rootViewController" id="clH-AX-NQC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pkU-K7-D1f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="541.60000000000002" y="949.47526236881572"/>
         </scene>
     </scenes>
 </document>
