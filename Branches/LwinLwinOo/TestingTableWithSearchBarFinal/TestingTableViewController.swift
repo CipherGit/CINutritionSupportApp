@@ -25,8 +25,8 @@ class TestingTableViewController: UITableViewController , UISearchResultsUpdatin
         super.viewDidLoad()
         
         //Initialize String
-        self.patients += ["John"]
-        self.patients += ["Mary"]
+        //self.patients += ["John"]
+        //self.patients += ["Mary"]
                 
         
         //Adding patient name to the patient 
