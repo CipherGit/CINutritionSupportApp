@@ -18,6 +18,10 @@ class SecondViewController: UIViewController, UITextFieldDelegate, UITableViewDa
     
     @IBOutlet weak var diseasePhaseText: UITextField!
     
+    @IBAction func addDiseaseBtn(_ sender: UIButton) {
+    }
+    
+    
     
    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return list.count
