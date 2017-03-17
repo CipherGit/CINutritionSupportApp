@@ -1,29 +1,32 @@
 //
 //  Patient.swift
-//  CI1
+//  ICNutrition
 //
-//  Created by lijinjin on 22/2/17.
-//  Copyright © 2017 lijinjin. All rights reserved.
+//  Created by Justin Peña on 24/2/17.
+//  Integrated from Patient.swift by lijinjin.
+//  Copyright © 2017 Cipher. All rights reserved.
 //
 
 import Foundation
 public class Patient{
-    var name: String //var price : Double = 0.0
+    var name: String
     var age: Int
     var gender: String
     var height: Int
     var weight: Int
     var admittedDate: String
-    var nutricScore: Int
+    var icuWard: String
+    //var nutricScore: Int
     
-    init(name: String, age: Int, gender: String, height: Int, weight: Int, admittedDate: String, nutriScore: Int){
+    init(name: String, age: Int, gender: String, height: Int, weight: Int, admittedDate: String, icuWard: String){
         self.name = name
         self.age = age
         self.gender = gender
         self.height = height
         self.weight = weight
         self.admittedDate = admittedDate
-        self.nutricScore = nutriScore
+        self.icuWard = icuWard
+        //self.nutricScore = nutriScore
     }
     
     func getName()->String{
@@ -50,7 +53,12 @@ public class Patient{
         return self.admittedDate
     }
     
-    func getNutriScore()->Int{
-        return self.nutricScore
+    func getIcuWard()->String{
+        return self.icuWard
     }
+
+    
+//    func getNutriScore()->Int{
+//        return self.nutricScore
+//    }
 }
