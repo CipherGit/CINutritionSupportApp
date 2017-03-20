@@ -1,3 +1,1 @@
-This is a test text file
-Let’s try to create a conflict.
-Oh I’m editing again.
+Wee!
