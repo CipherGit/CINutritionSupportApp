@@ -9,32 +9,46 @@
 //
 
 import UIKit
+import CoreData
 
 class PatientList: UITableViewController, UISearchResultsUpdating {
     
-    var patients = Array<Patient>()
-    var filteredPatients = [Patient]()
+    var patients = Array<PatientInformation>()
+    var filteredPatients = [PatientInformation]()
     
     var searchController : UISearchController!
     var resultsController = UITableViewController()
     
     //Holder variable for new patients
-    var newPatient : Patient?
+    var newPatient : PatientInformation?
+    
+    
+    
+    //Getting managedContext to use coredata
+    var managedContext : NSObject{
+        get{
+            let appDelegate = UIApplication.shared.delegate as? AppDelegate
+            return appDelegate!.persistentContainer.viewContext
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let patient1 = Patient(name: "Alice", age: 56, gender: "Female", height: 162, weight: 65, admittedDate: "2/12/2017, 12:34 PM", icuWard: "North Wing")
-        let patient2 = Patient(name: "Bob", age: 32, gender: "Male", height: 150, weight: 43, admittedDate: "2/12/2017, 12:34 PM", icuWard: "North Wing")
-        let patient3 = Patient(name: "Cherry", age: 43, gender: "Female", height: 140, weight: 60, admittedDate: "2/12/2017, 12:34 PM", icuWard: "North Wing")
-        patients.append(patient1)
-        patients.append(patient2)
-        patients.append(patient3)
-        
+//        let patient1 = Patient(name: "Alice", age: 56, gender: "Female", height: 162, weight: 65, admittedDate: "2/12/2017, 12:34 PM", icuWard: "North Wing")
+//        let patient2 = Patient(name: "Bob", age: 32, gender: "Male", height: 150, weight: 43, admittedDate: "2/12/2017, 12:34 PM", icuWard: "North Wing")
+//        let patient3 = Patient(name: "Cherry", age: 43, gender: "Female", height: 140, weight: 60, admittedDate: "2/12/2017, 12:34 PM", icuWard: "North Wing")
+//        patients.append(patient1)
+//        patients.append(patient2)
+//        patients.append(patient3)
+//        
         //Update patients array
-        if (newPatient != nil){
-            self.patients += [newPatient!]
-        }
+//        if (newPatient != nil){
+//            self.patients += [newPatient!]
+//        }
+        
+       
+        self.fetchData()
         
         // Add search bar
         self.searchController = UISearchController(searchResultsController : self.resultsController)
@@ -48,11 +62,34 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
         self.searchController.searchResultsUpdater = self
     }
     
+    func fetchData(){
+        //fetch patient Information from Coredata
+        print("call fetch method")
+        let context = self.context
+        let request : NSFetchRequest<PatientInformation> = PatientInformation.fetchRequest()
+        
+        do{
+            self.patients = try (context?.fetch(request))! as [PatientInformation]
+            for patient in patients{
+                print("name :\(patient.name)")
+                print("age :\(patient.age)")
+            }
+            
+        }catch{
+            let fetchError = error as NSError
+            print(fetchError)
+        }
+        
+        
+        self.tableView.reloadData()
+        
+    }
+    
     func updateSearchResults(for searchController: UISearchController) {
         
         //Filter through the Patients
-        self.filteredPatients = self.patients.filter{(patient : Patient) -> Bool in
-            if patient.name.contains(self.searchController.searchBar.text!){
+        self.filteredPatients = self.patients.filter{(patient : PatientInformation) -> Bool in
+            if (patient.name?.contains(self.searchController.searchBar.text!))!{
                 return true
             }
             else {
@@ -84,9 +121,11 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
         return cell
     }
     
+    // Click on the cell list --> carry index row and go to detail
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "PInfo") as? PatientInfo {
             vc.selectedPatient = patients[indexPath.row]
+            //self.performSegueWithIdentifier("SegueAdd", sender: indexPath.row)
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -96,15 +135,40 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
         let nav = barViewControllers.viewControllers![0] as! UINavigationController
         if let newPatientVC : PatientInfo = nav.viewControllers[0] as? PatientInfo {
             newPatientVC.updateClosure = {[weak self] patient in
-                self?.patients.append(patient)
+                self?.fetchData()
                 self?.tableView.reloadData()
             }
         }
     }
     
-    override func didReceiveMemoryWarning() {
+    
+    // Delete Data
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let patientInfo = PatientInformation(context: context!)
+
+        if editingStyle == .delete {
+            //Using delete method from managedObjectContext
+            patientInfo.managedObjectContext?.delete(patients[indexPath.row])
+           do {
+                //******
+                try patientInfo.managedObjectContext?.save()
+                patients.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            } catch {
+                let saveError = error as NSError
+                print(saveError)
+            }
+    }
+    
+    }
+        override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 }
+
 
