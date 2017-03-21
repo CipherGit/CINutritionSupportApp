@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		568211421E810C9F000FB98A /* coreDataManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5682113F1E810C9F000FB98A /* coreDataManagedObject.swift */; };
+		568211431E810C9F000FB98A /* PatientInformation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568211401E810C9F000FB98A /* PatientInformation+CoreDataClass.swift */; };
+		568211441E810C9F000FB98A /* PatientInformation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568211411E810C9F000FB98A /* PatientInformation+CoreDataProperties.swift */; };
 		820C18001E77D46700C2B020 /* DiseaseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C17FF1E77D46700C2B020 /* DiseaseInfo.swift */; };
 		820C18041E77E05400C2B020 /* DiseaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C18031E77E05400C2B020 /* DiseaseTableViewCell.swift */; };
 		820C18061E77E9B400C2B020 /* Disease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C18051E77E9B400C2B020 /* Disease.swift */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5682113F1E810C9F000FB98A /* coreDataManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = coreDataManagedObject.swift; sourceTree = "<group>"; };
+		568211401E810C9F000FB98A /* PatientInformation+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PatientInformation+CoreDataClass.swift"; sourceTree = "<group>"; };
+		568211411E810C9F000FB98A /* PatientInformation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PatientInformation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		820C17FF1E77D46700C2B020 /* DiseaseInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiseaseInfo.swift; sourceTree = "<group>"; };
 		820C18031E77E05400C2B020 /* DiseaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiseaseTableViewCell.swift; sourceTree = "<group>"; };
 		820C18051E77E9B400C2B020 /* Disease.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Disease.swift; sourceTree = "<group>"; };
@@ -47,6 +53,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		568211481E810EC7000FB98A /* CoreDataFiles */ = {
+			isa = PBXGroup;
+			children = (
+				5682113F1E810C9F000FB98A /* coreDataManagedObject.swift */,
+				568211401E810C9F000FB98A /* PatientInformation+CoreDataClass.swift */,
+				568211411E810C9F000FB98A /* PatientInformation+CoreDataProperties.swift */,
+			);
+			name = CoreDataFiles;
+			sourceTree = "<group>";
+		};
 		DEDD11671E5F7068006DF4CF = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +82,7 @@
 		DEDD11721E5F7068006DF4CF /* ICNutrition */ = {
 			isa = PBXGroup;
 			children = (
+				568211481E810EC7000FB98A /* CoreDataFiles */,
 				DEDD11731E5F7068006DF4CF /* AppDelegate.swift */,
 				DEDD118A1E5F844A006DF4CF /* PatientInfo.swift */,
 				DEDD11751E5F7068006DF4CF /* PatientList.swift */,
@@ -155,13 +172,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				568211431E810C9F000FB98A /* PatientInformation+CoreDataClass.swift in Sources */,
 				820C18001E77D46700C2B020 /* DiseaseInfo.swift in Sources */,
 				820C18041E77E05400C2B020 /* DiseaseTableViewCell.swift in Sources */,
 				DEDD11761E5F7068006DF4CF /* PatientList.swift in Sources */,
 				DEDD11891E5F7538006DF4CF /* Patient.swift in Sources */,
 				DEDD11741E5F7068006DF4CF /* AppDelegate.swift in Sources */,
+				568211441E810C9F000FB98A /* PatientInformation+CoreDataProperties.swift in Sources */,
 				DEDD118B1E5F844A006DF4CF /* PatientInfo.swift in Sources */,
 				820C18061E77E9B400C2B020 /* Disease.swift in Sources */,
+				568211421E810C9F000FB98A /* coreDataManagedObject.swift in Sources */,
 				DEDD117C1E5F7068006DF4CF /* ICNutrition.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
