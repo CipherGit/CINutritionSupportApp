@@ -1,0 +1,368 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+<<<<<<< HEAD:Integration/ICNutrition/ICNutrition.xcodeproj/project.pbxproj
+		56A2A1EC1E7ACF88002F5DC1 /* PatientInformation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A2A1EA1E7ACF88002F5DC1 /* PatientInformation+CoreDataClass.swift */; };
+		56A2A1ED1E7ACF88002F5DC1 /* PatientInformation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A2A1EB1E7ACF88002F5DC1 /* PatientInformation+CoreDataProperties.swift */; };
+		56A2A1EF1E7ACFBF002F5DC1 /* coreDataManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A2A1EE1E7ACFBF002F5DC1 /* coreDataManagedObject.swift */; };
+=======
+		820C18001E77D46700C2B020 /* DiseaseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C17FF1E77D46700C2B020 /* DiseaseInfo.swift */; };
+		820C18041E77E05400C2B020 /* DiseaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C18031E77E05400C2B020 /* DiseaseTableViewCell.swift */; };
+		820C18061E77E9B400C2B020 /* Disease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C18051E77E9B400C2B020 /* Disease.swift */; };
+>>>>>>> master:Trunk/ICNutrition.xcodeproj/project.pbxproj
+		DEDD11741E5F7068006DF4CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD11731E5F7068006DF4CF /* AppDelegate.swift */; };
+		DEDD11761E5F7068006DF4CF /* PatientList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD11751E5F7068006DF4CF /* PatientList.swift */; };
+		DEDD11791E5F7068006DF4CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDD11771E5F7068006DF4CF /* Main.storyboard */; };
+		DEDD117C1E5F7068006DF4CF /* ICNutrition.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DEDD117A1E5F7068006DF4CF /* ICNutrition.xcdatamodeld */; };
+		DEDD117E1E5F7068006DF4CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDD117D1E5F7068006DF4CF /* Assets.xcassets */; };
+		DEDD11811E5F7068006DF4CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDD117F1E5F7068006DF4CF /* LaunchScreen.storyboard */; };
+		DEDD11891E5F7538006DF4CF /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD11881E5F7538006DF4CF /* Patient.swift */; };
+		DEDD118B1E5F844A006DF4CF /* PatientInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD118A1E5F844A006DF4CF /* PatientInfo.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+<<<<<<< HEAD:Integration/ICNutrition/ICNutrition.xcodeproj/project.pbxproj
+		56A2A1EA1E7ACF88002F5DC1 /* PatientInformation+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PatientInformation+CoreDataClass.swift"; sourceTree = "<group>"; };
+		56A2A1EB1E7ACF88002F5DC1 /* PatientInformation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PatientInformation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		56A2A1EE1E7ACFBF002F5DC1 /* coreDataManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = coreDataManagedObject.swift; path = ICNutrition/coreDataManagedObject.swift; sourceTree = "<group>"; };
+=======
+		820C17FF1E77D46700C2B020 /* DiseaseInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiseaseInfo.swift; sourceTree = "<group>"; };
+		820C18031E77E05400C2B020 /* DiseaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiseaseTableViewCell.swift; sourceTree = "<group>"; };
+		820C18051E77E9B400C2B020 /* Disease.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Disease.swift; sourceTree = "<group>"; };
+>>>>>>> master:Trunk/ICNutrition.xcodeproj/project.pbxproj
+		DEDD11701E5F7068006DF4CF /* ICNutrition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ICNutrition.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEDD11731E5F7068006DF4CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DEDD11751E5F7068006DF4CF /* PatientList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientList.swift; sourceTree = "<group>"; };
+		DEDD11781E5F7068006DF4CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DEDD117B1E5F7068006DF4CF /* ICNutrition.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ICNutrition.xcdatamodel; sourceTree = "<group>"; };
+		DEDD117D1E5F7068006DF4CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DEDD11801E5F7068006DF4CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DEDD11821E5F7068006DF4CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DEDD11881E5F7538006DF4CF /* Patient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
+		DEDD118A1E5F844A006DF4CF /* PatientInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientInfo.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DEDD116D1E5F7068006DF4CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DEDD11671E5F7068006DF4CF = {
+			isa = PBXGroup;
+			children = (
+				56A2A1EA1E7ACF88002F5DC1 /* PatientInformation+CoreDataClass.swift */,
+				56A2A1EB1E7ACF88002F5DC1 /* PatientInformation+CoreDataProperties.swift */,
+				56A2A1EE1E7ACFBF002F5DC1 /* coreDataManagedObject.swift */,
+				DEDD11721E5F7068006DF4CF /* ICNutrition */,
+				DEDD11711E5F7068006DF4CF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DEDD11711E5F7068006DF4CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DEDD11701E5F7068006DF4CF /* ICNutrition.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DEDD11721E5F7068006DF4CF /* ICNutrition */ = {
+			isa = PBXGroup;
+			children = (
+				DEDD11731E5F7068006DF4CF /* AppDelegate.swift */,
+				DEDD118A1E5F844A006DF4CF /* PatientInfo.swift */,
+				DEDD11751E5F7068006DF4CF /* PatientList.swift */,
+				820C17FF1E77D46700C2B020 /* DiseaseInfo.swift */,
+				DEDD11881E5F7538006DF4CF /* Patient.swift */,
+				DEDD11771E5F7068006DF4CF /* Main.storyboard */,
+				820C18031E77E05400C2B020 /* DiseaseTableViewCell.swift */,
+				DEDD117D1E5F7068006DF4CF /* Assets.xcassets */,
+				DEDD117F1E5F7068006DF4CF /* LaunchScreen.storyboard */,
+				DEDD11821E5F7068006DF4CF /* Info.plist */,
+				DEDD117A1E5F7068006DF4CF /* ICNutrition.xcdatamodeld */,
+				820C18051E77E9B400C2B020 /* Disease.swift */,
+			);
+			path = ICNutrition;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DEDD116F1E5F7068006DF4CF /* ICNutrition */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DEDD11851E5F7068006DF4CF /* Build configuration list for PBXNativeTarget "ICNutrition" */;
+			buildPhases = (
+				DEDD116C1E5F7068006DF4CF /* Sources */,
+				DEDD116D1E5F7068006DF4CF /* Frameworks */,
+				DEDD116E1E5F7068006DF4CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ICNutrition;
+			productName = ICNutrition;
+			productReference = DEDD11701E5F7068006DF4CF /* ICNutrition.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DEDD11681E5F7068006DF4CF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Cipher;
+				TargetAttributes = {
+					DEDD116F1E5F7068006DF4CF = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 5763UENJDC;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = DEDD116B1E5F7068006DF4CF /* Build configuration list for PBXProject "ICNutrition" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DEDD11671E5F7068006DF4CF;
+			productRefGroup = DEDD11711E5F7068006DF4CF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DEDD116F1E5F7068006DF4CF /* ICNutrition */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DEDD116E1E5F7068006DF4CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEDD11811E5F7068006DF4CF /* LaunchScreen.storyboard in Resources */,
+				DEDD117E1E5F7068006DF4CF /* Assets.xcassets in Resources */,
+				DEDD11791E5F7068006DF4CF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DEDD116C1E5F7068006DF4CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				820C18001E77D46700C2B020 /* DiseaseInfo.swift in Sources */,
+				820C18041E77E05400C2B020 /* DiseaseTableViewCell.swift in Sources */,
+				DEDD11761E5F7068006DF4CF /* PatientList.swift in Sources */,
+				DEDD11891E5F7538006DF4CF /* Patient.swift in Sources */,
+				DEDD11741E5F7068006DF4CF /* AppDelegate.swift in Sources */,
+				DEDD118B1E5F844A006DF4CF /* PatientInfo.swift in Sources */,
+<<<<<<< HEAD:Integration/ICNutrition/ICNutrition.xcodeproj/project.pbxproj
+				56A2A1EC1E7ACF88002F5DC1 /* PatientInformation+CoreDataClass.swift in Sources */,
+				56A2A1EF1E7ACFBF002F5DC1 /* coreDataManagedObject.swift in Sources */,
+				56A2A1ED1E7ACF88002F5DC1 /* PatientInformation+CoreDataProperties.swift in Sources */,
+=======
+				820C18061E77E9B400C2B020 /* Disease.swift in Sources */,
+>>>>>>> master:Trunk/ICNutrition.xcodeproj/project.pbxproj
+				DEDD117C1E5F7068006DF4CF /* ICNutrition.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DEDD11771E5F7068006DF4CF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DEDD11781E5F7068006DF4CF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DEDD117F1E5F7068006DF4CF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DEDD11801E5F7068006DF4CF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DEDD11831E5F7068006DF4CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DEDD11841E5F7068006DF4CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DEDD11861E5F7068006DF4CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5763UENJDC;
+				INFOPLIST_FILE = ICNutrition/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ci6229.ICNutrition;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		DEDD11871E5F7068006DF4CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5763UENJDC;
+				INFOPLIST_FILE = ICNutrition/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ci6229.ICNutrition;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DEDD116B1E5F7068006DF4CF /* Build configuration list for PBXProject "ICNutrition" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEDD11831E5F7068006DF4CF /* Debug */,
+				DEDD11841E5F7068006DF4CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DEDD11851E5F7068006DF4CF /* Build configuration list for PBXNativeTarget "ICNutrition" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEDD11861E5F7068006DF4CF /* Debug */,
+				DEDD11871E5F7068006DF4CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DEDD117A1E5F7068006DF4CF /* ICNutrition.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DEDD117B1E5F7068006DF4CF /* ICNutrition.xcdatamodel */,
+			);
+			currentVersion = DEDD117B1E5F7068006DF4CF /* ICNutrition.xcdatamodel */;
+			path = ICNutrition.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = DEDD11681E5F7068006DF4CF /* Project object */;
+}
