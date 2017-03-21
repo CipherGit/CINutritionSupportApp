@@ -9,28 +9,17 @@
 //
 
 import UIKit
-<<<<<<< HEAD
-
-class PatientList: UITableViewController, UISearchResultsUpdating {
-    
-    var patients = Array<Patient>()
-    var filteredPatients = [Patient]()
-=======
 import CoreData
 
 class PatientList: UITableViewController, UISearchResultsUpdating {
     
     var patients = Array<PatientInformation>()
     var filteredPatients = [PatientInformation]()
->>>>>>> parent of 42da85d... Clean Up Repository
     
     var searchController : UISearchController!
     var resultsController = UITableViewController()
     
     //Holder variable for new patients
-<<<<<<< HEAD
-    var newPatient : Patient?
-=======
     var newPatient : PatientInformation?
     
     
@@ -42,24 +31,10 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
             return appDelegate!.persistentContainer.viewContext
         }
     }
->>>>>>> parent of 42da85d... Clean Up Repository
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-<<<<<<< HEAD
-        let patient1 = Patient(name: "Alice", age: 56, gender: "Female", height: 162, weight: 65, admittedDate: "2/12/2017, 12:34 PM", icuWard: "North Wing")
-        let patient2 = Patient(name: "Bob", age: 32, gender: "Male", height: 150, weight: 43, admittedDate: "2/12/2017, 12:34 PM", icuWard: "North Wing")
-        let patient3 = Patient(name: "Cherry", age: 43, gender: "Female", height: 140, weight: 60, admittedDate: "2/12/2017, 12:34 PM", icuWard: "North Wing")
-        patients.append(patient1)
-        patients.append(patient2)
-        patients.append(patient3)
-        
-        //Update patients array
-        if (newPatient != nil){
-            self.patients += [newPatient!]
-        }
-=======
 //        let patient1 = Patient(name: "Alice", age: 56, gender: "Female", height: 162, weight: 65, admittedDate: "2/12/2017, 12:34 PM", icuWard: "North Wing")
 //        let patient2 = Patient(name: "Bob", age: 32, gender: "Male", height: 150, weight: 43, admittedDate: "2/12/2017, 12:34 PM", icuWard: "North Wing")
 //        let patient3 = Patient(name: "Cherry", age: 43, gender: "Female", height: 140, weight: 60, admittedDate: "2/12/2017, 12:34 PM", icuWard: "North Wing")
@@ -74,7 +49,6 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
         
        
         self.fetchData()
->>>>>>> parent of 42da85d... Clean Up Repository
         
         // Add search bar
         self.searchController = UISearchController(searchResultsController : self.resultsController)
@@ -88,13 +62,6 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
         self.searchController.searchResultsUpdater = self
     }
     
-<<<<<<< HEAD
-    func updateSearchResults(for searchController: UISearchController) {
-        
-        //Filter through the Patients
-        self.filteredPatients = self.patients.filter{(patient : Patient) -> Bool in
-            if patient.name.contains(self.searchController.searchBar.text!){
-=======
     func fetchData(){
         //fetch patient Information from Coredata
         print("call fetch method")
@@ -123,7 +90,6 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
         //Filter through the Patients
         self.filteredPatients = self.patients.filter{(patient : PatientInformation) -> Bool in
             if (patient.name?.contains(self.searchController.searchBar.text!))!{
->>>>>>> parent of 42da85d... Clean Up Repository
                 return true
             }
             else {
@@ -155,17 +121,11 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
         return cell
     }
     
-<<<<<<< HEAD
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "PInfo") as? PatientInfo {
-            vc.selectedPatient = patients[indexPath.row]
-=======
     // Click on the cell list --> carry index row and go to detail
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "PInfo") as? PatientInfo {
             vc.selectedPatient = patients[indexPath.row]
             //self.performSegueWithIdentifier("SegueAdd", sender: indexPath.row)
->>>>>>> parent of 42da85d... Clean Up Repository
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -175,19 +135,12 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
         let nav = barViewControllers.viewControllers![0] as! UINavigationController
         if let newPatientVC : PatientInfo = nav.viewControllers[0] as? PatientInfo {
             newPatientVC.updateClosure = {[weak self] patient in
-<<<<<<< HEAD
-                self?.patients.append(patient)
-=======
                 self?.fetchData()
->>>>>>> parent of 42da85d... Clean Up Repository
                 self?.tableView.reloadData()
             }
         }
     }
     
-<<<<<<< HEAD
-    override func didReceiveMemoryWarning() {
-=======
     
     // Delete Data
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -213,13 +166,9 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
     
     }
         override func didReceiveMemoryWarning() {
->>>>>>> parent of 42da85d... Clean Up Repository
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> parent of 42da85d... Clean Up Repository

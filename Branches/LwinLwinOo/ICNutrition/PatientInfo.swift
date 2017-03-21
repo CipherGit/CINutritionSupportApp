@@ -6,25 +6,16 @@
 //  Copyright © 2017 Cipher. All rights reserved.
 //
 
-<<<<<<< HEAD
-import UIKit
-=======
 import UIKit 
 import CoreData
->>>>>>> parent of 42da85d... Clean Up Repository
 
 class PatientInfo: UIViewController {
     
     let datePicker = UIDatePicker()
     
     var gender = "Male"
-<<<<<<< HEAD
-    var selectedPatient : Patient?
-    var updateClosure:((_ patient : Patient)->Void)?
-=======
     var selectedPatient : PatientInformation?
     var updateClosure:((_ patient : PatientInformation)->Void)?
->>>>>>> parent of 42da85d... Clean Up Repository
     
     @IBOutlet weak var pNameInput: UITextField!
     @IBOutlet weak var ageInput: UITextField!
@@ -43,11 +34,6 @@ class PatientInfo: UIViewController {
         }
     }
     
-<<<<<<< HEAD
-    @IBAction func saveButton(_ sender: Any) {
-        let patient = Patient(name: pNameInput.text!, age: Int(ageInput.text!)!, gender: self.gender, height: Int(heightInput.text!)!, weight: Int(weightInput.text!)!, admittedDate: dateInput.text!, icuWard: icuInput.text!)
-        self.updateClosure!(patient)
-=======
     //get managedContext to use coredata
     var managedContext : NSObject{
         get{
@@ -105,7 +91,6 @@ class PatientInfo: UIViewController {
         }
         
         
->>>>>>> parent of 42da85d... Clean Up Repository
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
@@ -147,32 +132,18 @@ class PatientInfo: UIViewController {
         self.view.endEditing(true)
     }
     
-<<<<<<< HEAD
-    func fillFromPatient(patient:Patient) {
-        pNameInput.text = patient.getName()
-        ageInput.text = String(patient.getAge())
-        if(patient.getGender() == "Male"){
-=======
     func fillFromPatient(patient:PatientInformation) {
         pNameInput.text = patient.name
         ageInput.text = String(patient.age)
         if(patient.gender == "Male"){
->>>>>>> parent of 42da85d... Clean Up Repository
             genderToggle.selectedSegmentIndex = 0
         }else{
             genderToggle.selectedSegmentIndex = 1
         }
-<<<<<<< HEAD
-        weightInput.text = String(patient.getWeight())
-        heightInput.text = String(patient.getHeight())
-        dateInput.text = String(patient.getAdmittedDate())
-        icuInput.text = String(patient.getIcuWard())
-=======
         weightInput.text = String(patient.weight)
         heightInput.text = String(patient.height)
         dateInput.text = patient.date
         icuInput.text = patient.icuward
->>>>>>> parent of 42da85d... Clean Up Repository
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
