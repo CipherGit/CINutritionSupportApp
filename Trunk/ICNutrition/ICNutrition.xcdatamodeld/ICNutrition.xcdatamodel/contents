@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="15G31" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Calculator" representedClassName="Calculator" syncable="YES" codeGenerationType="class">
+        <attribute name="calculatorID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="input" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="output" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Guidelines" representedClassName="Guidelines" syncable="YES" codeGenerationType="class">
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fullDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="guideLineID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="shorthand" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="source" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="calculator_calculatorID" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Calculator" syncable="YES"/>
+    </entity>
+    <entity name="Index" representedClassName="Index" syncable="YES" codeGenerationType="class">
+        <attribute name="indexID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="keywords" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="guidelines_guidelinesID" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Guidelines" syncable="YES"/>
+    </entity>
     <entity name="PatientInformation" representedClassName="PatientInformation" syncable="YES">
         <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
@@ -10,6 +29,9 @@
         <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="PatientInformation" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="Guidelines" positionX="9" positionY="-99" width="128" height="133"/>
+        <element name="PatientInformation" positionX="-162" positionY="-123" width="128" height="150"/>
+        <element name="Calculator" positionX="187" positionY="-99" width="128" height="105"/>
+        <element name="Index" positionX="-9" positionY="126" width="128" height="88"/>
     </elements>
 </model>
