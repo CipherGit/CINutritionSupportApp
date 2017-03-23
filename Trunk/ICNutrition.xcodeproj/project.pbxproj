@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		567F785F1E839AE900EC5F06 /* Diseases+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F78591E839AE900EC5F06 /* Diseases+CoreDataClass.swift */; };
+		567F78601E839AE900EC5F06 /* Diseases+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F785A1E839AE900EC5F06 /* Diseases+CoreDataProperties.swift */; };
+		567F78611E839AE900EC5F06 /* ICUWard+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F785B1E839AE900EC5F06 /* ICUWard+CoreDataClass.swift */; };
+		567F78621E839AE900EC5F06 /* ICUWard+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F785C1E839AE900EC5F06 /* ICUWard+CoreDataProperties.swift */; };
+		567F78631E839AE900EC5F06 /* Recommendations+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F785D1E839AE900EC5F06 /* Recommendations+CoreDataClass.swift */; };
+		567F78641E839AE900EC5F06 /* Recommendations+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F785E1E839AE900EC5F06 /* Recommendations+CoreDataProperties.swift */; };
 		568211421E810C9F000FB98A /* coreDataManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5682113F1E810C9F000FB98A /* coreDataManagedObject.swift */; };
 		568211431E810C9F000FB98A /* PatientInformation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568211401E810C9F000FB98A /* PatientInformation+CoreDataClass.swift */; };
 		568211441E810C9F000FB98A /* PatientInformation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 568211411E810C9F000FB98A /* PatientInformation+CoreDataProperties.swift */; };
@@ -30,6 +36,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		567F78591E839AE900EC5F06 /* Diseases+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Diseases+CoreDataClass.swift"; path = "../Diseases+CoreDataClass.swift"; sourceTree = "<group>"; };
+		567F785A1E839AE900EC5F06 /* Diseases+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Diseases+CoreDataProperties.swift"; path = "../Diseases+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		567F785B1E839AE900EC5F06 /* ICUWard+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ICUWard+CoreDataClass.swift"; path = "../ICUWard+CoreDataClass.swift"; sourceTree = "<group>"; };
+		567F785C1E839AE900EC5F06 /* ICUWard+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ICUWard+CoreDataProperties.swift"; path = "../ICUWard+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		567F785D1E839AE900EC5F06 /* Recommendations+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Recommendations+CoreDataClass.swift"; path = "../Recommendations+CoreDataClass.swift"; sourceTree = "<group>"; };
+		567F785E1E839AE900EC5F06 /* Recommendations+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Recommendations+CoreDataProperties.swift"; path = "../Recommendations+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5682113F1E810C9F000FB98A /* coreDataManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = coreDataManagedObject.swift; sourceTree = "<group>"; };
 		568211401E810C9F000FB98A /* PatientInformation+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PatientInformation+CoreDataClass.swift"; sourceTree = "<group>"; };
 		568211411E810C9F000FB98A /* PatientInformation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PatientInformation+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -68,6 +80,12 @@
 		568211481E810EC7000FB98A /* CoreDataFiles */ = {
 			isa = PBXGroup;
 			children = (
+				567F78591E839AE900EC5F06 /* Diseases+CoreDataClass.swift */,
+				567F785A1E839AE900EC5F06 /* Diseases+CoreDataProperties.swift */,
+				567F785B1E839AE900EC5F06 /* ICUWard+CoreDataClass.swift */,
+				567F785C1E839AE900EC5F06 /* ICUWard+CoreDataProperties.swift */,
+				567F785D1E839AE900EC5F06 /* Recommendations+CoreDataClass.swift */,
+				567F785E1E839AE900EC5F06 /* Recommendations+CoreDataProperties.swift */,
 				56FD8B841E837A6C00353E12 /* Index+CoreDataClass.swift */,
 				56FD8B851E837A6C00353E12 /* Index+CoreDataProperties.swift */,
 				56FD8B861E837A6C00353E12 /* Guidelines+CoreDataClass.swift */,
@@ -191,10 +209,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				56FD8B8A1E837A6C00353E12 /* Index+CoreDataClass.swift in Sources */,
+				567F78621E839AE900EC5F06 /* ICUWard+CoreDataProperties.swift in Sources */,
 				568211431E810C9F000FB98A /* PatientInformation+CoreDataClass.swift in Sources */,
+				567F785F1E839AE900EC5F06 /* Diseases+CoreDataClass.swift in Sources */,
+				567F78631E839AE900EC5F06 /* Recommendations+CoreDataClass.swift in Sources */,
 				56FD8B8D1E837A6C00353E12 /* Guidelines+CoreDataProperties.swift in Sources */,
 				820C18001E77D46700C2B020 /* DiseaseInfo.swift in Sources */,
 				820C18041E77E05400C2B020 /* DiseaseTableViewCell.swift in Sources */,
+				567F78641E839AE900EC5F06 /* Recommendations+CoreDataProperties.swift in Sources */,
 				DEDD11761E5F7068006DF4CF /* PatientList.swift in Sources */,
 				DEDD11891E5F7538006DF4CF /* Patient.swift in Sources */,
 				56FD8B8E1E837A6C00353E12 /* Calculator+CoreDataClass.swift in Sources */,
@@ -204,7 +226,9 @@
 				DEDD118B1E5F844A006DF4CF /* PatientInfo.swift in Sources */,
 				820C18061E77E9B400C2B020 /* Disease.swift in Sources */,
 				56FD8B8C1E837A6C00353E12 /* Guidelines+CoreDataClass.swift in Sources */,
+				567F78601E839AE900EC5F06 /* Diseases+CoreDataProperties.swift in Sources */,
 				568211421E810C9F000FB98A /* coreDataManagedObject.swift in Sources */,
+				567F78611E839AE900EC5F06 /* ICUWard+CoreDataClass.swift in Sources */,
 				DEDD117C1E5F7068006DF4CF /* ICNutrition.xcdatamodeld in Sources */,
 				56FD8B8B1E837A6C00353E12 /* Index+CoreDataProperties.swift in Sources */,
 			);
