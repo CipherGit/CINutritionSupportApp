@@ -60,8 +60,6 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
         
         //Update the list
         self.searchController.searchResultsUpdater = self
-       
-        
     }
     
     func fetchData(){
@@ -133,12 +131,6 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        let backItem = UIBarButtonItem()
-        backItem.title = "List"
-        navigationItem.backBarButtonItem = backItem
-        // This will show in the next view controller being pushed
-        /*
         let barViewControllers = segue.destination as! UITabBarController
         let nav = barViewControllers.viewControllers![0] as! UINavigationController
         if let newPatientVC : PatientInfo = nav.viewControllers[0] as? PatientInfo {
@@ -146,7 +138,7 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
                 self?.fetchData()
                 self?.tableView.reloadData()
             }
-        }*/
+        }
     }
     
     
