@@ -127,6 +127,17 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
             textField.endEditing(true)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = "List"
+        navigationItem.backBarButtonItem = backItem
+        
+       
+        // This will show in the next view controller being pushed
+        
+    }
 
 
 }

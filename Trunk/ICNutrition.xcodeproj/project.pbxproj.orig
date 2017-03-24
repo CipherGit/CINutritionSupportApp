@@ -132,7 +132,11 @@
 		DEDD11721E5F7068006DF4CF /* ICNutrition */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+				82A3C23D1E83C026008A6AEA /* images */,
+=======
 				568211481E810EC7000FB98A /* CoreDataFiles */,
+>>>>>>> master
 				DEDD11731E5F7068006DF4CF /* AppDelegate.swift */,
 				DEDD118A1E5F844A006DF4CF /* PatientInfo.swift */,
 				DEDD11751E5F7068006DF4CF /* PatientList.swift */,
@@ -237,13 +241,26 @@
 				56FD8B8D1E837A6C00353E12 /* Guidelines+CoreDataProperties.swift in Sources */,
 				820C18001E77D46700C2B020 /* DiseaseInfo.swift in Sources */,
 				820C18041E77E05400C2B020 /* DiseaseTableViewCell.swift in Sources */,
+<<<<<<< HEAD
+				82A3C23A1E8390EB008A6AEA /* GuidelinesTab.swift in Sources */,
+=======
 				567F78641E839AE900EC5F06 /* Recommendations+CoreDataProperties.swift in Sources */,
+>>>>>>> master
 				DEDD11761E5F7068006DF4CF /* PatientList.swift in Sources */,
 				82A3C2361E839097008A6AEA /* DiseaseTab.swift in Sources */,
 				DEDD11891E5F7538006DF4CF /* Patient.swift in Sources */,
 				56FD8B8E1E837A6C00353E12 /* Calculator+CoreDataClass.swift in Sources */,
 				56FD8B8F1E837A6C00353E12 /* Calculator+CoreDataProperties.swift in Sources */,
 				DEDD11741E5F7068006DF4CF /* AppDelegate.swift in Sources */,
+<<<<<<< HEAD
+				82A3C2341E839080008A6AEA /* PatientTab.swift in Sources */,
+				DEDD118B1E5F844A006DF4CF /* PatientInfo.swift in Sources */,
+				820C18061E77E9B400C2B020 /* Disease.swift in Sources */,
+				8251007D1E8114A200AB64FD /* SummaryTab.swift in Sources */,
+				82A3C23C1E83918A008A6AEA /* TabBarController.swift in Sources */,
+				DEDD117C1E5F7068006DF4CF /* ICNutrition.xcdatamodeld in Sources */,
+				82A3C2381E8390B3008A6AEA /* CalculatorsTab.swift in Sources */,
+=======
 				568211441E810C9F000FB98A /* PatientInformation+CoreDataProperties.swift in Sources */,
 				DEDD118B1E5F844A006DF4CF /* PatientInfo.swift in Sources */,
 				820C18061E77E9B400C2B020 /* Disease.swift in Sources */,
@@ -253,6 +270,7 @@
 				567F78611E839AE900EC5F06 /* ICUWard+CoreDataClass.swift in Sources */,
 				DEDD117C1E5F7068006DF4CF /* ICNutrition.xcdatamodeld in Sources */,
 				56FD8B8B1E837A6C00353E12 /* Index+CoreDataProperties.swift in Sources */,
+>>>>>>> master
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

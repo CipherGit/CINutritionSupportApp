@@ -125,9 +125,17 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
     
     // Click on the cell list --> carry index row and go to detail
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+<<<<<<< HEAD
+        let backItem = UIBarButtonItem()
+        backItem.title = "List"
+        navigationItem.backBarButtonItem = backItem
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "tabBar") as? TabBarController {
+            //vc.selectedPatient = patients[indexPath.row]
+=======
         if let vc = storyboard?.instantiateViewController(withIdentifier: "PInfo") as? PatientInfo {
             vc.selectedPatient = patients[indexPath.row]
             //self.performSegueWithIdentifier("SegueAdd", sender: indexPath.row)
+>>>>>>> master
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -150,6 +158,9 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
     }
     
     
+<<<<<<< HEAD
+    override func didReceiveMemoryWarning() {
+=======
     // Delete Data
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -174,6 +185,7 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
     
     }
         override func didReceiveMemoryWarning() {
+>>>>>>> master
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
