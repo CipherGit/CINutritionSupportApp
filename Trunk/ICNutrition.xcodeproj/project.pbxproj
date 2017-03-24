@@ -25,12 +25,7 @@
 		820C18001E77D46700C2B020 /* DiseaseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C17FF1E77D46700C2B020 /* DiseaseInfo.swift */; };
 		820C18041E77E05400C2B020 /* DiseaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C18031E77E05400C2B020 /* DiseaseTableViewCell.swift */; };
 		820C18061E77E9B400C2B020 /* Disease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C18051E77E9B400C2B020 /* Disease.swift */; };
-		8251007D1E8114A200AB64FD /* SummaryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8251007C1E8114A200AB64FD /* SummaryTab.swift */; };
-		82A3C2341E839080008A6AEA /* PatientTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A3C2331E839080008A6AEA /* PatientTab.swift */; };
 		82A3C2361E839097008A6AEA /* DiseaseTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A3C2351E839097008A6AEA /* DiseaseTab.swift */; };
-		82A3C2381E8390B3008A6AEA /* CalculatorsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A3C2371E8390B3008A6AEA /* CalculatorsTab.swift */; };
-		82A3C23A1E8390EB008A6AEA /* GuidelinesTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A3C2391E8390EB008A6AEA /* GuidelinesTab.swift */; };
-		82A3C23C1E83918A008A6AEA /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A3C23B1E83918A008A6AEA /* TabBarController.swift */; };
 		82A3C23E1E83C026008A6AEA /* images in Resources */ = {isa = PBXBuildFile; fileRef = 82A3C23D1E83C026008A6AEA /* images */; };
 		DEDD11741E5F7068006DF4CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD11731E5F7068006DF4CF /* AppDelegate.swift */; };
 		DEDD11761E5F7068006DF4CF /* PatientList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD11751E5F7068006DF4CF /* PatientList.swift */; };
@@ -113,6 +108,18 @@
 			name = CoreDataFiles;
 			sourceTree = "<group>";
 		};
+		DE52EAAC1E85154200CB10A2 /* TabFiles */ = {
+			isa = PBXGroup;
+			children = (
+				8251007C1E8114A200AB64FD /* SummaryTab.swift */,
+				82A3C2331E839080008A6AEA /* PatientTab.swift */,
+				82A3C2351E839097008A6AEA /* DiseaseTab.swift */,
+				82A3C2371E8390B3008A6AEA /* CalculatorsTab.swift */,
+				82A3C2391E8390EB008A6AEA /* GuidelinesTab.swift */,
+			);
+			name = TabFiles;
+			sourceTree = "<group>";
+		};
 		DEDD11671E5F7068006DF4CF = {
 			isa = PBXGroup;
 			children = (
@@ -133,24 +140,20 @@
 			isa = PBXGroup;
 			children = (
 				568211481E810EC7000FB98A /* CoreDataFiles */,
+				DE52EAAC1E85154200CB10A2 /* TabFiles */,
 				DEDD11731E5F7068006DF4CF /* AppDelegate.swift */,
+				820C18051E77E9B400C2B020 /* Disease.swift */,
+				820C17FF1E77D46700C2B020 /* DiseaseInfo.swift */,
+				820C18031E77E05400C2B020 /* DiseaseTableViewCell.swift */,
+				DEDD11881E5F7538006DF4CF /* Patient.swift */,
 				DEDD118A1E5F844A006DF4CF /* PatientInfo.swift */,
 				DEDD11751E5F7068006DF4CF /* PatientList.swift */,
-				820C17FF1E77D46700C2B020 /* DiseaseInfo.swift */,
-				DEDD11881E5F7538006DF4CF /* Patient.swift */,
-				DEDD11771E5F7068006DF4CF /* Main.storyboard */,
 				82A3C23B1E83918A008A6AEA /* TabBarController.swift */,
-				820C18031E77E05400C2B020 /* DiseaseTableViewCell.swift */,
 				DEDD117D1E5F7068006DF4CF /* Assets.xcassets */,
 				DEDD117F1E5F7068006DF4CF /* LaunchScreen.storyboard */,
+				DEDD11771E5F7068006DF4CF /* Main.storyboard */,
 				DEDD11821E5F7068006DF4CF /* Info.plist */,
 				DEDD117A1E5F7068006DF4CF /* ICNutrition.xcdatamodeld */,
-				820C18051E77E9B400C2B020 /* Disease.swift */,
-				8251007C1E8114A200AB64FD /* SummaryTab.swift */,
-				82A3C2331E839080008A6AEA /* PatientTab.swift */,
-				82A3C2351E839097008A6AEA /* DiseaseTab.swift */,
-				82A3C2371E8390B3008A6AEA /* CalculatorsTab.swift */,
-				82A3C2391E8390EB008A6AEA /* GuidelinesTab.swift */,
 			);
 			path = ICNutrition;
 			sourceTree = "<group>";
