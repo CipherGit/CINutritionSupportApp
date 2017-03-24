@@ -46,6 +46,8 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
         
         //Update the list
         self.searchController.searchResultsUpdater = self
+       
+        
     }
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -85,13 +87,22 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "PInfo") as? PatientInfo {
-            vc.selectedPatient = patients[indexPath.row]
+        let backItem = UIBarButtonItem()
+        backItem.title = "List"
+        navigationItem.backBarButtonItem = backItem
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "tabBar") as? TabBarController {
+            //vc.selectedPatient = patients[indexPath.row]
             navigationController?.pushViewController(vc, animated: true)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = "List"
+        navigationItem.backBarButtonItem = backItem
+        // This will show in the next view controller being pushed
+        /*
         let barViewControllers = segue.destination as! UITabBarController
         let nav = barViewControllers.viewControllers![0] as! UINavigationController
         if let newPatientVC : PatientInfo = nav.viewControllers[0] as? PatientInfo {
@@ -99,8 +110,9 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
                 self?.patients.append(patient)
                 self?.tableView.reloadData()
             }
-        }
+        }*/
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

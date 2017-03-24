@@ -99,6 +99,14 @@ class PatientInfo: UIViewController {
         icuInput.resignFirstResponder()
         dateInput.resignFirstResponder()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = "List"
+        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+        
+    }
 
     /*
     // MARK: - Navigation
