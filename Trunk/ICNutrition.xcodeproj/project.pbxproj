@@ -22,11 +22,12 @@
 		56FD8B8D1E837A6C00353E12 /* Guidelines+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FD8B871E837A6C00353E12 /* Guidelines+CoreDataProperties.swift */; };
 		56FD8B8E1E837A6C00353E12 /* Calculator+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FD8B881E837A6C00353E12 /* Calculator+CoreDataClass.swift */; };
 		56FD8B8F1E837A6C00353E12 /* Calculator+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FD8B891E837A6C00353E12 /* Calculator+CoreDataProperties.swift */; };
+		656C13842246C07100E5FD67 /* Pods_ICNutrition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5F43509DDF251D36C8ADF4A /* Pods_ICNutrition.framework */; };
 		820C18001E77D46700C2B020 /* DiseaseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C17FF1E77D46700C2B020 /* DiseaseInfo.swift */; };
 		820C18041E77E05400C2B020 /* DiseaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C18031E77E05400C2B020 /* DiseaseTableViewCell.swift */; };
 		820C18061E77E9B400C2B020 /* Disease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C18051E77E9B400C2B020 /* Disease.swift */; };
 		82A3C2361E839097008A6AEA /* DiseaseTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A3C2351E839097008A6AEA /* DiseaseTab.swift */; };
-		82A3C23E1E83C026008A6AEA /* images in Resources */ = {isa = PBXBuildFile; fileRef = 82A3C23D1E83C026008A6AEA /* images */; };
+		DEB939571E856EA60095FC5F /* cccs_cpg.csv in Resources */ = {isa = PBXBuildFile; fileRef = DEB939561E856EA60095FC5F /* cccs_cpg.csv */; };
 		DEDD11741E5F7068006DF4CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD11731E5F7068006DF4CF /* AppDelegate.swift */; };
 		DEDD11761E5F7068006DF4CF /* PatientList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD11751E5F7068006DF4CF /* PatientList.swift */; };
 		DEDD11791E5F7068006DF4CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDD11771E5F7068006DF4CF /* Main.storyboard */; };
@@ -62,7 +63,10 @@
 		82A3C2371E8390B3008A6AEA /* CalculatorsTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorsTab.swift; sourceTree = "<group>"; };
 		82A3C2391E8390EB008A6AEA /* GuidelinesTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuidelinesTab.swift; sourceTree = "<group>"; };
 		82A3C23B1E83918A008A6AEA /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		82A3C23D1E83C026008A6AEA /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = ../../../images; sourceTree = "<group>"; };
+		A8088D81B04F2ADC027702F4 /* Pods-ICNutrition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ICNutrition.release.xcconfig"; path = "Pods/Target Support Files/Pods-ICNutrition/Pods-ICNutrition.release.xcconfig"; sourceTree = "<group>"; };
+		C69DE7884F61511D73BBE6E8 /* Pods-ICNutrition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ICNutrition.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ICNutrition/Pods-ICNutrition.debug.xcconfig"; sourceTree = "<group>"; };
+		D5F43509DDF251D36C8ADF4A /* Pods_ICNutrition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ICNutrition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEB939561E856EA60095FC5F /* cccs_cpg.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cccs_cpg.csv; sourceTree = "<group>"; };
 		DEDD11701E5F7068006DF4CF /* ICNutrition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ICNutrition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDD11731E5F7068006DF4CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEDD11751E5F7068006DF4CF /* PatientList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientList.swift; sourceTree = "<group>"; };
@@ -80,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				656C13842246C07100E5FD67 /* Pods_ICNutrition.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +113,14 @@
 			name = CoreDataFiles;
 			sourceTree = "<group>";
 		};
+		72E01AC2FE7C8E39683F1052 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D5F43509DDF251D36C8ADF4A /* Pods_ICNutrition.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DE52EAAC1E85154200CB10A2 /* TabFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,11 +133,21 @@
 			name = TabFiles;
 			sourceTree = "<group>";
 		};
+		DEB939551E856EA60095FC5F /* Csv */ = {
+			isa = PBXGroup;
+			children = (
+				DEB939561E856EA60095FC5F /* cccs_cpg.csv */,
+			);
+			path = Csv;
+			sourceTree = "<group>";
+		};
 		DEDD11671E5F7068006DF4CF = {
 			isa = PBXGroup;
 			children = (
 				DEDD11721E5F7068006DF4CF /* ICNutrition */,
 				DEDD11711E5F7068006DF4CF /* Products */,
+				FA9C8B9091BF1C9DBE7C5564 /* Pods */,
+				72E01AC2FE7C8E39683F1052 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,6 +162,7 @@
 		DEDD11721E5F7068006DF4CF /* ICNutrition */ = {
 			isa = PBXGroup;
 			children = (
+				DEB939551E856EA60095FC5F /* Csv */,
 				568211481E810EC7000FB98A /* CoreDataFiles */,
 				DE52EAAC1E85154200CB10A2 /* TabFiles */,
 				DEDD11731E5F7068006DF4CF /* AppDelegate.swift */,
@@ -158,6 +182,15 @@
 			path = ICNutrition;
 			sourceTree = "<group>";
 		};
+		FA9C8B9091BF1C9DBE7C5564 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C69DE7884F61511D73BBE6E8 /* Pods-ICNutrition.debug.xcconfig */,
+				A8088D81B04F2ADC027702F4 /* Pods-ICNutrition.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -165,9 +198,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DEDD11851E5F7068006DF4CF /* Build configuration list for PBXNativeTarget "ICNutrition" */;
 			buildPhases = (
+				20639FE9E457FB4ECC928972 /* [CP] Check Pods Manifest.lock */,
 				DEDD116C1E5F7068006DF4CF /* Sources */,
 				DEDD116D1E5F7068006DF4CF /* Frameworks */,
 				DEDD116E1E5F7068006DF4CF /* Resources */,
+				E46A0F06B780C9B6A1BE898C /* [CP] Embed Pods Frameworks */,
+				A0D850A11373CF30F9C984E2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -218,14 +254,62 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82A3C23E1E83C026008A6AEA /* images in Resources */,
 				DEDD11811E5F7068006DF4CF /* LaunchScreen.storyboard in Resources */,
 				DEDD117E1E5F7068006DF4CF /* Assets.xcassets in Resources */,
 				DEDD11791E5F7068006DF4CF /* Main.storyboard in Resources */,
+				DEB939571E856EA60095FC5F /* cccs_cpg.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		20639FE9E457FB4ECC928972 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A0D850A11373CF30F9C984E2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ICNutrition/Pods-ICNutrition-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E46A0F06B780C9B6A1BE898C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ICNutrition/Pods-ICNutrition-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DEDD116C1E5F7068006DF4CF /* Sources */ = {
@@ -376,6 +460,7 @@
 		};
 		DEDD11861E5F7068006DF4CF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C69DE7884F61511D73BBE6E8 /* Pods-ICNutrition.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5763UENJDC;
@@ -389,6 +474,7 @@
 		};
 		DEDD11871E5F7068006DF4CF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8088D81B04F2ADC027702F4 /* Pods-ICNutrition.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5763UENJDC;

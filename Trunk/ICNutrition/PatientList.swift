@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import CSV
 import CoreData
 
 class PatientList: UITableViewController, UISearchResultsUpdating {
@@ -23,7 +24,6 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
     var newPatient : PatientInformation?
     
     
-    
     //Getting managedContext to use coredata
     var managedContext : NSObject{
         get{
@@ -35,19 +35,22 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let patient1 = Patient(name: "Alice", age: 56, gender: "Female", height: 162, weight: 65, admittedDate: "2/12/2017, 12:34 PM", icuWard: "North Wing")
-//        let patient2 = Patient(name: "Bob", age: 32, gender: "Male", height: 150, weight: 43, admittedDate: "2/12/2017, 12:34 PM", icuWard: "North Wing")
-//        let patient3 = Patient(name: "Cherry", age: 43, gender: "Female", height: 140, weight: 60, admittedDate: "2/12/2017, 12:34 PM", icuWard: "North Wing")
-//        patients.append(patient1)
-//        patients.append(patient2)
-//        patients.append(patient3)
-//        
-        //Update patients array
-//        if (newPatient != nil){
-//            self.patients += [newPatient!]
-//        }
+        if let filepath = Bundle.main.path(forResource: "cccs_cpg", ofType: "csv") {
+            do {
+                let contents = try String(contentsOfFile: filepath)
+                let csv = try! CSV(
+                    string: contents,
+                    hasHeaderRow: true)
+                for row in csv {
+                    print(row[0])
+                }
+            } catch {
+                print("File could not be loaded")
+            }
+        } else {
+            print("File not found!")
+        }
         
-       
         self.fetchData()
         
         // Add search bar
