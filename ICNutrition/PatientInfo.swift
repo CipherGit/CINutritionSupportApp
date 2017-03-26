@@ -46,7 +46,7 @@ class PatientInfo: UIViewController {
     
     @IBAction func saveButton(_ sender: Any) {
         
-        let patientInfo = Patient()
+        let patientInfo = Patient(context: context!)
         if selectedPatient != nil {
             selectedPatient?.name = self.pNameInput.text
             let ageString = ageInput.text!

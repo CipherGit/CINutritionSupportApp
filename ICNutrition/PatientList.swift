@@ -51,7 +51,7 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
         let context = self.context
         let request : NSFetchRequest<Patient> = Patient.fetchRequest()
         do{
-            self.patients = try (context.fetch(request))! as [Patient]
+            self.patients = try (context!.fetch(request)) as [Patient]
             for patient in patients{
                 print("name :\(patient.name)")
                 print("age :\(patient.age)")

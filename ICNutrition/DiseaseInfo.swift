@@ -28,7 +28,7 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
     @IBOutlet weak var severityLevelDropdown: UIPickerView!
     
     @IBAction func addButton(_ sender: UIButton) {
-        disease = Disease(diseaseName: dNameInput.text!, severityLevel: severityLevelInput.text!, notes: notesInput.text!)
+        //disease = Disease(diseaseName: dNameInput.text!, severityLevel: severityLevelInput.text!, notes: notesInput.text!)
         diseases.append(disease!)
         diseaseTableView.reloadData()
     }
@@ -60,9 +60,9 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
          return cell;*/
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath) as! DiseaseTableViewCell
-        cell.diseaseLabel.text = diseases[indexPath.row].getDiseaseName()
-        cell.severityLabel.text = diseases[indexPath.row].getSeverityLevel()
-        cell.notesLabel.text = diseases[indexPath.row].getNotes()
+        //cell.diseaseLabel.text = diseases[indexPath.row].getDiseaseName()
+        //cell.severityLabel.text = diseases[indexPath.row].getSeverityLevel()
+        //cell.notesLabel.text = diseases[indexPath.row].getNotes()
         return cell
     }
     
