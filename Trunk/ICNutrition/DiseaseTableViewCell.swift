@@ -9,7 +9,7 @@
 import UIKit
 
 class DiseaseTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var diseaseLabel: UILabel!
     
     @IBOutlet weak var severityLabel: UILabel!
@@ -20,11 +20,11 @@ class DiseaseTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }

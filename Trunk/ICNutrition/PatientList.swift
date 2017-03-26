@@ -14,15 +14,11 @@ import CoreData
 
 class PatientList: UITableViewController, UISearchResultsUpdating {
     
-    var patients = Array<PatientInformation>()
-    var filteredPatients = [PatientInformation]()
+    var patients = Array<Patient>()
+    var filteredPatients = [Patient]()
     
     var searchController : UISearchController!
     var resultsController = UITableViewController()
-    
-    //Holder variable for new patients
-    var newPatient : PatientInformation?
-    
     
     //Getting managedContext to use coredata
     var managedContext : NSObject{
@@ -34,22 +30,6 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let filepath = Bundle.main.path(forResource: "cccs_cpg", ofType: "csv") {
-            do {
-                let contents = try String(contentsOfFile: filepath)
-                let csv = try! CSV(
-                    string: contents,
-                    hasHeaderRow: true)
-                for row in csv {
-                    print(row[0])
-                }
-            } catch {
-                print("File could not be loaded")
-            }
-        } else {
-            print("File not found!")
-        }
         
         self.fetchData()
         
@@ -63,18 +43,15 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
         
         //Update the list
         self.searchController.searchResultsUpdater = self
-       
+        
         
     }
     
     func fetchData(){
-        //fetch patient Information from Coredata
-        print("call fetch method")
         let context = self.context
-        let request : NSFetchRequest<PatientInformation> = PatientInformation.fetchRequest()
-        
+        let request : NSFetchRequest<Patient> = Patient.fetchRequest()
         do{
-            self.patients = try (context?.fetch(request))! as [PatientInformation]
+            self.patients = try (context.fetch(request))! as [Patient]
             for patient in patients{
                 print("name :\(patient.name)")
                 print("age :\(patient.age)")
@@ -93,7 +70,7 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         
         //Filter through the Patients
-        self.filteredPatients = self.patients.filter{(patient : PatientInformation) -> Bool in
+        self.filteredPatients = self.patients.filter{(patient : Patient) -> Bool in
             if (patient.name?.contains(self.searchController.searchBar.text!))!{
                 return true
             }
@@ -136,20 +113,9 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         let backItem = UIBarButtonItem()
         backItem.title = "List"
         navigationItem.backBarButtonItem = backItem
-        // This will show in the next view controller being pushed
-        /*
-        let barViewControllers = segue.destination as! UITabBarController
-        let nav = barViewControllers.viewControllers![0] as! UINavigationController
-        if let newPatientVC : PatientInfo = nav.viewControllers[0] as? PatientInfo {
-            newPatientVC.updateClosure = {[weak self] patient in
-                self?.fetchData()
-                self?.tableView.reloadData()
-            }
-        }*/
     }
     
     
@@ -159,12 +125,12 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        let patientInfo = PatientInformation(context: context!)
-
+        let patientInfo = Patient(context: context!)
+        
         if editingStyle == .delete {
             //Using delete method from managedObjectContext
             patientInfo.managedObjectContext?.delete(patients[indexPath.row])
-           do {
+            do {
                 //******
                 try patientInfo.managedObjectContext?.save()
                 patients.remove(at: indexPath.row)
@@ -173,10 +139,10 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
                 let saveError = error as NSError
                 print(saveError)
             }
+        }
+        
     }
-    
-    }
-        override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }

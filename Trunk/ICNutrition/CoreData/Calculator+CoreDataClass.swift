@@ -2,7 +2,7 @@
 //  Calculator+CoreDataClass.swift
 //  ICNutrition
 //
-//  Created by LwinLwin Oo on 23/3/17.
+//  Created by Justin Peña on 26/3/17.
 //  Copyright © 2017 Cipher. All rights reserved.
 //
 

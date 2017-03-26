@@ -6,7 +6,7 @@
 //  Copyright © 2017 Cipher. All rights reserved.
 //
 
-import UIKit 
+import UIKit
 import CoreData
 
 class PatientInfo: UIViewController {
@@ -14,8 +14,8 @@ class PatientInfo: UIViewController {
     let datePicker = UIDatePicker()
     
     var gender = "Male"
-    var selectedPatient : PatientInformation?
-    var updateClosure:((_ patient : PatientInformation)->Void)?
+    var selectedPatient : Patient?
+    var updateClosure:((_ patient : Patient)->Void)?
     
     @IBOutlet weak var pNameInput: UITextField!
     @IBOutlet weak var ageInput: UITextField!
@@ -45,49 +45,48 @@ class PatientInfo: UIViewController {
     
     
     @IBAction func saveButton(_ sender: Any) {
-//        let patient = Patient(name: pNameInput.text!, age: Int(ageInput.text!)!, gender: self.gender, height: Int(heightInput.text!)!, weight: Int(weightInput.text!)!, admittedDate: dateInput.text!, icuWard: icuInput.text!)
         
-    let patientInfo = PatientInformation(context: context!)
-       if selectedPatient != nil {
-        selectedPatient?.name = self.pNameInput.text
-        let ageString = ageInput.text!
-        selectedPatient?.age = Int16(ageString)!
-        selectedPatient?.gender = self.gender
-        selectedPatient?.height = Int16(heightInput.text!)!
-        selectedPatient?.weight = Int16(weightInput.text!)!
-        selectedPatient?.date = dateInput.text
-        selectedPatient?.icuward = icuInput.text
-        
-        do{
-            try selectedPatient?.managedObjectContext?.save()
-            //self.updateClosure!()
-            self.navigationController?.dismiss(animated: true, completion: nil)
+        let patientInfo = Patient()
+        if selectedPatient != nil {
+            selectedPatient?.name = self.pNameInput.text
+            let ageString = ageInput.text!
+            selectedPatient?.age = Int16(ageString)!
+            selectedPatient?.gender = self.gender
+            selectedPatient?.height = Int16(heightInput.text!)!
+            selectedPatient?.weight = Int16(weightInput.text!)!
+            selectedPatient?.date = dateInput.text
+            selectedPatient?.icuward = icuInput.text
             
-        } catch {
-            print("Error here")
-        }
-       
-       }
-       else{
-        
-        
-        patientInfo.name = self.pNameInput.text
-        let ageString = ageInput.text!
-        patientInfo.age = Int16(ageString)!
-        patientInfo.gender = self.gender
-        patientInfo.height = Int16(heightInput.text!)!
-        patientInfo.weight = Int16(weightInput.text!)!
-        patientInfo.date = dateInput.text
-        patientInfo.icuward = icuInput.text
-        
-        do{
-            try patientInfo.managedObjectContext?.save()
-            self.updateClosure!(patientInfo)
-            self.navigationController?.dismiss(animated: true, completion: nil)
+            do{
+                try selectedPatient?.managedObjectContext?.save()
+                //self.updateClosure!()
+                self.navigationController?.dismiss(animated: true, completion: nil)
+                
+            } catch {
+                print("Error here")
+            }
             
-        } catch {
-            print("Error here")
         }
+        else{
+            
+            
+            patientInfo.name = self.pNameInput.text
+            let ageString = ageInput.text!
+            patientInfo.age = Int16(ageString)!
+            patientInfo.gender = self.gender
+            patientInfo.height = Int16(heightInput.text!)!
+            patientInfo.weight = Int16(weightInput.text!)!
+            patientInfo.date = dateInput.text
+            patientInfo.icuward = icuInput.text
+            
+            do{
+                try patientInfo.managedObjectContext?.save()
+                self.updateClosure!(patientInfo)
+                self.navigationController?.dismiss(animated: true, completion: nil)
+                
+            } catch {
+                print("Error here")
+            }
         }
         
         
@@ -108,7 +107,7 @@ class PatientInfo: UIViewController {
         self.heightInput.keyboardType = .numberPad
         self.icuInput.keyboardType = .numberPad
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -117,7 +116,7 @@ class PatientInfo: UIViewController {
         datePicker.datePickerMode = .dateAndTime
         let toolbar=UIToolbar()
         toolbar.sizeToFit()
-
+        
         let doneButton=UIBarButtonItem(barButtonSystemItem: .done, target:nil, action:#selector(donePressed))
         toolbar.setItems([doneButton],animated:false)
         dateInput.inputAccessoryView=toolbar
@@ -132,7 +131,7 @@ class PatientInfo: UIViewController {
         self.view.endEditing(true)
     }
     
-    func fillFromPatient(patient:PatientInformation) {
+    func fillFromPatient(patient:Patient) {
         pNameInput.text = patient.name
         ageInput.text = String(patient.age)
         if(patient.gender == "Male"){
@@ -162,14 +161,14 @@ class PatientInfo: UIViewController {
         navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
         
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }*/
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }*/
+    
 }

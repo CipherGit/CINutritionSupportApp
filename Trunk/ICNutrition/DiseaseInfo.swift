@@ -9,13 +9,13 @@
 import UIKit
 
 class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate{
-
+    
     var tableRow: Int?
     var disease: Disease?
     var diseases = Array<Disease>()
     var diseaseList = ["Burn","Trauma","Liver Disease"]
     var severityLevelList = ["Acute","Mild", "Moderate"]
-
+    
     @IBOutlet weak var dNameTextField: UITextField!
     @IBOutlet weak var dNameInput: UITextField!
     @IBOutlet weak var severityLevelInput: UITextField!
@@ -43,7 +43,7 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
         dNameDropdown.isHidden = true
         severityLevelDropdown.isHidden = true;
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -55,9 +55,9 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         /*
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
-        cell.textLabel?.text = diseases[indexPath.row]
-        return cell;*/
+         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
+         cell.textLabel?.text = diseases[indexPath.row]
+         return cell;*/
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath) as! DiseaseTableViewCell
         cell.diseaseLabel.text = diseases[indexPath.row].getDiseaseName()
@@ -91,7 +91,7 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
         }
         return countrows
     }
-
+    
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if (pickerView == dNameDropdown){
@@ -108,8 +108,8 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if (pickerView == dNameDropdown){
-        self.dNameInput.text = self.diseaseList[row]
-        self.dNameDropdown.isHidden = true
+            self.dNameInput.text = self.diseaseList[row]
+            self.dNameDropdown.isHidden = true
         }
         else if pickerView == severityLevelDropdown{
             self.severityLevelInput.text = self.severityLevelList[row]
@@ -134,10 +134,10 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
         backItem.title = "List"
         navigationItem.backBarButtonItem = backItem
         
-       
+        
         // This will show in the next view controller being pushed
         
     }
-
-
+    
+    
 }
