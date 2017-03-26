@@ -68,8 +68,6 @@ class PatientInfo: UIViewController {
             
         }
         else{
-            
-            
             patientInfo.name = self.pNameInput.text
             let ageString = ageInput.text!
             patientInfo.age = Int16(ageString)!
@@ -78,7 +76,6 @@ class PatientInfo: UIViewController {
             patientInfo.weight = Int16(weightInput.text!)!
             patientInfo.date = dateInput.text
             patientInfo.icuward = icuInput.text
-            
             do{
                 try patientInfo.managedObjectContext?.save()
                 self.updateClosure!(patientInfo)

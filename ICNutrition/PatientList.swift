@@ -9,7 +9,6 @@
 //
 
 import UIKit
-import CSV
 import CoreData
 
 class PatientList: UITableViewController, UISearchResultsUpdating {
@@ -31,6 +30,7 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.checkPreload()
         self.fetchData()
         
         // Add search bar
@@ -44,7 +44,23 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
         //Update the list
         self.searchController.searchResultsUpdater = self
         
-        
+    }
+
+    func checkPreload(){
+        let context = self.context
+        let request : NSFetchRequest<Guideline> = Guideline.fetchRequest()
+        do{
+            let guidelines = try (context!.fetch(request)) as [Guideline]
+            if guidelines.count <= 0 {
+                let alert = UIAlertController(title: "Warning", message: "Guideline Database is Empty!", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+            NSLog("Guideline Preload Successful!")
+        }catch{
+            let fetchError = error as NSError
+            NSLog(fetchError.localizedDescription)
+        }
     }
     
     func fetchData(){
@@ -56,19 +72,14 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
                 print("name :\(patient.name)")
                 print("age :\(patient.age)")
             }
-            
         }catch{
             let fetchError = error as NSError
             print(fetchError)
         }
-        
-        
         self.tableView.reloadData()
-        
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        
         //Filter through the Patients
         self.filteredPatients = self.patients.filter{(patient : Patient) -> Bool in
             if (patient.name?.contains(self.searchController.searchBar.text!))!{
@@ -78,7 +89,6 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
                 return false
             }
         }
-        
         //Update the results TableView
         self.resultsController.tableView.reloadData()
     }

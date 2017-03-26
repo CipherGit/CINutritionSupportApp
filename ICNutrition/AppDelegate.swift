@@ -6,8 +6,8 @@
 //  Copyright © 2017 Cipher. All rights reserved.
 //
 
-import UIKit
 import CSV
+import UIKit
 import CoreData
 
 @UIApplicationMain
@@ -15,16 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    //Getting managedContext to use coredata
-    var managedContext : NSObject{
-        get{
-            let appDelegate = UIApplication.shared.delegate as? AppDelegate
-            return appDelegate!.persistentContainer.viewContext
-        }
-    }
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let defaults = UserDefaults.standard
+        let isPreloaded = defaults.bool(forKey: "isPreloaded")
+        if !isPreloaded {
+            deleteContents(entityName: "Guideline")
+            preloadGuidelines(fileName: "cccs_cpg")
+            defaults.set(true, forKey: "isPreloaded")
+        }
+        
         return true
     }
     
@@ -94,6 +95,62 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
+        }
+    }
+    
+    func preloadGuidelines (fileName:String) {
+        if let filepath = Bundle.main.path(forResource: fileName, ofType: "csv") {
+            do {
+                let contents = try String(contentsOfFile: filepath)
+                let csvFile = try CSV(string: contents, hasHeaderRow: true)
+                let context = persistentContainer.viewContext
+                var gID = 0
+                for row in csvFile {
+                    let guideline = Guideline(context: context)
+                    guideline.guideLineID = Int16(gID)
+                    guideline.source = row[0]
+                    guideline.category = row[1]
+                    guideline.shorthand = row[2]
+                    guideline.fullDescription = row[3]
+                    
+                    let index = Index(context: context)
+                    index.indexID = Int16(gID)
+                    index.keywords = row[4]
+                    index.guidelines_guidelinesID = guideline
+                    
+                    do {
+                        try guideline.managedObjectContext?.save()
+                        try index.managedObjectContext?.save()
+                    } catch {
+                        NSLog("Error - Failed to save: %@", String(guideline.source!))
+                    }
+                    
+                    gID += 1
+                }
+                NSLog("Successfully Loaded: %@", fileName)
+            } catch {
+                NSLog("Warning Core Data Empty - Failed to load: %@", fileName)
+            }
+        }
+    }
+    
+    func deleteContents(entityName:String) {
+        do {
+            let context = persistentContainer.viewContext
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+            
+            //Add more cases to delete other tables
+            switch entityName {
+                case "Guideline":
+                    let guidelines = try (context.fetch(request)) as! [Guideline]
+                    for guideline in guidelines {
+                        context.delete(guideline)
+                    }
+                default:
+                    NSLog("Table %@ does not match any existing tables", entityName)
+            }
+        } catch {
+            NSLog("Error deleting table data: %@", entityName)
         }
     }
 }
