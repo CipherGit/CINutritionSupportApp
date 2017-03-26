@@ -1,5 +1,5 @@
 //
-//  Calculator+CoreDataClass.swift
+//  GLSource+CoreDataClass.swift
 //  ICNutrition
 //
 //  Created by Justin Peña on 27/3/17.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(Calculator)
-public class Calculator: NSManagedObject {
+@objc(GLSource)
+public class GLSource: NSManagedObject {
 
 }

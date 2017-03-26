@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-import  UIKit
+import UIKit
 
 extension NSObject{
     

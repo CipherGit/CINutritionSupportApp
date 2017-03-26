@@ -2,7 +2,7 @@
 //  Guideline+CoreDataProperties.swift
 //  ICNutrition
 //
-//  Created by Justin Peña on 26/3/17.
+//  Created by Justin Peña on 27/3/17.
 //  Copyright © 2017 Cipher. All rights reserved.
 //
 
@@ -16,30 +16,31 @@ extension Guideline {
         return NSFetchRequest<Guideline>(entityName: "Guideline");
     }
 
+    @NSManaged public var gID: Int64
+    @NSManaged public var shortDesc: String?
+    @NSManaged public var fullDesc: String?
     @NSManaged public var category: String?
-    @NSManaged public var fullDescription: String?
-    @NSManaged public var guideLineID: Int16
-    @NSManaged public var shorthand: String?
-    @NSManaged public var source: String?
-    @NSManaged public var calculator_calculatorID: Calculator?
-    @NSManaged public var toOne_index: Index?
-    @NSManaged public var toMany_Rec: NSSet?
+    @NSManaged public var identifier: String?
+    @NSManaged public var glToOne_GLSource: GLSource?
+    @NSManaged public var glToOne_Index: Index?
+    @NSManaged public var glToOne_Calc: Calculator?
+    @NSManaged public var glToMany_Rec: NSSet?
 
 }
 
-// MARK: Generated accessors for toMany_Rec
+// MARK: Generated accessors for glToMany_Rec
 extension Guideline {
 
-    @objc(addToMany_RecObject:)
-    @NSManaged public func addToToMany_Rec(_ value: Recommendation)
+    @objc(addGlToMany_RecObject:)
+    @NSManaged public func addToGlToMany_Rec(_ value: Recommendation)
 
-    @objc(removeToMany_RecObject:)
-    @NSManaged public func removeFromToMany_Rec(_ value: Recommendation)
+    @objc(removeGlToMany_RecObject:)
+    @NSManaged public func removeFromGlToMany_Rec(_ value: Recommendation)
 
-    @objc(addToMany_Rec:)
-    @NSManaged public func addToToMany_Rec(_ values: NSSet)
+    @objc(addGlToMany_Rec:)
+    @NSManaged public func addToGlToMany_Rec(_ values: NSSet)
 
-    @objc(removeToMany_Rec:)
-    @NSManaged public func removeFromToMany_Rec(_ values: NSSet)
+    @objc(removeGlToMany_Rec:)
+    @NSManaged public func removeFromGlToMany_Rec(_ values: NSSet)
 
 }

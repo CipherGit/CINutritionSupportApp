@@ -68,10 +68,6 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
         let request : NSFetchRequest<Patient> = Patient.fetchRequest()
         do{
             self.patients = try (context!.fetch(request)) as [Patient]
-            for patient in patients{
-                print("name :\(patient.name)")
-                print("age :\(patient.age)")
-            }
         }catch{
             let fetchError = error as NSError
             print(fetchError)
@@ -82,7 +78,7 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         //Filter through the Patients
         self.filteredPatients = self.patients.filter{(patient : Patient) -> Bool in
-            if (patient.name?.contains(self.searchController.searchBar.text!))!{
+            if (patient.lastName?.contains(self.searchController.searchBar.text!))!{
                 return true
             }
             else {
@@ -105,10 +101,10 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         if tableView == self.tableView {
-            cell.textLabel?.text = self.patients[indexPath.row].name
+            //cell.textLabel?.text = self.patients[indexPath.row].name
         }
         else {
-            cell.textLabel?.text = self.filteredPatients[indexPath.row].name
+            //cell.textLabel?.text = self.filteredPatients[indexPath.row].name
         }
         return cell
     }

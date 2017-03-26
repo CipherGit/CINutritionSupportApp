@@ -48,14 +48,14 @@ class PatientInfo: UIViewController {
         
         let patientInfo = Patient(context: context!)
         if selectedPatient != nil {
-            selectedPatient?.name = self.pNameInput.text
+            selectedPatient?.firstName = self.pNameInput.text
             let ageString = ageInput.text!
             selectedPatient?.age = Int16(ageString)!
             selectedPatient?.gender = self.gender
             selectedPatient?.height = Int16(heightInput.text!)!
             selectedPatient?.weight = Int16(weightInput.text!)!
-            selectedPatient?.date = dateInput.text
-            selectedPatient?.icuward = icuInput.text
+            //selectedPatient?.admitDate = dateInput.text
+            //selectedPatient?.patientToOne_Ward = icuInput.text
             
             do{
                 try selectedPatient?.managedObjectContext?.save()
@@ -68,14 +68,14 @@ class PatientInfo: UIViewController {
             
         }
         else{
-            patientInfo.name = self.pNameInput.text
+            patientInfo.firstName = self.pNameInput.text
             let ageString = ageInput.text!
             patientInfo.age = Int16(ageString)!
             patientInfo.gender = self.gender
             patientInfo.height = Int16(heightInput.text!)!
             patientInfo.weight = Int16(weightInput.text!)!
-            patientInfo.date = dateInput.text
-            patientInfo.icuward = icuInput.text
+            //patientInfo.admitDate = dateInput.text
+            //patientInfo.patientToOne_Ward = icuInput.text
             do{
                 try patientInfo.managedObjectContext?.save()
                 self.updateClosure!(patientInfo)
@@ -129,7 +129,7 @@ class PatientInfo: UIViewController {
     }
     
     func fillFromPatient(patient:Patient) {
-        pNameInput.text = patient.name
+        pNameInput.text = patient.firstName
         ageInput.text = String(patient.age)
         if(patient.gender == "Male"){
             genderToggle.selectedSegmentIndex = 0
@@ -138,8 +138,8 @@ class PatientInfo: UIViewController {
         }
         weightInput.text = String(patient.weight)
         heightInput.text = String(patient.height)
-        dateInput.text = patient.date
-        icuInput.text = patient.icuward
+        //dateInput.text = patient.admitDate
+        //icuInput.text = patient.patientToOne_Ward
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -10,34 +10,36 @@
 		656C13842246C07100E5FD67 /* Pods_ICNutrition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5F43509DDF251D36C8ADF4A /* Pods_ICNutrition.framework */; };
 		820C18001E77D46700C2B020 /* DiseaseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C17FF1E77D46700C2B020 /* DiseaseInfo.swift */; };
 		820C18041E77E05400C2B020 /* DiseaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C18031E77E05400C2B020 /* DiseaseTableViewCell.swift */; };
-		DE65046F1E875A6600410B34 /* Recommendation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6504611E875A6600410B34 /* Recommendation+CoreDataClass.swift */; };
-		DE6504701E875A6600410B34 /* Recommendation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6504621E875A6600410B34 /* Recommendation+CoreDataProperties.swift */; };
-		DE6504711E875A6600410B34 /* ICUWard+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6504631E875A6600410B34 /* ICUWard+CoreDataClass.swift */; };
-		DE6504721E875A6600410B34 /* ICUWard+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6504641E875A6600410B34 /* ICUWard+CoreDataProperties.swift */; };
-		DE6504731E875A6600410B34 /* Disease+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6504651E875A6600410B34 /* Disease+CoreDataClass.swift */; };
-		DE6504741E875A6600410B34 /* Disease+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6504661E875A6600410B34 /* Disease+CoreDataProperties.swift */; };
-		DE6504751E875A6600410B34 /* Calculator+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6504671E875A6600410B34 /* Calculator+CoreDataClass.swift */; };
-		DE6504761E875A6600410B34 /* Calculator+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6504681E875A6600410B34 /* Calculator+CoreDataProperties.swift */; };
-		DE6504771E875A6600410B34 /* Patient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6504691E875A6600410B34 /* Patient+CoreDataClass.swift */; };
-		DE6504781E875A6600410B34 /* Patient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE65046A1E875A6600410B34 /* Patient+CoreDataProperties.swift */; };
-		DE6504791E875A6600410B34 /* Index+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE65046B1E875A6600410B34 /* Index+CoreDataClass.swift */; };
-		DE65047A1E875A6600410B34 /* Index+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE65046C1E875A6600410B34 /* Index+CoreDataProperties.swift */; };
-		DE65047B1E875A6600410B34 /* Guideline+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE65046D1E875A6600410B34 /* Guideline+CoreDataClass.swift */; };
-		DE65047C1E875A6600410B34 /* Guideline+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE65046E1E875A6600410B34 /* Guideline+CoreDataProperties.swift */; };
 		DE6504841E87609600410B34 /* CalculatorsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE65047F1E87609600410B34 /* CalculatorsTab.swift */; };
 		DE6504851E87609600410B34 /* DiseaseTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6504801E87609600410B34 /* DiseaseTab.swift */; };
 		DE6504861E87609600410B34 /* GuidelinesTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6504811E87609600410B34 /* GuidelinesTab.swift */; };
 		DE6504871E87609600410B34 /* PatientTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6504821E87609600410B34 /* PatientTab.swift */; };
 		DE6504881E87609600410B34 /* SummaryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6504831E87609600410B34 /* SummaryTab.swift */; };
-		DE816EA01E876C19000D32C3 /* CoreDataManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE816E9F1E876C19000D32C3 /* CoreDataManagedObject.swift */; };
-		DEB939571E856EA60095FC5F /* cccs_cpg.csv in Resources */ = {isa = PBXBuildFile; fileRef = DEB939561E856EA60095FC5F /* cccs_cpg.csv */; };
 		DEDD11741E5F7068006DF4CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD11731E5F7068006DF4CF /* AppDelegate.swift */; };
 		DEDD11761E5F7068006DF4CF /* PatientList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD11751E5F7068006DF4CF /* PatientList.swift */; };
 		DEDD11791E5F7068006DF4CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDD11771E5F7068006DF4CF /* Main.storyboard */; };
-		DEDD117C1E5F7068006DF4CF /* ICNutrition.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DEDD117A1E5F7068006DF4CF /* ICNutrition.xcdatamodeld */; };
 		DEDD117E1E5F7068006DF4CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDD117D1E5F7068006DF4CF /* Assets.xcassets */; };
 		DEDD11811E5F7068006DF4CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDD117F1E5F7068006DF4CF /* LaunchScreen.storyboard */; };
 		DEDD118B1E5F844A006DF4CF /* PatientInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD118A1E5F844A006DF4CF /* PatientInfo.swift */; };
+		DEE272021E881B490084082A /* ICNutritionCoreModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DEE272001E881B490084082A /* ICNutritionCoreModel.xcdatamodeld */; };
+		DEE272141E8826470084082A /* ICUWard+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272041E8826460084082A /* ICUWard+CoreDataClass.swift */; };
+		DEE272151E8826470084082A /* ICUWard+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272051E8826470084082A /* ICUWard+CoreDataProperties.swift */; };
+		DEE272161E8826470084082A /* Disease+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272061E8826470084082A /* Disease+CoreDataClass.swift */; };
+		DEE272171E8826470084082A /* Disease+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272071E8826470084082A /* Disease+CoreDataProperties.swift */; };
+		DEE272181E8826470084082A /* GLSource+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272081E8826470084082A /* GLSource+CoreDataClass.swift */; };
+		DEE272191E8826470084082A /* GLSource+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272091E8826470084082A /* GLSource+CoreDataProperties.swift */; };
+		DEE2721A1E8826470084082A /* Recommendation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE2720A1E8826470084082A /* Recommendation+CoreDataClass.swift */; };
+		DEE2721B1E8826470084082A /* Recommendation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE2720B1E8826470084082A /* Recommendation+CoreDataProperties.swift */; };
+		DEE2721C1E8826470084082A /* Calculator+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE2720C1E8826470084082A /* Calculator+CoreDataClass.swift */; };
+		DEE2721D1E8826470084082A /* Calculator+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE2720D1E8826470084082A /* Calculator+CoreDataProperties.swift */; };
+		DEE2721E1E8826470084082A /* Patient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE2720E1E8826470084082A /* Patient+CoreDataClass.swift */; };
+		DEE2721F1E8826470084082A /* Patient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE2720F1E8826470084082A /* Patient+CoreDataProperties.swift */; };
+		DEE272201E8826470084082A /* Guideline+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272101E8826470084082A /* Guideline+CoreDataClass.swift */; };
+		DEE272211E8826470084082A /* Guideline+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272111E8826470084082A /* Guideline+CoreDataProperties.swift */; };
+		DEE272221E8826470084082A /* Index+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272121E8826470084082A /* Index+CoreDataClass.swift */; };
+		DEE272231E8826470084082A /* Index+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272131E8826470084082A /* Index+CoreDataProperties.swift */; };
+		DEE272251E8826D80084082A /* CoreDataManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272241E8826D80084082A /* CoreDataManagedObject.swift */; };
+		DEE272271E882FA70084082A /* cccs_cpg.csv in Resources */ = {isa = PBXBuildFile; fileRef = DEE272261E882FA70084082A /* cccs_cpg.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,36 +49,38 @@
 		A8088D81B04F2ADC027702F4 /* Pods-ICNutrition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ICNutrition.release.xcconfig"; path = "Pods/Target Support Files/Pods-ICNutrition/Pods-ICNutrition.release.xcconfig"; sourceTree = "<group>"; };
 		C69DE7884F61511D73BBE6E8 /* Pods-ICNutrition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ICNutrition.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ICNutrition/Pods-ICNutrition.debug.xcconfig"; sourceTree = "<group>"; };
 		D5F43509DDF251D36C8ADF4A /* Pods_ICNutrition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ICNutrition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DE6504611E875A6600410B34 /* Recommendation+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Recommendation+CoreDataClass.swift"; path = "CoreData/Recommendation+CoreDataClass.swift"; sourceTree = "<group>"; };
-		DE6504621E875A6600410B34 /* Recommendation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Recommendation+CoreDataProperties.swift"; path = "CoreData/Recommendation+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		DE6504631E875A6600410B34 /* ICUWard+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ICUWard+CoreDataClass.swift"; path = "CoreData/ICUWard+CoreDataClass.swift"; sourceTree = "<group>"; };
-		DE6504641E875A6600410B34 /* ICUWard+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ICUWard+CoreDataProperties.swift"; path = "CoreData/ICUWard+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		DE6504651E875A6600410B34 /* Disease+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Disease+CoreDataClass.swift"; path = "CoreData/Disease+CoreDataClass.swift"; sourceTree = "<group>"; };
-		DE6504661E875A6600410B34 /* Disease+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Disease+CoreDataProperties.swift"; path = "CoreData/Disease+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		DE6504671E875A6600410B34 /* Calculator+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Calculator+CoreDataClass.swift"; path = "CoreData/Calculator+CoreDataClass.swift"; sourceTree = "<group>"; };
-		DE6504681E875A6600410B34 /* Calculator+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Calculator+CoreDataProperties.swift"; path = "CoreData/Calculator+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		DE6504691E875A6600410B34 /* Patient+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Patient+CoreDataClass.swift"; path = "CoreData/Patient+CoreDataClass.swift"; sourceTree = "<group>"; };
-		DE65046A1E875A6600410B34 /* Patient+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Patient+CoreDataProperties.swift"; path = "CoreData/Patient+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		DE65046B1E875A6600410B34 /* Index+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Index+CoreDataClass.swift"; path = "CoreData/Index+CoreDataClass.swift"; sourceTree = "<group>"; };
-		DE65046C1E875A6600410B34 /* Index+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Index+CoreDataProperties.swift"; path = "CoreData/Index+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		DE65046D1E875A6600410B34 /* Guideline+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Guideline+CoreDataClass.swift"; path = "CoreData/Guideline+CoreDataClass.swift"; sourceTree = "<group>"; };
-		DE65046E1E875A6600410B34 /* Guideline+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Guideline+CoreDataProperties.swift"; path = "CoreData/Guideline+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DE65047F1E87609600410B34 /* CalculatorsTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorsTab.swift; sourceTree = "<group>"; };
 		DE6504801E87609600410B34 /* DiseaseTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiseaseTab.swift; sourceTree = "<group>"; };
 		DE6504811E87609600410B34 /* GuidelinesTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuidelinesTab.swift; sourceTree = "<group>"; };
 		DE6504821E87609600410B34 /* PatientTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientTab.swift; sourceTree = "<group>"; };
 		DE6504831E87609600410B34 /* SummaryTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryTab.swift; sourceTree = "<group>"; };
-		DE816E9F1E876C19000D32C3 /* CoreDataManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManagedObject.swift; path = CoreData/CoreDataManagedObject.swift; sourceTree = "<group>"; };
-		DEB939561E856EA60095FC5F /* cccs_cpg.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cccs_cpg.csv; sourceTree = "<group>"; };
 		DEDD11701E5F7068006DF4CF /* ICNutrition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ICNutrition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDD11731E5F7068006DF4CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEDD11751E5F7068006DF4CF /* PatientList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientList.swift; sourceTree = "<group>"; };
 		DEDD11781E5F7068006DF4CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DEDD117B1E5F7068006DF4CF /* ICNutrition.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ICNutrition.xcdatamodel; sourceTree = "<group>"; };
 		DEDD117D1E5F7068006DF4CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEDD11801E5F7068006DF4CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DEDD11821E5F7068006DF4CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DEDD118A1E5F844A006DF4CF /* PatientInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientInfo.swift; sourceTree = "<group>"; };
+		DEE272011E881B490084082A /* ICNutritionCoreModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ICNutritionCoreModel.xcdatamodel; sourceTree = "<group>"; };
+		DEE272041E8826460084082A /* ICUWard+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ICUWard+CoreDataClass.swift"; path = "CoreData/ICUWard+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DEE272051E8826470084082A /* ICUWard+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ICUWard+CoreDataProperties.swift"; path = "CoreData/ICUWard+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DEE272061E8826470084082A /* Disease+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Disease+CoreDataClass.swift"; path = "CoreData/Disease+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DEE272071E8826470084082A /* Disease+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Disease+CoreDataProperties.swift"; path = "CoreData/Disease+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DEE272081E8826470084082A /* GLSource+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GLSource+CoreDataClass.swift"; path = "CoreData/GLSource+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DEE272091E8826470084082A /* GLSource+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GLSource+CoreDataProperties.swift"; path = "CoreData/GLSource+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DEE2720A1E8826470084082A /* Recommendation+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Recommendation+CoreDataClass.swift"; path = "CoreData/Recommendation+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DEE2720B1E8826470084082A /* Recommendation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Recommendation+CoreDataProperties.swift"; path = "CoreData/Recommendation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DEE2720C1E8826470084082A /* Calculator+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Calculator+CoreDataClass.swift"; path = "CoreData/Calculator+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DEE2720D1E8826470084082A /* Calculator+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Calculator+CoreDataProperties.swift"; path = "CoreData/Calculator+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DEE2720E1E8826470084082A /* Patient+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Patient+CoreDataClass.swift"; path = "CoreData/Patient+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DEE2720F1E8826470084082A /* Patient+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Patient+CoreDataProperties.swift"; path = "CoreData/Patient+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DEE272101E8826470084082A /* Guideline+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Guideline+CoreDataClass.swift"; path = "CoreData/Guideline+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DEE272111E8826470084082A /* Guideline+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Guideline+CoreDataProperties.swift"; path = "CoreData/Guideline+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DEE272121E8826470084082A /* Index+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Index+CoreDataClass.swift"; path = "CoreData/Index+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DEE272131E8826470084082A /* Index+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Index+CoreDataProperties.swift"; path = "CoreData/Index+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DEE272241E8826D80084082A /* CoreDataManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManagedObject.swift; sourceTree = "<group>"; };
+		DEE272261E882FA70084082A /* cccs_cpg.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cccs_cpg.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,28 +103,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DE6504441E87531200410B34 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				DE816E9F1E876C19000D32C3 /* CoreDataManagedObject.swift */,
-				DE6504611E875A6600410B34 /* Recommendation+CoreDataClass.swift */,
-				DE6504621E875A6600410B34 /* Recommendation+CoreDataProperties.swift */,
-				DE6504631E875A6600410B34 /* ICUWard+CoreDataClass.swift */,
-				DE6504641E875A6600410B34 /* ICUWard+CoreDataProperties.swift */,
-				DE6504651E875A6600410B34 /* Disease+CoreDataClass.swift */,
-				DE6504661E875A6600410B34 /* Disease+CoreDataProperties.swift */,
-				DE6504671E875A6600410B34 /* Calculator+CoreDataClass.swift */,
-				DE6504681E875A6600410B34 /* Calculator+CoreDataProperties.swift */,
-				DE6504691E875A6600410B34 /* Patient+CoreDataClass.swift */,
-				DE65046A1E875A6600410B34 /* Patient+CoreDataProperties.swift */,
-				DE65046B1E875A6600410B34 /* Index+CoreDataClass.swift */,
-				DE65046C1E875A6600410B34 /* Index+CoreDataProperties.swift */,
-				DE65046D1E875A6600410B34 /* Guideline+CoreDataClass.swift */,
-				DE65046E1E875A6600410B34 /* Guideline+CoreDataProperties.swift */,
-			);
-			name = CoreData;
-			sourceTree = "<group>";
-		};
 		DE65047E1E87609600410B34 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,7 +118,7 @@
 		DEB939551E856EA60095FC5F /* Csv */ = {
 			isa = PBXGroup;
 			children = (
-				DEB939561E856EA60095FC5F /* cccs_cpg.csv */,
+				DEE272261E882FA70084082A /* cccs_cpg.csv */,
 			);
 			path = Csv;
 			sourceTree = "<group>";
@@ -163,8 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				DEB939551E856EA60095FC5F /* Csv */,
-				DE6504441E87531200410B34 /* CoreData */,
 				DE65047E1E87609600410B34 /* Tabs */,
+				DEE272031E88261A0084082A /* CoreData */,
 				DEDD11731E5F7068006DF4CF /* AppDelegate.swift */,
 				820C17FF1E77D46700C2B020 /* DiseaseInfo.swift */,
 				820C18031E77E05400C2B020 /* DiseaseTableViewCell.swift */,
@@ -174,10 +156,34 @@
 				DEDD117D1E5F7068006DF4CF /* Assets.xcassets */,
 				DEDD117F1E5F7068006DF4CF /* LaunchScreen.storyboard */,
 				DEDD11771E5F7068006DF4CF /* Main.storyboard */,
+				DEE272001E881B490084082A /* ICNutritionCoreModel.xcdatamodeld */,
 				DEDD11821E5F7068006DF4CF /* Info.plist */,
-				DEDD117A1E5F7068006DF4CF /* ICNutrition.xcdatamodeld */,
 			);
 			path = ICNutrition;
+			sourceTree = "<group>";
+		};
+		DEE272031E88261A0084082A /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				DEE272241E8826D80084082A /* CoreDataManagedObject.swift */,
+				DEE272041E8826460084082A /* ICUWard+CoreDataClass.swift */,
+				DEE272051E8826470084082A /* ICUWard+CoreDataProperties.swift */,
+				DEE272061E8826470084082A /* Disease+CoreDataClass.swift */,
+				DEE272071E8826470084082A /* Disease+CoreDataProperties.swift */,
+				DEE272081E8826470084082A /* GLSource+CoreDataClass.swift */,
+				DEE272091E8826470084082A /* GLSource+CoreDataProperties.swift */,
+				DEE2720A1E8826470084082A /* Recommendation+CoreDataClass.swift */,
+				DEE2720B1E8826470084082A /* Recommendation+CoreDataProperties.swift */,
+				DEE2720C1E8826470084082A /* Calculator+CoreDataClass.swift */,
+				DEE2720D1E8826470084082A /* Calculator+CoreDataProperties.swift */,
+				DEE2720E1E8826470084082A /* Patient+CoreDataClass.swift */,
+				DEE2720F1E8826470084082A /* Patient+CoreDataProperties.swift */,
+				DEE272101E8826470084082A /* Guideline+CoreDataClass.swift */,
+				DEE272111E8826470084082A /* Guideline+CoreDataProperties.swift */,
+				DEE272121E8826470084082A /* Index+CoreDataClass.swift */,
+				DEE272131E8826470084082A /* Index+CoreDataProperties.swift */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 		FA9C8B9091BF1C9DBE7C5564 /* Pods */ = {
@@ -255,7 +261,7 @@
 				DEDD11811E5F7068006DF4CF /* LaunchScreen.storyboard in Resources */,
 				DEDD117E1E5F7068006DF4CF /* Assets.xcassets in Resources */,
 				DEDD11791E5F7068006DF4CF /* Main.storyboard in Resources */,
-				DEB939571E856EA60095FC5F /* cccs_cpg.csv in Resources */,
+				DEE272271E882FA70084082A /* cccs_cpg.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,31 +321,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				820C18001E77D46700C2B020 /* DiseaseInfo.swift in Sources */,
-				DE816EA01E876C19000D32C3 /* CoreDataManagedObject.swift in Sources */,
-				DE6504781E875A6600410B34 /* Patient+CoreDataProperties.swift in Sources */,
+				DEE272141E8826470084082A /* ICUWard+CoreDataClass.swift in Sources */,
 				820C18041E77E05400C2B020 /* DiseaseTableViewCell.swift in Sources */,
-				DE65047C1E875A6600410B34 /* Guideline+CoreDataProperties.swift in Sources */,
 				DEDD11761E5F7068006DF4CF /* PatientList.swift in Sources */,
 				DE6504841E87609600410B34 /* CalculatorsTab.swift in Sources */,
-				DE6504741E875A6600410B34 /* Disease+CoreDataProperties.swift in Sources */,
+				DEE272151E8826470084082A /* ICUWard+CoreDataProperties.swift in Sources */,
+				DEE2721F1E8826470084082A /* Patient+CoreDataProperties.swift in Sources */,
+				DEE2721A1E8826470084082A /* Recommendation+CoreDataClass.swift in Sources */,
+				DEE2721E1E8826470084082A /* Patient+CoreDataClass.swift in Sources */,
+				DEE272251E8826D80084082A /* CoreDataManagedObject.swift in Sources */,
 				DE6504871E87609600410B34 /* PatientTab.swift in Sources */,
-				DE6504701E875A6600410B34 /* Recommendation+CoreDataProperties.swift in Sources */,
-				DE65047B1E875A6600410B34 /* Guideline+CoreDataClass.swift in Sources */,
-				DE6504731E875A6600410B34 /* Disease+CoreDataClass.swift in Sources */,
-				DE6504751E875A6600410B34 /* Calculator+CoreDataClass.swift in Sources */,
-				DE6504721E875A6600410B34 /* ICUWard+CoreDataProperties.swift in Sources */,
 				DEDD11741E5F7068006DF4CF /* AppDelegate.swift in Sources */,
-				DE6504761E875A6600410B34 /* Calculator+CoreDataProperties.swift in Sources */,
 				DE6504861E87609600410B34 /* GuidelinesTab.swift in Sources */,
+				DEE272021E881B490084082A /* ICNutritionCoreModel.xcdatamodeld in Sources */,
+				DEE272231E8826470084082A /* Index+CoreDataProperties.swift in Sources */,
+				DEE272161E8826470084082A /* Disease+CoreDataClass.swift in Sources */,
+				DEE2721B1E8826470084082A /* Recommendation+CoreDataProperties.swift in Sources */,
 				DE6504881E87609600410B34 /* SummaryTab.swift in Sources */,
+				DEE272211E8826470084082A /* Guideline+CoreDataProperties.swift in Sources */,
 				DE6504851E87609600410B34 /* DiseaseTab.swift in Sources */,
-				DE6504791E875A6600410B34 /* Index+CoreDataClass.swift in Sources */,
+				DEE2721C1E8826470084082A /* Calculator+CoreDataClass.swift in Sources */,
+				DEE272201E8826470084082A /* Guideline+CoreDataClass.swift in Sources */,
+				DEE272221E8826470084082A /* Index+CoreDataClass.swift in Sources */,
+				DEE272171E8826470084082A /* Disease+CoreDataProperties.swift in Sources */,
+				DEE272191E8826470084082A /* GLSource+CoreDataProperties.swift in Sources */,
 				DEDD118B1E5F844A006DF4CF /* PatientInfo.swift in Sources */,
-				DE65047A1E875A6600410B34 /* Index+CoreDataProperties.swift in Sources */,
-				DE6504711E875A6600410B34 /* ICUWard+CoreDataClass.swift in Sources */,
-				DE65046F1E875A6600410B34 /* Recommendation+CoreDataClass.swift in Sources */,
-				DEDD117C1E5F7068006DF4CF /* ICNutrition.xcdatamodeld in Sources */,
-				DE6504771E875A6600410B34 /* Patient+CoreDataClass.swift in Sources */,
+				DEE2721D1E8826470084082A /* Calculator+CoreDataProperties.swift in Sources */,
+				DEE272181E8826470084082A /* GLSource+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,13 +520,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		DEDD117A1E5F7068006DF4CF /* ICNutrition.xcdatamodeld */ = {
+		DEE272001E881B490084082A /* ICNutritionCoreModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				DEDD117B1E5F7068006DF4CF /* ICNutrition.xcdatamodel */,
+				DEE272011E881B490084082A /* ICNutritionCoreModel.xcdatamodel */,
 			);
-			currentVersion = DEDD117B1E5F7068006DF4CF /* ICNutrition.xcdatamodel */;
-			path = ICNutrition.xcdatamodeld;
+			currentVersion = DEE272011E881B490084082A /* ICNutritionCoreModel.xcdatamodel */;
+			path = ICNutritionCoreModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

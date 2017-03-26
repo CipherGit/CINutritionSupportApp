@@ -105,24 +105,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let csvFile = try CSV(string: contents, hasHeaderRow: true)
                 let context = persistentContainer.viewContext
                 var gID = 0
+                
+                let source = GLSource(context: context)
+                var sourceAdd = false
                 for row in csvFile {
+                    if sourceAdd == false {
+                        source.glName = row[0]
+                        source.glSourceID = Int64(gID)
+                        sourceAdd = true
+                    }
                     let guideline = Guideline(context: context)
-                    guideline.guideLineID = Int16(gID)
-                    guideline.source = row[0]
+                    guideline.gID = Int64(gID)
+                    guideline.identifier = row[4]
                     guideline.category = row[1]
-                    guideline.shorthand = row[2]
-                    guideline.fullDescription = row[3]
+                    guideline.shortDesc = row[2]
+                    guideline.fullDesc = row[3]
+                    guideline.glToOne_GLSource = source
                     
                     let index = Index(context: context)
-                    index.indexID = Int16(gID)
-                    index.keywords = row[4]
-                    index.guidelines_guidelinesID = guideline
+                    index.indexID = Int64(gID)
+                    index.keywords = row[5]
+                    index.idxToOne_GL = guideline
                     
                     do {
                         try guideline.managedObjectContext?.save()
                         try index.managedObjectContext?.save()
                     } catch {
-                        NSLog("Error - Failed to save: %@", String(guideline.source!))
+                        NSLog("Error - Failed to save: %@", String(guideline.identifier!))
                     }
                     
                     gID += 1

@@ -2,7 +2,7 @@
 //  Calculator+CoreDataProperties.swift
 //  ICNutrition
 //
-//  Created by Justin Peña on 26/3/17.
+//  Created by Justin Peña on 27/3/17.
 //  Copyright © 2017 Cipher. All rights reserved.
 //
 
@@ -16,27 +16,27 @@ extension Calculator {
         return NSFetchRequest<Calculator>(entityName: "Calculator");
     }
 
-    @NSManaged public var calculatorID: Int16
+    @NSManaged public var calcID: Int64
     @NSManaged public var input: String?
-    @NSManaged public var name: String?
     @NSManaged public var output: String?
-    @NSManaged public var toMany_Guideline: NSSet?
+    @NSManaged public var calcName: String?
+    @NSManaged public var calcToMany_gl: NSSet?
 
 }
 
-// MARK: Generated accessors for toMany_Guideline
+// MARK: Generated accessors for calcToMany_gl
 extension Calculator {
 
-    @objc(addToMany_GuidelineObject:)
-    @NSManaged public func addToToMany_Guideline(_ value: Guideline)
+    @objc(addCalcToMany_glObject:)
+    @NSManaged public func addToCalcToMany_gl(_ value: Guideline)
 
-    @objc(removeToMany_GuidelineObject:)
-    @NSManaged public func removeFromToMany_Guideline(_ value: Guideline)
+    @objc(removeCalcToMany_glObject:)
+    @NSManaged public func removeFromCalcToMany_gl(_ value: Guideline)
 
-    @objc(addToMany_Guideline:)
-    @NSManaged public func addToToMany_Guideline(_ values: NSSet)
+    @objc(addCalcToMany_gl:)
+    @NSManaged public func addToCalcToMany_gl(_ values: NSSet)
 
-    @objc(removeToMany_Guideline:)
-    @NSManaged public func removeFromToMany_Guideline(_ values: NSSet)
+    @objc(removeCalcToMany_gl:)
+    @NSManaged public func removeFromCalcToMany_gl(_ values: NSSet)
 
 }
