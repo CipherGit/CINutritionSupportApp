@@ -1,0 +1,536 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		656C13842246C07100E5FD67 /* Pods_ICNutrition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5F43509DDF251D36C8ADF4A /* Pods_ICNutrition.framework */; };
+		820C18001E77D46700C2B020 /* DiseaseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C17FF1E77D46700C2B020 /* DiseaseInfo.swift */; };
+		820C18041E77E05400C2B020 /* DiseaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C18031E77E05400C2B020 /* DiseaseTableViewCell.swift */; };
+		DE6504841E87609600410B34 /* CalculatorsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE65047F1E87609600410B34 /* CalculatorsTab.swift */; };
+		DE6504851E87609600410B34 /* DiseaseTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6504801E87609600410B34 /* DiseaseTab.swift */; };
+		DE6504861E87609600410B34 /* GuidelinesTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6504811E87609600410B34 /* GuidelinesTab.swift */; };
+		DE6504871E87609600410B34 /* PatientTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6504821E87609600410B34 /* PatientTab.swift */; };
+		DE6504881E87609600410B34 /* SummaryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6504831E87609600410B34 /* SummaryTab.swift */; };
+		DEDD11741E5F7068006DF4CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD11731E5F7068006DF4CF /* AppDelegate.swift */; };
+		DEDD11761E5F7068006DF4CF /* PatientList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD11751E5F7068006DF4CF /* PatientList.swift */; };
+		DEDD11791E5F7068006DF4CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDD11771E5F7068006DF4CF /* Main.storyboard */; };
+		DEDD117E1E5F7068006DF4CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEDD117D1E5F7068006DF4CF /* Assets.xcassets */; };
+		DEDD11811E5F7068006DF4CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDD117F1E5F7068006DF4CF /* LaunchScreen.storyboard */; };
+		DEDD118B1E5F844A006DF4CF /* PatientInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD118A1E5F844A006DF4CF /* PatientInfo.swift */; };
+		DEE272021E881B490084082A /* ICNutritionCoreModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DEE272001E881B490084082A /* ICNutritionCoreModel.xcdatamodeld */; };
+		DEE272141E8826470084082A /* ICUWard+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272041E8826460084082A /* ICUWard+CoreDataClass.swift */; };
+		DEE272151E8826470084082A /* ICUWard+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272051E8826470084082A /* ICUWard+CoreDataProperties.swift */; };
+		DEE272161E8826470084082A /* Disease+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272061E8826470084082A /* Disease+CoreDataClass.swift */; };
+		DEE272171E8826470084082A /* Disease+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272071E8826470084082A /* Disease+CoreDataProperties.swift */; };
+		DEE272181E8826470084082A /* GLSource+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272081E8826470084082A /* GLSource+CoreDataClass.swift */; };
+		DEE272191E8826470084082A /* GLSource+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272091E8826470084082A /* GLSource+CoreDataProperties.swift */; };
+		DEE2721A1E8826470084082A /* Recommendation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE2720A1E8826470084082A /* Recommendation+CoreDataClass.swift */; };
+		DEE2721B1E8826470084082A /* Recommendation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE2720B1E8826470084082A /* Recommendation+CoreDataProperties.swift */; };
+		DEE2721C1E8826470084082A /* Calculator+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE2720C1E8826470084082A /* Calculator+CoreDataClass.swift */; };
+		DEE2721D1E8826470084082A /* Calculator+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE2720D1E8826470084082A /* Calculator+CoreDataProperties.swift */; };
+		DEE2721E1E8826470084082A /* Patient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE2720E1E8826470084082A /* Patient+CoreDataClass.swift */; };
+		DEE2721F1E8826470084082A /* Patient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE2720F1E8826470084082A /* Patient+CoreDataProperties.swift */; };
+		DEE272201E8826470084082A /* Guideline+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272101E8826470084082A /* Guideline+CoreDataClass.swift */; };
+		DEE272211E8826470084082A /* Guideline+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272111E8826470084082A /* Guideline+CoreDataProperties.swift */; };
+		DEE272221E8826470084082A /* Index+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272121E8826470084082A /* Index+CoreDataClass.swift */; };
+		DEE272231E8826470084082A /* Index+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272131E8826470084082A /* Index+CoreDataProperties.swift */; };
+		DEE272251E8826D80084082A /* CoreDataManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272241E8826D80084082A /* CoreDataManagedObject.swift */; };
+		DEE272291E8838630084082A /* cccs_cpg.csv in Resources */ = {isa = PBXBuildFile; fileRef = DEE272281E8838630084082A /* cccs_cpg.csv */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		820C17FF1E77D46700C2B020 /* DiseaseInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiseaseInfo.swift; sourceTree = "<group>"; };
+		820C18031E77E05400C2B020 /* DiseaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiseaseTableViewCell.swift; sourceTree = "<group>"; };
+		82A3C23B1E83918A008A6AEA /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		A8088D81B04F2ADC027702F4 /* Pods-ICNutrition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ICNutrition.release.xcconfig"; path = "Pods/Target Support Files/Pods-ICNutrition/Pods-ICNutrition.release.xcconfig"; sourceTree = "<group>"; };
+		C69DE7884F61511D73BBE6E8 /* Pods-ICNutrition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ICNutrition.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ICNutrition/Pods-ICNutrition.debug.xcconfig"; sourceTree = "<group>"; };
+		D5F43509DDF251D36C8ADF4A /* Pods_ICNutrition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ICNutrition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE65047F1E87609600410B34 /* CalculatorsTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorsTab.swift; sourceTree = "<group>"; };
+		DE6504801E87609600410B34 /* DiseaseTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiseaseTab.swift; sourceTree = "<group>"; };
+		DE6504811E87609600410B34 /* GuidelinesTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuidelinesTab.swift; sourceTree = "<group>"; };
+		DE6504821E87609600410B34 /* PatientTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientTab.swift; sourceTree = "<group>"; };
+		DE6504831E87609600410B34 /* SummaryTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryTab.swift; sourceTree = "<group>"; };
+		DEDD11701E5F7068006DF4CF /* ICNutrition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ICNutrition.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEDD11731E5F7068006DF4CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DEDD11751E5F7068006DF4CF /* PatientList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientList.swift; sourceTree = "<group>"; };
+		DEDD11781E5F7068006DF4CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DEDD117D1E5F7068006DF4CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DEDD11801E5F7068006DF4CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DEDD11821E5F7068006DF4CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DEDD118A1E5F844A006DF4CF /* PatientInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientInfo.swift; sourceTree = "<group>"; };
+		DEE272011E881B490084082A /* ICNutritionCoreModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ICNutritionCoreModel.xcdatamodel; sourceTree = "<group>"; };
+		DEE272041E8826460084082A /* ICUWard+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ICUWard+CoreDataClass.swift"; path = "CoreData/ICUWard+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DEE272051E8826470084082A /* ICUWard+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ICUWard+CoreDataProperties.swift"; path = "CoreData/ICUWard+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DEE272061E8826470084082A /* Disease+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Disease+CoreDataClass.swift"; path = "CoreData/Disease+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DEE272071E8826470084082A /* Disease+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Disease+CoreDataProperties.swift"; path = "CoreData/Disease+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DEE272081E8826470084082A /* GLSource+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GLSource+CoreDataClass.swift"; path = "CoreData/GLSource+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DEE272091E8826470084082A /* GLSource+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GLSource+CoreDataProperties.swift"; path = "CoreData/GLSource+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DEE2720A1E8826470084082A /* Recommendation+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Recommendation+CoreDataClass.swift"; path = "CoreData/Recommendation+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DEE2720B1E8826470084082A /* Recommendation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Recommendation+CoreDataProperties.swift"; path = "CoreData/Recommendation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DEE2720C1E8826470084082A /* Calculator+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Calculator+CoreDataClass.swift"; path = "CoreData/Calculator+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DEE2720D1E8826470084082A /* Calculator+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Calculator+CoreDataProperties.swift"; path = "CoreData/Calculator+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DEE2720E1E8826470084082A /* Patient+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Patient+CoreDataClass.swift"; path = "CoreData/Patient+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DEE2720F1E8826470084082A /* Patient+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Patient+CoreDataProperties.swift"; path = "CoreData/Patient+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DEE272101E8826470084082A /* Guideline+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Guideline+CoreDataClass.swift"; path = "CoreData/Guideline+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DEE272111E8826470084082A /* Guideline+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Guideline+CoreDataProperties.swift"; path = "CoreData/Guideline+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DEE272121E8826470084082A /* Index+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Index+CoreDataClass.swift"; path = "CoreData/Index+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DEE272131E8826470084082A /* Index+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Index+CoreDataProperties.swift"; path = "CoreData/Index+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DEE272241E8826D80084082A /* CoreDataManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManagedObject.swift; sourceTree = "<group>"; };
+		DEE272281E8838630084082A /* cccs_cpg.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cccs_cpg.csv; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DEDD116D1E5F7068006DF4CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				656C13842246C07100E5FD67 /* Pods_ICNutrition.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		72E01AC2FE7C8E39683F1052 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D5F43509DDF251D36C8ADF4A /* Pods_ICNutrition.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE65047E1E87609600410B34 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				DE65047F1E87609600410B34 /* CalculatorsTab.swift */,
+				DE6504801E87609600410B34 /* DiseaseTab.swift */,
+				DE6504811E87609600410B34 /* GuidelinesTab.swift */,
+				DE6504821E87609600410B34 /* PatientTab.swift */,
+				DE6504831E87609600410B34 /* SummaryTab.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		DEB939551E856EA60095FC5F /* Csv */ = {
+			isa = PBXGroup;
+			children = (
+				DEE272281E8838630084082A /* cccs_cpg.csv */,
+			);
+			path = Csv;
+			sourceTree = "<group>";
+		};
+		DEDD11671E5F7068006DF4CF = {
+			isa = PBXGroup;
+			children = (
+				DEDD11721E5F7068006DF4CF /* ICNutrition */,
+				DEDD11711E5F7068006DF4CF /* Products */,
+				FA9C8B9091BF1C9DBE7C5564 /* Pods */,
+				72E01AC2FE7C8E39683F1052 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DEDD11711E5F7068006DF4CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DEDD11701E5F7068006DF4CF /* ICNutrition.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DEDD11721E5F7068006DF4CF /* ICNutrition */ = {
+			isa = PBXGroup;
+			children = (
+				DEB939551E856EA60095FC5F /* Csv */,
+				DE65047E1E87609600410B34 /* Tabs */,
+				DEE272031E88261A0084082A /* CoreData */,
+				DEDD11731E5F7068006DF4CF /* AppDelegate.swift */,
+				820C17FF1E77D46700C2B020 /* DiseaseInfo.swift */,
+				820C18031E77E05400C2B020 /* DiseaseTableViewCell.swift */,
+				DEDD118A1E5F844A006DF4CF /* PatientInfo.swift */,
+				DEDD11751E5F7068006DF4CF /* PatientList.swift */,
+				82A3C23B1E83918A008A6AEA /* TabBarController.swift */,
+				DEDD117D1E5F7068006DF4CF /* Assets.xcassets */,
+				DEDD117F1E5F7068006DF4CF /* LaunchScreen.storyboard */,
+				DEDD11771E5F7068006DF4CF /* Main.storyboard */,
+				DEE272001E881B490084082A /* ICNutritionCoreModel.xcdatamodeld */,
+				DEDD11821E5F7068006DF4CF /* Info.plist */,
+			);
+			path = ICNutrition;
+			sourceTree = "<group>";
+		};
+		DEE272031E88261A0084082A /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				DEE272241E8826D80084082A /* CoreDataManagedObject.swift */,
+				DEE272041E8826460084082A /* ICUWard+CoreDataClass.swift */,
+				DEE272051E8826470084082A /* ICUWard+CoreDataProperties.swift */,
+				DEE272061E8826470084082A /* Disease+CoreDataClass.swift */,
+				DEE272071E8826470084082A /* Disease+CoreDataProperties.swift */,
+				DEE272081E8826470084082A /* GLSource+CoreDataClass.swift */,
+				DEE272091E8826470084082A /* GLSource+CoreDataProperties.swift */,
+				DEE2720A1E8826470084082A /* Recommendation+CoreDataClass.swift */,
+				DEE2720B1E8826470084082A /* Recommendation+CoreDataProperties.swift */,
+				DEE2720C1E8826470084082A /* Calculator+CoreDataClass.swift */,
+				DEE2720D1E8826470084082A /* Calculator+CoreDataProperties.swift */,
+				DEE2720E1E8826470084082A /* Patient+CoreDataClass.swift */,
+				DEE2720F1E8826470084082A /* Patient+CoreDataProperties.swift */,
+				DEE272101E8826470084082A /* Guideline+CoreDataClass.swift */,
+				DEE272111E8826470084082A /* Guideline+CoreDataProperties.swift */,
+				DEE272121E8826470084082A /* Index+CoreDataClass.swift */,
+				DEE272131E8826470084082A /* Index+CoreDataProperties.swift */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		FA9C8B9091BF1C9DBE7C5564 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C69DE7884F61511D73BBE6E8 /* Pods-ICNutrition.debug.xcconfig */,
+				A8088D81B04F2ADC027702F4 /* Pods-ICNutrition.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DEDD116F1E5F7068006DF4CF /* ICNutrition */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DEDD11851E5F7068006DF4CF /* Build configuration list for PBXNativeTarget "ICNutrition" */;
+			buildPhases = (
+				20639FE9E457FB4ECC928972 /* [CP] Check Pods Manifest.lock */,
+				DEDD116C1E5F7068006DF4CF /* Sources */,
+				DEDD116D1E5F7068006DF4CF /* Frameworks */,
+				DEDD116E1E5F7068006DF4CF /* Resources */,
+				E46A0F06B780C9B6A1BE898C /* [CP] Embed Pods Frameworks */,
+				A0D850A11373CF30F9C984E2 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ICNutrition;
+			productName = ICNutrition;
+			productReference = DEDD11701E5F7068006DF4CF /* ICNutrition.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DEDD11681E5F7068006DF4CF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Cipher;
+				TargetAttributes = {
+					DEDD116F1E5F7068006DF4CF = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 5763UENJDC;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = DEDD116B1E5F7068006DF4CF /* Build configuration list for PBXProject "ICNutrition" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DEDD11671E5F7068006DF4CF;
+			productRefGroup = DEDD11711E5F7068006DF4CF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DEDD116F1E5F7068006DF4CF /* ICNutrition */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DEDD116E1E5F7068006DF4CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEDD11811E5F7068006DF4CF /* LaunchScreen.storyboard in Resources */,
+				DEDD117E1E5F7068006DF4CF /* Assets.xcassets in Resources */,
+				DEDD11791E5F7068006DF4CF /* Main.storyboard in Resources */,
+				DEE272291E8838630084082A /* cccs_cpg.csv in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		20639FE9E457FB4ECC928972 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A0D850A11373CF30F9C984E2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ICNutrition/Pods-ICNutrition-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E46A0F06B780C9B6A1BE898C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ICNutrition/Pods-ICNutrition-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DEDD116C1E5F7068006DF4CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				820C18001E77D46700C2B020 /* DiseaseInfo.swift in Sources */,
+				DEE272141E8826470084082A /* ICUWard+CoreDataClass.swift in Sources */,
+				820C18041E77E05400C2B020 /* DiseaseTableViewCell.swift in Sources */,
+				DEDD11761E5F7068006DF4CF /* PatientList.swift in Sources */,
+				DE6504841E87609600410B34 /* CalculatorsTab.swift in Sources */,
+				DEE272151E8826470084082A /* ICUWard+CoreDataProperties.swift in Sources */,
+				DEE2721F1E8826470084082A /* Patient+CoreDataProperties.swift in Sources */,
+				DEE2721A1E8826470084082A /* Recommendation+CoreDataClass.swift in Sources */,
+				DEE2721E1E8826470084082A /* Patient+CoreDataClass.swift in Sources */,
+				DEE272251E8826D80084082A /* CoreDataManagedObject.swift in Sources */,
+				DE6504871E87609600410B34 /* PatientTab.swift in Sources */,
+				DEDD11741E5F7068006DF4CF /* AppDelegate.swift in Sources */,
+				DE6504861E87609600410B34 /* GuidelinesTab.swift in Sources */,
+				DEE272021E881B490084082A /* ICNutritionCoreModel.xcdatamodeld in Sources */,
+				DEE272231E8826470084082A /* Index+CoreDataProperties.swift in Sources */,
+				DEE272161E8826470084082A /* Disease+CoreDataClass.swift in Sources */,
+				DEE2721B1E8826470084082A /* Recommendation+CoreDataProperties.swift in Sources */,
+				DE6504881E87609600410B34 /* SummaryTab.swift in Sources */,
+				DEE272211E8826470084082A /* Guideline+CoreDataProperties.swift in Sources */,
+				DE6504851E87609600410B34 /* DiseaseTab.swift in Sources */,
+				DEE2721C1E8826470084082A /* Calculator+CoreDataClass.swift in Sources */,
+				DEE272201E8826470084082A /* Guideline+CoreDataClass.swift in Sources */,
+				DEE272221E8826470084082A /* Index+CoreDataClass.swift in Sources */,
+				DEE272171E8826470084082A /* Disease+CoreDataProperties.swift in Sources */,
+				DEE272191E8826470084082A /* GLSource+CoreDataProperties.swift in Sources */,
+				DEDD118B1E5F844A006DF4CF /* PatientInfo.swift in Sources */,
+				DEE2721D1E8826470084082A /* Calculator+CoreDataProperties.swift in Sources */,
+				DEE272181E8826470084082A /* GLSource+CoreDataClass.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DEDD11771E5F7068006DF4CF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DEDD11781E5F7068006DF4CF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DEDD117F1E5F7068006DF4CF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DEDD11801E5F7068006DF4CF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DEDD11831E5F7068006DF4CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DEDD11841E5F7068006DF4CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DEDD11861E5F7068006DF4CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C69DE7884F61511D73BBE6E8 /* Pods-ICNutrition.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5763UENJDC;
+				INFOPLIST_FILE = ICNutrition/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ci6229.ICNutrition;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		DEDD11871E5F7068006DF4CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8088D81B04F2ADC027702F4 /* Pods-ICNutrition.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5763UENJDC;
+				INFOPLIST_FILE = ICNutrition/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ci6229.ICNutrition;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DEDD116B1E5F7068006DF4CF /* Build configuration list for PBXProject "ICNutrition" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEDD11831E5F7068006DF4CF /* Debug */,
+				DEDD11841E5F7068006DF4CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DEDD11851E5F7068006DF4CF /* Build configuration list for PBXNativeTarget "ICNutrition" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEDD11861E5F7068006DF4CF /* Debug */,
+				DEDD11871E5F7068006DF4CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DEE272001E881B490084082A /* ICNutritionCoreModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DEE272011E881B490084082A /* ICNutritionCoreModel.xcdatamodel */,
+			);
+			currentVersion = DEE272011E881B490084082A /* ICNutritionCoreModel.xcdatamodel */;
+			path = ICNutritionCoreModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = DEDD11681E5F7068006DF4CF /* Project object */;
+}

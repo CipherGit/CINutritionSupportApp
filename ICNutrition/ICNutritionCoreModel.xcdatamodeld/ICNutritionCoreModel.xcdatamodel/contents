@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Calculator" representedClassName="Calculator" syncable="YES">
+        <attribute name="calcID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="calcName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="input" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="output" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="calcToMany_gl" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Guideline" inverseName="glToOne_Calc" inverseEntity="Guideline" syncable="YES"/>
+    </entity>
+    <entity name="Disease" representedClassName="Disease" syncable="YES">
+        <attribute name="diseaseID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="diseaseName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="diseaseNotes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="diseaseSeverity" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="disToOne_Patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="patientToMany_Disease" inverseEntity="Patient" syncable="YES"/>
+    </entity>
+    <entity name="GLSource" representedClassName="GLSource" syncable="YES">
+        <attribute name="glName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="glSourceID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="glsToMany_gl" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Guideline" inverseName="glToOne_GLSource" inverseEntity="Guideline" syncable="YES"/>
+    </entity>
+    <entity name="Guideline" representedClassName="Guideline" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fullDesc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shortDesc" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="glToMany_Rec" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recommendation" inverseName="recToOne_Guideline" inverseEntity="Recommendation" syncable="YES"/>
+        <relationship name="glToOne_Calc" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Calculator" inverseName="calcToMany_gl" inverseEntity="Calculator" syncable="YES"/>
+        <relationship name="glToOne_GLSource" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GLSource" inverseName="glsToMany_gl" inverseEntity="GLSource" syncable="YES"/>
+        <relationship name="glToOne_Index" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Index" inverseName="idxToOne_GL" inverseEntity="Index" syncable="YES"/>
+    </entity>
+    <entity name="ICUWard" representedClassName="ICUWard" syncable="YES">
+        <attribute name="icuWardID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="wardName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="wardToOne_Patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="patientToOne_Ward" inverseEntity="Patient" syncable="YES"/>
+    </entity>
+    <entity name="Index" representedClassName="Index" syncable="YES">
+        <attribute name="indexID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="keywords" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="idxToOne_GL" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Guideline" inverseName="glToOne_Index" inverseEntity="Guideline" syncable="YES"/>
+    </entity>
+    <entity name="Patient" representedClassName="Patient" syncable="YES">
+        <attribute name="admitDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="patientID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="patientToMany_Disease" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Disease" inverseName="disToOne_Patient" inverseEntity="Disease" syncable="YES"/>
+        <relationship name="patientToMany_Rec" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recommendation" inverseName="recToOne_Patient" inverseEntity="Recommendation" syncable="YES"/>
+        <relationship name="patientToOne_Ward" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ICUWard" inverseName="wardToOne_Patient" inverseEntity="ICUWard" syncable="YES"/>
+    </entity>
+    <entity name="Recommendation" representedClassName="Recommendation" syncable="YES">
+        <attribute name="recID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="recToOne_Guideline" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Guideline" inverseName="glToMany_Rec" inverseEntity="Guideline" syncable="YES"/>
+        <relationship name="recToOne_Patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="patientToMany_Rec" inverseEntity="Patient" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Patient" positionX="-270" positionY="-10" width="128" height="208"/>
+        <element name="Guideline" positionX="-270" positionY="216" width="128" height="103"/>
+        <element name="GLSource" positionX="-443" positionY="252" width="128" height="88"/>
+        <element name="Disease" positionX="-441" positionY="-9" width="126" height="118"/>
+        <element name="Recommendation" positionX="-65" positionY="144" width="128" height="73"/>
+        <element name="ICUWard" positionX="-432" positionY="135" width="126" height="88"/>
+        <element name="Index" positionX="-443" positionY="360" width="128" height="88"/>
+        <element name="Calculator" positionX="-74" positionY="360" width="128" height="118"/>
+    </elements>
+</model>
