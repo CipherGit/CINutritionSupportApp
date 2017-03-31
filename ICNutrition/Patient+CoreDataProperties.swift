@@ -2,7 +2,7 @@
 //  Patient+CoreDataProperties.swift
 //  ICNutrition
 //
-//  Created by Justin Peña on 27/3/17.
+//  Created by LwinLwin Oo on 30/3/17.
 //  Copyright © 2017 Cipher. All rights reserved.
 //
 
@@ -16,14 +16,13 @@ extension Patient {
         return NSFetchRequest<Patient>(entityName: "Patient");
     }
 
-    @NSManaged public var patientID: Int64
-    @NSManaged public var lastName: String?
-    @NSManaged public var age: Int16
-    @NSManaged public var weight: Int16
-    @NSManaged public var height: Int16
     @NSManaged public var admitDate: NSDate?
-    @NSManaged public var firstName: String?
+    @NSManaged public var age: Int16
+    @NSManaged public var name: String?
     @NSManaged public var gender: String?
+    @NSManaged public var height: Int16
+    @NSManaged public var patientID: Int64
+    @NSManaged public var weight: Int16
     @NSManaged public var patientToMany_Disease: NSSet?
     @NSManaged public var patientToMany_Rec: NSSet?
     @NSManaged public var patientToOne_Ward: ICUWard?

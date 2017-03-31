@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		563A7AA71E8CFBF400CDEBBF /* Patient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563A7AA51E8CFBF400CDEBBF /* Patient+CoreDataClass.swift */; };
+		563A7AA81E8CFBF400CDEBBF /* Patient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563A7AA61E8CFBF400CDEBBF /* Patient+CoreDataProperties.swift */; };
 		656C13842246C07100E5FD67 /* Pods_ICNutrition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5F43509DDF251D36C8ADF4A /* Pods_ICNutrition.framework */; };
 		820C18001E77D46700C2B020 /* DiseaseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C17FF1E77D46700C2B020 /* DiseaseInfo.swift */; };
 		820C18041E77E05400C2B020 /* DiseaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C18031E77E05400C2B020 /* DiseaseTableViewCell.swift */; };
@@ -32,8 +34,6 @@
 		DEE2721B1E8826470084082A /* Recommendation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE2720B1E8826470084082A /* Recommendation+CoreDataProperties.swift */; };
 		DEE2721C1E8826470084082A /* Calculator+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE2720C1E8826470084082A /* Calculator+CoreDataClass.swift */; };
 		DEE2721D1E8826470084082A /* Calculator+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE2720D1E8826470084082A /* Calculator+CoreDataProperties.swift */; };
-		DEE2721E1E8826470084082A /* Patient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE2720E1E8826470084082A /* Patient+CoreDataClass.swift */; };
-		DEE2721F1E8826470084082A /* Patient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE2720F1E8826470084082A /* Patient+CoreDataProperties.swift */; };
 		DEE272201E8826470084082A /* Guideline+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272101E8826470084082A /* Guideline+CoreDataClass.swift */; };
 		DEE272211E8826470084082A /* Guideline+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272111E8826470084082A /* Guideline+CoreDataProperties.swift */; };
 		DEE272221E8826470084082A /* Index+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE272121E8826470084082A /* Index+CoreDataClass.swift */; };
@@ -43,6 +43,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		563A7AA51E8CFBF400CDEBBF /* Patient+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Patient+CoreDataClass.swift"; sourceTree = "<group>"; };
+		563A7AA61E8CFBF400CDEBBF /* Patient+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Patient+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		820C17FF1E77D46700C2B020 /* DiseaseInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiseaseInfo.swift; sourceTree = "<group>"; };
 		820C18031E77E05400C2B020 /* DiseaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiseaseTableViewCell.swift; sourceTree = "<group>"; };
 		82A3C23B1E83918A008A6AEA /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -73,8 +75,6 @@
 		DEE2720B1E8826470084082A /* Recommendation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Recommendation+CoreDataProperties.swift"; path = "CoreData/Recommendation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DEE2720C1E8826470084082A /* Calculator+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Calculator+CoreDataClass.swift"; path = "CoreData/Calculator+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DEE2720D1E8826470084082A /* Calculator+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Calculator+CoreDataProperties.swift"; path = "CoreData/Calculator+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		DEE2720E1E8826470084082A /* Patient+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Patient+CoreDataClass.swift"; path = "CoreData/Patient+CoreDataClass.swift"; sourceTree = "<group>"; };
-		DEE2720F1E8826470084082A /* Patient+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Patient+CoreDataProperties.swift"; path = "CoreData/Patient+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DEE272101E8826470084082A /* Guideline+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Guideline+CoreDataClass.swift"; path = "CoreData/Guideline+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DEE272111E8826470084082A /* Guideline+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Guideline+CoreDataProperties.swift"; path = "CoreData/Guideline+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DEE272121E8826470084082A /* Index+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Index+CoreDataClass.swift"; path = "CoreData/Index+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -165,6 +165,8 @@
 		DEE272031E88261A0084082A /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				563A7AA51E8CFBF400CDEBBF /* Patient+CoreDataClass.swift */,
+				563A7AA61E8CFBF400CDEBBF /* Patient+CoreDataProperties.swift */,
 				DEE272241E8826D80084082A /* CoreDataManagedObject.swift */,
 				DEE272041E8826460084082A /* ICUWard+CoreDataClass.swift */,
 				DEE272051E8826470084082A /* ICUWard+CoreDataProperties.swift */,
@@ -176,8 +178,6 @@
 				DEE2720B1E8826470084082A /* Recommendation+CoreDataProperties.swift */,
 				DEE2720C1E8826470084082A /* Calculator+CoreDataClass.swift */,
 				DEE2720D1E8826470084082A /* Calculator+CoreDataProperties.swift */,
-				DEE2720E1E8826470084082A /* Patient+CoreDataClass.swift */,
-				DEE2720F1E8826470084082A /* Patient+CoreDataProperties.swift */,
 				DEE272101E8826470084082A /* Guideline+CoreDataClass.swift */,
 				DEE272111E8826470084082A /* Guideline+CoreDataProperties.swift */,
 				DEE272121E8826470084082A /* Index+CoreDataClass.swift */,
@@ -326,18 +326,18 @@
 				DEDD11761E5F7068006DF4CF /* PatientList.swift in Sources */,
 				DE6504841E87609600410B34 /* CalculatorsTab.swift in Sources */,
 				DEE272151E8826470084082A /* ICUWard+CoreDataProperties.swift in Sources */,
-				DEE2721F1E8826470084082A /* Patient+CoreDataProperties.swift in Sources */,
 				DEE2721A1E8826470084082A /* Recommendation+CoreDataClass.swift in Sources */,
-				DEE2721E1E8826470084082A /* Patient+CoreDataClass.swift in Sources */,
 				DEE272251E8826D80084082A /* CoreDataManagedObject.swift in Sources */,
 				DE6504871E87609600410B34 /* PatientTab.swift in Sources */,
 				DEDD11741E5F7068006DF4CF /* AppDelegate.swift in Sources */,
+				563A7AA81E8CFBF400CDEBBF /* Patient+CoreDataProperties.swift in Sources */,
 				DE6504861E87609600410B34 /* GuidelinesTab.swift in Sources */,
 				DEE272021E881B490084082A /* ICNutritionCoreModel.xcdatamodeld in Sources */,
 				DEE272231E8826470084082A /* Index+CoreDataProperties.swift in Sources */,
 				DEE272161E8826470084082A /* Disease+CoreDataClass.swift in Sources */,
 				DEE2721B1E8826470084082A /* Recommendation+CoreDataProperties.swift in Sources */,
 				DE6504881E87609600410B34 /* SummaryTab.swift in Sources */,
+				563A7AA71E8CFBF400CDEBBF /* Patient+CoreDataClass.swift in Sources */,
 				DEE272211E8826470084082A /* Guideline+CoreDataProperties.swift in Sources */,
 				DE6504851E87609600410B34 /* DiseaseTab.swift in Sources */,
 				DEE2721C1E8826470084082A /* Calculator+CoreDataClass.swift in Sources */,
