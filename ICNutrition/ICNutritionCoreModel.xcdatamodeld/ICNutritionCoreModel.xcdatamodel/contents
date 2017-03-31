@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="15G31" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Calculator" representedClassName="Calculator" syncable="YES">
         <attribute name="calcID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="calcName" optional="YES" attributeType="String" syncable="YES"/>
@@ -42,13 +42,12 @@
     </entity>
     <entity name="Patient" representedClassName="Patient" syncable="YES">
         <attribute name="admitDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="height" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="patientID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="age" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="gender" attributeType="String" syncable="YES"/>
+        <attribute name="height" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="patientID" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="weight" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="patientToMany_Disease" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Disease" inverseName="disToOne_Patient" inverseEntity="Disease" syncable="YES"/>
         <relationship name="patientToMany_Rec" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recommendation" inverseName="recToOne_Patient" inverseEntity="Recommendation" syncable="YES"/>
         <relationship name="patientToOne_Ward" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ICUWard" inverseName="wardToOne_Patient" inverseEntity="ICUWard" syncable="YES"/>
@@ -59,13 +58,13 @@
         <relationship name="recToOne_Patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="patientToMany_Rec" inverseEntity="Patient" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Patient" positionX="-270" positionY="-10" width="128" height="208"/>
-        <element name="Guideline" positionX="-270" positionY="216" width="128" height="103"/>
-        <element name="GLSource" positionX="-443" positionY="252" width="128" height="88"/>
+        <element name="Calculator" positionX="-74" positionY="360" width="128" height="118"/>
         <element name="Disease" positionX="-441" positionY="-9" width="126" height="118"/>
-        <element name="Recommendation" positionX="-65" positionY="144" width="128" height="73"/>
+        <element name="GLSource" positionX="-443" positionY="252" width="128" height="88"/>
+        <element name="Guideline" positionX="-270" positionY="216" width="128" height="103"/>
         <element name="ICUWard" positionX="-432" positionY="135" width="126" height="88"/>
         <element name="Index" positionX="-443" positionY="360" width="128" height="88"/>
-        <element name="Calculator" positionX="-74" positionY="360" width="128" height="118"/>
+        <element name="Patient" positionX="-270" positionY="-10" width="128" height="195"/>
+        <element name="Recommendation" positionX="-65" positionY="144" width="128" height="73"/>
     </elements>
 </model>

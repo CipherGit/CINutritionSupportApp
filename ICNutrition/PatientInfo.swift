@@ -42,13 +42,13 @@ class PatientInfo: UIViewController {
         }
     }
     
-    
-    
     @IBAction func saveButton(_ sender: Any) {
+        
+        print ("save button called !!")
         
         let patientInfo = Patient(context: context!)
         if selectedPatient != nil {
-            selectedPatient?.firstName = self.pNameInput.text
+            selectedPatient?.name = self.pNameInput.text
             let ageString = ageInput.text!
             selectedPatient?.age = Int16(ageString)!
             selectedPatient?.gender = self.gender
@@ -63,18 +63,23 @@ class PatientInfo: UIViewController {
                 self.navigationController?.dismiss(animated: true, completion: nil)
                 
             } catch {
-                print("Error here")
+                print("Error here edit")
             }
             
         }
         else{
-            patientInfo.firstName = self.pNameInput.text
+            
+            let dateFormatter=DateFormatter()
+            dateFormatter.dateStyle = .short
+            dateFormatter.timeStyle = .short
+            
+            patientInfo.name = self.pNameInput.text
             let ageString = ageInput.text!
             patientInfo.age = Int16(ageString)!
             patientInfo.gender = self.gender
             patientInfo.height = Int16(heightInput.text!)!
             patientInfo.weight = Int16(weightInput.text!)!
-            //patientInfo.admitDate = dateInput.text
+            patientInfo.admitDate = dateFormatter.date(from: dateInput.text!)! as NSDate?
             //patientInfo.patientToOne_Ward = icuInput.text
             do{
                 try patientInfo.managedObjectContext?.save()
@@ -82,7 +87,7 @@ class PatientInfo: UIViewController {
                 self.navigationController?.dismiss(animated: true, completion: nil)
                 
             } catch {
-                print("Error here")
+                print("Error here insert")
             }
         }
         
@@ -118,6 +123,8 @@ class PatientInfo: UIViewController {
         toolbar.setItems([doneButton],animated:false)
         dateInput.inputAccessoryView=toolbar
         dateInput.inputView=datePicker
+        
+        
     }
     
     func donePressed(){
@@ -129,7 +136,7 @@ class PatientInfo: UIViewController {
     }
     
     func fillFromPatient(patient:Patient) {
-        pNameInput.text = patient.firstName
+        pNameInput.text = patient.name
         ageInput.text = String(patient.age)
         if(patient.gender == "Male"){
             genderToggle.selectedSegmentIndex = 0
@@ -151,13 +158,87 @@ class PatientInfo: UIViewController {
         dateInput.resignFirstResponder()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        let check = validate()
+        if(check == false){
+            return false
+        }
+        else{
+            let dateFormatter=DateFormatter()
+            dateFormatter.dateStyle = .short
+            dateFormatter.timeStyle = .short
+            
+           let patientInfo = Patient(context: context!)
+            patientInfo.name = self.pNameInput.text
+            let ageString = ageInput.text!
+            patientInfo.age = Int16(ageString)!
+            patientInfo.gender = self.gender
+            patientInfo.height = Int16(heightInput.text!)!
+            patientInfo.weight = Int16(weightInput.text!)!
+            
+            patientInfo.admitDate = dateFormatter.date(from: dateInput.text!)! as NSDate?
+            do{
+                try patientInfo.managedObjectContext?.save()
+                //self.updateClosure!(patientInfo)
+                //self.navigationController?.dismiss(animated: true, completion: nil)
+                
+            } catch {
+                print("Error here insert")
+            }
+            return true
+            
+        }
+       let backItem = UIBarButtonItem()
+            backItem.title = "List"
+           navigationItem.backBarButtonItem = backItem
         
-        let backItem = UIBarButtonItem()
-        backItem.title = "List"
-        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
-        
+        return true
     }
+    
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let check = validate()
+//        if ((segue.identifier == "addDisease") && (check != false)) {
+//            print("go to segue")
+//            let _controller = segue.destination as! DiseaseInfo
+//        }
+////                        
+//        let backItem = UIBarButtonItem()
+//        backItem.title = "List"
+//        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+//        
+//    }
+//    
+    //Validation Start
+    func validate() -> Bool {
+        var valid: Bool = true
+        if (pNameInput.text?.isEmpty)! {
+            pNameInput.attributedPlaceholder = NSAttributedString(string: "Please Enter Patient Name", attributes: [NSForegroundColorAttributeName: UIColor.red])
+            valid = false
+        }
+        if (ageInput.text?.isEmpty)! {
+            ageInput.attributedPlaceholder = NSAttributedString(string: "Please Enter Age", attributes: [NSForegroundColorAttributeName: UIColor.red])
+            valid = false
+        }
+        if (heightInput.text?.isEmpty)! {
+            heightInput.attributedPlaceholder = NSAttributedString(string: "Please Enter Height", attributes: [NSForegroundColorAttributeName: UIColor.red])
+            valid = false
+        }
+        if (weightInput.text?.isEmpty)! {
+            weightInput.attributedPlaceholder = NSAttributedString(string: "Please Enter Weight", attributes: [NSForegroundColorAttributeName: UIColor.red])
+            valid = false
+        }
+        if (dateInput.text?.isEmpty)! {
+            dateInput.attributedPlaceholder = NSAttributedString(string: "Please Enter Date", attributes: [NSForegroundColorAttributeName: UIColor.red])
+            valid = false
+        }
+        if (icuInput.text?.isEmpty)! {
+            icuInput.attributedPlaceholder = NSAttributedString(string: "Please Enter ICU Ward", attributes: [NSForegroundColorAttributeName: UIColor.red])
+            valid = false
+        }
+        return valid
+    }
+    
     
     /*
      // MARK: - Navigation
