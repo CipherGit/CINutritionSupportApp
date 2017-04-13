@@ -16,6 +16,9 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
     var diseaseList = ["Burn","Trauma","Liver Disease"]
     var severityLevelList = ["Acute","Mild", "Moderate"]
     
+    //Carry Patient Data 
+    var insertedPatient : Patient?
+    
     @IBOutlet weak var dNameTextField: UITextField!
     @IBOutlet weak var dNameInput: UITextField!
     @IBOutlet weak var severityLevelInput: UITextField!
@@ -42,6 +45,9 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
         super.viewDidLoad()
         dNameDropdown.isHidden = true
         severityLevelDropdown.isHidden = true;
+        
+        //testing data
+        print ("name :\(insertedPatient?.name)")
     }
     
     override func didReceiveMemoryWarning() {
@@ -129,6 +135,12 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        //Go to patientTab
+        let view = segue.destination as! UITabBarController
+        let controller = view.viewControllers![1] as! PatientTab
+        controller.patient = insertedPatient
         
         let backItem = UIBarButtonItem()
         backItem.title = "List"

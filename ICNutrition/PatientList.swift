@@ -73,6 +73,12 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
             let fetchError = error as NSError
             print(fetchError)
         }
+        print("in fetch data method")
+        for patient1 in patients{
+             print("name value value\(patient1.name)")
+        }
+       
+
         self.tableView.reloadData()
     }
     
@@ -132,22 +138,37 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        let patientInfo = Patient(context: context!)
-        
+        let context = self.context
+        //let patientInfo = Patient(context: context!)
+
         if editingStyle == .delete {
+            
+            let patientTest = patients[indexPath.row]
+            
             //Using delete method from managedObjectContext
-            patientInfo.managedObjectContext?.delete(patients[indexPath.row])
-            do {
-                //******
-                try patientInfo.managedObjectContext?.save()
-                patients.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
-            } catch {
-                let saveError = error as NSError
-                print(saveError)
-            }
-        }
+            
+            context?.delete(patientTest)
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            
+            //patientInfo.managedObjectContext?.delete(patients[indexPath.row])
+//            do {
+//                //******
+//                patients.remove(at: indexPath.row)
+//                tableView.deleteRows(at: [indexPath], with: .fade)
+//                try
+//                    patientInfo.managedObjectContext?.save()
+//            } catch {
+//                let saveError = error as NSError
+//                print(saveError)
+//            }
+            
+         fetchData()
+         self.tableView.reloadData()
         
+        }
+       
+        
+       
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
