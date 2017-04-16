@@ -35,7 +35,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="JfI-nD-iUV" kind="show" id="27a-6X-qAM"/>
+                                    <segue destination="JfI-nD-iUV" kind="show" identifier="TabBarSegue" id="27a-6X-qAM"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -641,7 +641,7 @@
         <!--Guidelines-->
         <scene sceneID="BbK-qB-nZB">
             <objects>
-                <viewController id="Igq-kD-Cov" sceneMemberID="viewController">
+                <viewController title="Guidelines" id="Igq-kD-Cov" customClass="GuidelinesTab" customModule="ICNutrition" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h2Q-6p-Ju0"/>
                         <viewControllerLayoutGuide type="bottom" id="HCu-I5-7si"/>
@@ -678,7 +678,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="YJP-4v-pCT">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="glSourceCell" id="YJP-4v-pCT">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YJP-4v-pCT" id="NLx-dw-0jf">
@@ -693,6 +693,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Guidelines" image="clipboard" id="tar-xo-Ww0"/>
                     <connections>
+                        <outlet property="glsTable" destination="vzg-hM-gRU" id="j7T-ZJ-4VM"/>
                         <outlet property="searchDisplayController" destination="NLq-3M-iEr" id="1hA-4z-DSS"/>
                     </connections>
                 </viewController>
@@ -823,6 +824,6 @@
         <image name="patient-1" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Nq6-2z-kUw"/>
+        <segue reference="27a-6X-qAM"/>
     </inferredMetricsTieBreakers>
 </document>

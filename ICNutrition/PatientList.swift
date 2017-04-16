@@ -118,17 +118,26 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
     
     // Click on the cell list --> carry index row and go to detail
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "PInfo") as? PatientInfo {
-            vc.selectedPatient = patients[indexPath.row]
-            //self.performSegueWithIdentifier("SegueAdd", sender: indexPath.row)
-            navigationController?.pushViewController(vc, animated: true)
-        }
+        performSegue(withIdentifier: "TabBarSegue", sender: patients[indexPath.row])
+//        if let vc = storyboard?.instantiateViewController(withIdentifier: "PInfo") as? PatientInfo {
+//            vc.selectedPatient = patients[indexPath.row]
+//            //self.performSegueWithIdentifier("SegueAdd", sender: indexPath.row)
+//            navigationController?.pushViewController(vc, animated: true)
+//        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //Prepare Back Button
         let backItem = UIBarButtonItem()
         backItem.title = "List"
         navigationItem.backBarButtonItem = backItem
+        
+        if(segue.identifier == "TabBarSegue") {
+            print("In TabBarSegue")
+            let tabBarController : UITabBarController = segue.destination as! UITabBarController
+            let targetViewController : GuidelinesTab = tabBarController.viewControllers?[4] as! GuidelinesTab
+            targetViewController.targetPatient = sender as? Patient
+        }
     }
     
     
