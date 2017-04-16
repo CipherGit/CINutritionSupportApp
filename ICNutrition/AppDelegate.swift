@@ -23,6 +23,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if !isPreloaded {
             deleteContents(entityName: "Guideline")
             preloadGuidelines(fileName: "cccs_cpg")
+            
+            //Preload of Test patient, ward, and disease
+            let testPatient = Patient(context: context!)
+            testPatient.patientID = 1
+            testPatient.name = "Justin"
+            testPatient.age = 25
+            testPatient.gender = "male"
+            testPatient.height = 170
+            testPatient.weight = 60
+            
+            //Create admitDate
+            let dateString = "2017-04-16 16:30:00"
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+            let admitDate = dateFormatter.date(from: dateString)
+            testPatient.admitDate = admitDate as NSDate?
+            
+            //Create Test ICUWard
+            let testWard = ICUWard(context: context!)
+            testWard.icuWardID = 1
+            testWard.wardName = "Freedom"
+            testWard.wardToOne_Patient = testPatient
+            
+            //Create Test Disease
+            let testDisease = Disease(context: context!)
+            testDisease.diseaseName = "Respiratory Distress Syndrome"
+            testDisease.diseaseNotes = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            testDisease.diseaseSeverity = "Acute"
+            
+            //Set relationsips
+            testPatient.addToPatientToMany_Disease(testDisease)
+            testDisease.disToOne_Patient = testPatient
+            testPatient.patientToOne_Ward = testWard
+            
+            do {
+                try testWard.managedObjectContext?.save()
+                try testDisease.managedObjectContext?.save()
+                try testPatient.managedObjectContext?.save()
+            } catch {
+                NSLog("Error in saving test ward, test disease and test patients")
+            }
+            
             defaults.set(true, forKey: "isPreloaded")
         }
         
