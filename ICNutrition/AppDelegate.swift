@@ -163,6 +163,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     guideline.shortDesc = row[3]
                     guideline.fullDesc = row[4]
                     guideline.glToOne_GLSource = source
+                    source.addToGlsToMany_gl(guideline)
                     
                     let index = Index(context: context)
                     index.indexID = Int64(gID)

@@ -133,7 +133,6 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
         navigationItem.backBarButtonItem = backItem
         
         if(segue.identifier == "TabBarSegue") {
-            print("In TabBarSegue")
             let tabBarController : UITabBarController = segue.destination as! UITabBarController
             let targetViewController : GuidelinesTab = tabBarController.viewControllers?[4] as! GuidelinesTab
             targetViewController.targetPatient = sender as? Patient

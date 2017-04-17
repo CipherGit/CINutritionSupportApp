@@ -18,6 +18,8 @@ class GuidelinesTab: UIViewController, UITableViewDelegate, UITableViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.navigationBar.topItem?.title = "Guidelines"
+        
         //Check Active Patient
         NSLog("Current Patient:" + (targetPatient?.name)!)
         
@@ -65,6 +67,15 @@ class GuidelinesTab: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         NSLog(guidelineSources[indexPath.row].glName!)
+        performSegue(withIdentifier: "glContentsSegue", sender: guidelineSources[indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "glContentsSegue"){
+            let guidelinesContent = segue.destination as! GuidelinesContent
+            guidelinesContent.guideLineSource = sender as? GLSource
+        }
     }
     
     override func didReceiveMemoryWarning() {
