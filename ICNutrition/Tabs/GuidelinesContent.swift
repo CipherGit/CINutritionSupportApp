@@ -128,9 +128,9 @@ class GuidelinesContent: UIViewController, UITableViewDelegate, UITableViewDataS
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredGuidelines = guidelines.filter({ ($0.shortDesc?.contains(searchText))!})
         if(filteredGuidelines.count == 0){
-            searchActive = false;
+            searchActive = false
         } else {
-            searchActive = true;
+            searchActive = true
         }
         glContentTable.reloadData()
     }

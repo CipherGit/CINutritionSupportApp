@@ -682,21 +682,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="PMQ-S9-k6Z"/>
                     <connections>
+                        <outlet property="glsSearchBar" destination="Vgm-3M-hLf" id="iu7-NL-dH3"/>
                         <outlet property="glsTable" destination="vzg-hM-gRU" id="j7T-ZJ-4VM"/>
-                        <outlet property="searchDisplayController" destination="NLq-3M-iEr" id="1hA-4z-DSS"/>
                         <segue destination="Gq3-gZ-L8N" kind="show" identifier="glContentsSegue" id="PRs-Rr-95x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1rK-Rc-d6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="NLq-3M-iEr">
-                    <connections>
-                        <outlet property="delegate" destination="Igq-kD-Cov" id="HrA-Xl-neF"/>
-                        <outlet property="searchBar" destination="Vgm-3M-hLf" id="i9w-ij-1xC"/>
-                        <outlet property="searchContentsController" destination="Igq-kD-Cov" id="RdI-l9-Cec"/>
-                        <outlet property="searchResultsDataSource" destination="Igq-kD-Cov" id="SkT-rA-9Nq"/>
-                        <outlet property="searchResultsDelegate" destination="Igq-kD-Cov" id="Laf-h5-gwa"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="926" y="2461"/>
         </scene>
