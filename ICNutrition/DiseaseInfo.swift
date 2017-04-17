@@ -45,9 +45,6 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
         super.viewDidLoad()
         dNameDropdown.isHidden = true
         severityLevelDropdown.isHidden = true;
-        
-        //testing data
-        print ("name :\(insertedPatient?.name)")
     }
     
     override func didReceiveMemoryWarning() {
