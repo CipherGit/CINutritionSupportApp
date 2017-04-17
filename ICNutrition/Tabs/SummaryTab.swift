@@ -9,25 +9,17 @@
 import UIKit
 
 class SummaryTab: UIViewController {
-
+    
+    var selectedPatient : Patient?
+    
     @IBOutlet weak var Label: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-        self.tabBarController?.navigationItem.title = "Patient Name"
-        /*
-        let underlineAttribute = [NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue]
-        let underlineAttributedString = NSAttributedString(string: "Guideline Recommendations", attributes: underlineAttribute)
-        Label.attributedText = underlineAttributedString*/
-        
-        
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
    

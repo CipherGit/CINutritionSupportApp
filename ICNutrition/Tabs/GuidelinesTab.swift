@@ -11,22 +11,14 @@ import CoreData
 
 class GuidelinesTab: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var targetPatient : Patient?
+    var selectedPatient : Patient?
     var guidelineSources = Array<GLSource>();
     @IBOutlet weak var glsTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Check Active Patient
-        //NSLog("Current Patient:" + (targetPatient?.name)!)
-        
-        //Check Associated Diseases
-        //Just wanted to see if this worked and it does
-        //let diseaseArray = targetPatient?.patientToMany_Disease?.allObjects as! [Disease]
-        //for disease in diseaseArray {
-        //    NSLog("Associated Disease: " + disease.diseaseName!)
-        //}
+        self.tabBarController?.navigationItem.title = "Guidelines"
         
         //Fetch GLSources
         fetchGLSources()
