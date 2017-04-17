@@ -622,19 +622,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Calculators" image="calculator" id="wck-bY-h2R"/>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="2e0-3g-W2W" id="r5C-Yj-iVp"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0qw-Y9-UCq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="2e0-3g-W2W">
-                    <connections>
-                        <outlet property="delegate" destination="3kT-NB-gA9" id="ms9-fU-mCH"/>
-                        <outlet property="searchContentsController" destination="3kT-NB-gA9" id="lQ1-SX-7EW"/>
-                        <outlet property="searchResultsDataSource" destination="3kT-NB-gA9" id="K0g-KU-5h5"/>
-                        <outlet property="searchResultsDelegate" destination="3kT-NB-gA9" id="cIM-pI-isS"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="173" y="1726"/>
         </scene>
@@ -767,19 +756,10 @@
                     <connections>
                         <outlet property="glContentLabel" destination="Ta4-uR-k9E" id="8sC-bW-dLp"/>
                         <outlet property="glContentTable" destination="thD-d6-tbk" id="PWH-fD-ohh"/>
-                        <outlet property="searchDisplayController" destination="FYS-z4-vbX" id="WvK-9c-tcm"/>
+                        <outlet property="glcSearch" destination="06m-ia-hfm" id="Gay-u6-VQY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5vS-nL-7QV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="FYS-z4-vbX">
-                    <connections>
-                        <outlet property="delegate" destination="Gq3-gZ-L8N" id="eAQ-7x-b0f"/>
-                        <outlet property="searchBar" destination="06m-ia-hfm" id="Rgz-Ze-CSd"/>
-                        <outlet property="searchContentsController" destination="Gq3-gZ-L8N" id="2Xw-pw-XxJ"/>
-                        <outlet property="searchResultsDataSource" destination="Gq3-gZ-L8N" id="fG8-1L-9VW"/>
-                        <outlet property="searchResultsDelegate" destination="Gq3-gZ-L8N" id="8e7-m0-mwJ"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="926" y="3217"/>
         </scene>

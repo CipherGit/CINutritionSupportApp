@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import Foundation
 
-class GuidelinesContent: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class GuidelinesContent: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     var guideLineSource : GLSource?
     var guidelines = [Guideline]()
+    var filteredGuidelines = [Guideline]()
     var sections = [String]()
+    var searchActive : Bool = false
     var sectionItems = Array<Array<Guideline>>()
     @IBOutlet weak var glContentTable: UITableView!
     @IBOutlet weak var glContentLabel: UILabel!
+    @IBOutlet weak var glcSearch: UISearchBar!
     
     
     override func viewDidLoad() {
@@ -54,10 +58,10 @@ class GuidelinesContent: UIViewController, UITableViewDelegate, UITableViewDataS
             sectionItems.append(gArr)
         }
         
-        //Set the Delagate and Data Source for the Table
+        //Set the Delagate and Data Source for the tables and search bar
         glContentTable.delegate = self
         glContentTable.dataSource = self
-        
+        glcSearch.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,20 +70,38 @@ class GuidelinesContent: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
+        if !searchActive {
+            return sections.count
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sections[section]
+        if !searchActive {
+            return sections[section]
+        } else {
+            return nil
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sectionItems[section].count
+        if !searchActive {
+            return sectionItems[section].count
+        } else {
+            return filteredGuidelines.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "glContentCell", for: indexPath) as UITableViewCell
-        cell.textLabel?.text = sectionItems[indexPath.section][indexPath.row].shortDesc
+        
+        if !searchActive {
+            cell.textLabel?.text = sectionItems[indexPath.section][indexPath.row].shortDesc
+        } else {
+            cell.textLabel?.text = filteredGuidelines[indexPath.row].shortDesc
+        }
+        
         return cell
     }
     
@@ -87,6 +109,31 @@ class GuidelinesContent: UIViewController, UITableViewDelegate, UITableViewDataS
         NSLog("Hello")
     }
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredGuidelines = guidelines.filter({ ($0.shortDesc?.contains(searchText))!})
+        if(filteredGuidelines.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        glContentTable.reloadData()
+    }
 
     /*
     // MARK: - Navigation
