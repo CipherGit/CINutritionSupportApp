@@ -45,7 +45,7 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
         self.searchController.searchResultsUpdater = self
         
     }
-
+    
     func checkPreload(){
         let context = self.context
         let request : NSFetchRequest<Guideline> = Guideline.fetchRequest()
@@ -73,12 +73,12 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
             let fetchError = error as NSError
             print(fetchError)
         }
-        print("in fetch data method")
+        print("In fetch data method")
         for patient1 in patients{
-             print("name value value\(patient1.name)")
+            print("name value value\(patient1.name)")
         }
-       
-
+        
+        
         self.tableView.reloadData()
     }
     
@@ -118,17 +118,26 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
     
     // Click on the cell list --> carry index row and go to detail
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "PInfo") as? PatientInfo {
-            vc.selectedPatient = patients[indexPath.row]
-            //self.performSegueWithIdentifier("SegueAdd", sender: indexPath.row)
-            navigationController?.pushViewController(vc, animated: true)
-        }
+        performSegue(withIdentifier: "TabBarSegue", sender: patients[indexPath.row])
+//        if let vc = storyboard?.instantiateViewController(withIdentifier: "PInfo") as? PatientInfo {
+//            vc.selectedPatient = patients[indexPath.row]
+//            //self.performSegueWithIdentifier("SegueAdd", sender: indexPath.row)
+//            navigationController?.pushViewController(vc, animated: true)
+//        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //Prepare Back Button
         let backItem = UIBarButtonItem()
         backItem.title = "List"
         navigationItem.backBarButtonItem = backItem
+        
+        if(segue.identifier == "TabBarSegue") {
+            print("In TabBarSegue")
+            let tabBarController : UITabBarController = segue.destination as! UITabBarController
+            let targetViewController : GuidelinesTab = tabBarController.viewControllers?[4] as! GuidelinesTab
+            targetViewController.targetPatient = sender as? Patient
+        }
     }
     
     
@@ -140,7 +149,7 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         let context = self.context
         //let patientInfo = Patient(context: context!)
-
+        
         if editingStyle == .delete {
             
             let patientTest = patients[indexPath.row]
@@ -151,24 +160,24 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             
             //patientInfo.managedObjectContext?.delete(patients[indexPath.row])
-//            do {
-//                //******
-//                patients.remove(at: indexPath.row)
-//                tableView.deleteRows(at: [indexPath], with: .fade)
-//                try
-//                    patientInfo.managedObjectContext?.save()
-//            } catch {
-//                let saveError = error as NSError
-//                print(saveError)
-//            }
+            //            do {
+            //                //******
+            //                patients.remove(at: indexPath.row)
+            //                tableView.deleteRows(at: [indexPath], with: .fade)
+            //                try
+            //                    patientInfo.managedObjectContext?.save()
+            //            } catch {
+            //                let saveError = error as NSError
+            //                print(saveError)
+            //            }
             
-         fetchData()
-         self.tableView.reloadData()
-        
+            fetchData()
+            self.tableView.reloadData()
+            
         }
-       
         
-       
+        
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
