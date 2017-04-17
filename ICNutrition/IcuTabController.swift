@@ -14,7 +14,7 @@ class IcuTabController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationItem.title = selectedPatient?.name
+        self.navigationItem.title = selectedPatient?.name
         
         // Do any additional setup after loading the view.
     }
