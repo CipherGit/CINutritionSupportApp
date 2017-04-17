@@ -230,7 +230,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QY1-UK-SaD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="173" y="816"/>
+            <point key="canvasLocation" x="172" y="815"/>
         </scene>
         <!--Patient Information-->
         <scene sceneID="gRY-7O-CkQ">
@@ -430,7 +430,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r5T-Ff-Ldx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2537" y="358"/>
+            <point key="canvasLocation" x="2537" y="407"/>
         </scene>
         <!--Patient-->
         <scene sceneID="kKR-hz-VDH">
@@ -565,7 +565,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o6k-Th-cLQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3476" y="1107.7961019490256"/>
+            <point key="canvasLocation" x="2537" y="1181"/>
         </scene>
         <!--Disease-->
         <scene sceneID="1Zk-l8-ah9">
@@ -851,6 +851,6 @@
         <image name="patient-1" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="27a-6X-qAM"/>
+        <segue reference="Nq6-2z-kUw"/>
     </inferredMetricsTieBreakers>
 </document>
