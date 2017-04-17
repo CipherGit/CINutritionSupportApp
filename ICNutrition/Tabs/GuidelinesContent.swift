@@ -15,13 +15,14 @@ class GuidelinesContent: UIViewController, UITableViewDelegate, UITableViewDataS
     var sections = [String]()
     var sectionItems = Array<Array<Guideline>>()
     @IBOutlet weak var glContentTable: UITableView!
+    @IBOutlet weak var glContentLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Change Title
-        self.title = guideLineSource?.glName
+        glContentLabel.text = guideLineSource?.glName
         
         //Check guidelines in GLSource
         NSLog("Number of Guidelines: " + String(describing: guideLineSource?.glsToMany_gl?.count))

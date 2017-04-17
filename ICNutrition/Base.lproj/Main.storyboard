@@ -12,7 +12,7 @@
         <!--Patient List-->
         <scene sceneID="rWk-5r-S4Q">
             <objects>
-                <tableViewController storyboardIdentifier="PatientList" id="njg-P5-uZX" customClass="PatientList" customModule="ICNutrition" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PatientList" title="Patient List" id="njg-P5-uZX" customClass="PatientList" customModule="ICNutrition" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="kSb-WI-5Sl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -565,7 +565,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o6k-Th-cLQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2537" y="1108"/>
+            <point key="canvasLocation" x="3476" y="1107.7961019490256"/>
         </scene>
         <!--Disease-->
         <scene sceneID="1Zk-l8-ah9">
@@ -584,7 +584,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9jb-b7-mkW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1746" y="1726"/>
+            <point key="canvasLocation" x="1745" y="1726"/>
         </scene>
         <!--Calculators-->
         <scene sceneID="dvz-kD-43v">
@@ -638,10 +638,10 @@
             </objects>
             <point key="canvasLocation" x="173" y="1726"/>
         </scene>
-        <!--Guidelines-->
+        <!--Guidelines Tab-->
         <scene sceneID="BbK-qB-nZB">
             <objects>
-                <viewController title="Guidelines" id="Igq-kD-Cov" customClass="GuidelinesTab" customModule="ICNutrition" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="glTab" title="Guidelines Tab" id="Igq-kD-Cov" customClass="GuidelinesTab" customModule="ICNutrition" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h2Q-6p-Ju0"/>
                         <viewControllerLayoutGuide type="bottom" id="HCu-I5-7si"/>
@@ -691,7 +691,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Guidelines" image="clipboard" id="tar-xo-Ww0"/>
+                    <navigationItem key="navigationItem" id="PMQ-S9-k6Z"/>
                     <connections>
                         <outlet property="glsTable" destination="vzg-hM-gRU" id="j7T-ZJ-4VM"/>
                         <outlet property="searchDisplayController" destination="NLq-3M-iEr" id="1hA-4z-DSS"/>
@@ -709,12 +709,12 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="925.60000000000002" y="1725.7871064467768"/>
+            <point key="canvasLocation" x="926" y="2461"/>
         </scene>
-        <!--Guideline Name-->
+        <!--Guidelines Content-->
         <scene sceneID="Jle-7H-sla">
             <objects>
-                <viewController title="Guideline Name" id="Gq3-gZ-L8N" customClass="GuidelinesContent" customModule="ICNutrition" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Guidelines Content" id="Gq3-gZ-L8N" customClass="GuidelinesContent" customModule="ICNutrition" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SBl-o2-dNF"/>
                         <viewControllerLayoutGuide type="bottom" id="Dzk-Ow-Ndq"/>
@@ -765,6 +765,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="glContentLabel" destination="Ta4-uR-k9E" id="8sC-bW-dLp"/>
                         <outlet property="glContentTable" destination="thD-d6-tbk" id="PWH-fD-ohh"/>
                         <outlet property="searchDisplayController" destination="FYS-z4-vbX" id="WvK-9c-tcm"/>
                     </connections>
@@ -780,7 +781,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="925.60000000000002" y="2468.8155922038982"/>
+            <point key="canvasLocation" x="926" y="3217"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gfg-JF-INc">
@@ -800,10 +801,10 @@
             </objects>
             <point key="canvasLocation" x="173" y="-35"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Icu Tab Controller-->
         <scene sceneID="I4o-wM-HyJ">
             <objects>
-                <tabBarController storyboardIdentifier="tabBar" automaticallyAdjustsScrollViewInsets="NO" id="JfI-nD-iUV" customClass="TabBarController" customModule="ICNutrition" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" automaticallyAdjustsScrollViewInsets="NO" id="JfI-nD-iUV" customClass="IcuTabController" customModule="ICNutrition" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="c1b-vU-e5f">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -815,12 +816,31 @@
                         <segue destination="YmU-9f-rrb" kind="relationship" relationship="viewControllers" id="GUG-0A-l9o"/>
                         <segue destination="QmN-tl-foc" kind="relationship" relationship="viewControllers" id="LC6-L5-kVa"/>
                         <segue destination="3kT-NB-gA9" kind="relationship" relationship="viewControllers" id="AwL-4c-sBg"/>
-                        <segue destination="Igq-kD-Cov" kind="relationship" relationship="viewControllers" id="Oe9-4h-6an"/>
+                        <segue destination="bMq-Co-beg" kind="relationship" relationship="viewControllers" id="Oe9-4h-6an"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nwT-Bu-F4d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="927" y="816"/>
+            <point key="canvasLocation" x="926" y="815"/>
+        </scene>
+        <!--Guidelines-->
+        <scene sceneID="yhQ-RO-mh2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bMq-Co-beg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Guidelines" image="clipboard" id="tar-xo-Ww0"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eII-dO-rGw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Igq-kD-Cov" kind="relationship" relationship="rootViewController" id="8Mg-v9-suY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sGc-E1-5pj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="925.60000000000002" y="1725.7871064467768"/>
         </scene>
     </scenes>
     <resources>

@@ -18,17 +18,15 @@ class GuidelinesTab: UIViewController, UITableViewDelegate, UITableViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.topItem?.title = "Guidelines"
-        
         //Check Active Patient
-        NSLog("Current Patient:" + (targetPatient?.name)!)
+        //NSLog("Current Patient:" + (targetPatient?.name)!)
         
         //Check Associated Diseases
         //Just wanted to see if this worked and it does
-        let diseaseArray = targetPatient?.patientToMany_Disease?.allObjects as! [Disease]
-        for disease in diseaseArray {
-            NSLog("Associated Disease: " + disease.diseaseName!)
-        }
+        //let diseaseArray = targetPatient?.patientToMany_Disease?.allObjects as! [Disease]
+        //for disease in diseaseArray {
+        //    NSLog("Associated Disease: " + disease.diseaseName!)
+        //}
         
         //Fetch GLSources
         fetchGLSources()
