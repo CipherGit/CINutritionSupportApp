@@ -8,13 +8,15 @@
 
 import UIKit
 
-class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate{
+class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,  UITextFieldDelegate{
     
     var tableRow: Int?
     var disease: Disease?
     var diseases = Array<Disease>()
-    var diseaseList = ["Burn","Trauma","Liver Disease"]
-    var severityLevelList = ["Acute","Mild", "Moderate"]
+    
+    var updateClosure:((_ patient : Patient)->Void)?
+    //var diseaseList = ["Burn","Trauma","Liver Disease"]
+    //var severityLevelList = ["Acute","Mild", "Moderate"]
     
     //Carry Patient Data 
     var insertedPatient : Patient?
@@ -26,27 +28,53 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
     
     @IBOutlet weak var diseaseTableView: UITableView!
     
-    @IBOutlet weak var dNameDropdown: UIPickerView!
+    //@IBOutlet weak var dNameDropdown: UIPickerView!
     
-    @IBOutlet weak var severityLevelDropdown: UIPickerView!
+    //@IBOutlet weak var severityLevelDropdown: UIPickerView!
     
     @IBAction func addButton(_ sender: UIButton) {
         //disease = Disease(diseaseName: dNameInput.text!, severityLevel: severityLevelInput.text!, notes: notesInput.text!)
+        //diseases.append(disease!)
+        //diseaseTableView.reloadData()
+        
+        disease = Disease(context: context!)
+        disease?.diseaseName = dNameTextField.text
+        disease?.diseaseSeverity = severityLevelInput.text
+        disease?.diseaseNotes = notesInput.text
+        disease?.disToOne_Patient = insertedPatient
+        //save disease info
+        do{
+            try disease?.managedObjectContext?.save()
+            self.navigationController?.dismiss(animated: true, completion: nil)
+            
+        } catch {
+            print("Error here")
+        }
         diseases.append(disease!)
         diseaseTableView.reloadData()
+        
+        dNameTextField.text=""
+        severityLevelInput.text=""
+        notesInput.text=""
     }
     
     @IBAction func removeButton(_ sender: UIButton) {
-        diseases.remove(at: tableRow!)
         diseaseTableView.reloadData()
+        
+        let diseaseInfo = Disease(context: context!)
+        diseaseInfo.managedObjectContext?.delete(diseases[tableRow!])
+        do {
+            try diseaseInfo.managedObjectContext?.save()
+            diseases.remove(at: tableRow!)
+            diseaseTableView.reloadData()
+        } catch {
+            let saveError = error as NSError
+            print(saveError)
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dNameDropdown.isHidden = true
-        severityLevelDropdown.isHidden = true;
-        
-        //testing data
         print ("name :\(insertedPatient?.name)")
     }
     
@@ -66,14 +94,41 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
          return cell;*/
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath) as! DiseaseTableViewCell
-        //cell.diseaseLabel.text = diseases[indexPath.row].getDiseaseName()
-        //cell.severityLabel.text = diseases[indexPath.row].getSeverityLevel()
-        //cell.notesLabel.text = diseases[indexPath.row].getNotes()
+        cell.diseaseLabel.text = diseases[indexPath.row].diseaseName
+        cell.severityLabel.text = diseases[indexPath.row].diseaseSeverity
+        cell.notesLabel.text = diseases[indexPath.row].diseaseNotes
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableRow = indexPath.row
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        //let patientInfo = Patient(context: context!)
+        let diseaseInfo = Disease(context: context!)
+        if editingStyle == .delete {
+//            patientInfo.managedObjectContext?.delete(diseases[indexPath.row])
+//            do {
+//                try patientInfo.managedObjectContext?.save()
+//                diseases.remove(at: indexPath.row)
+//                tableView.deleteRows(at: [indexPath], with: .fade)
+//            } catch {
+//                let saveError = error as NSError
+//                print(saveError)
+//            }
+//
+            diseaseInfo.managedObjectContext?.delete(diseases[tableRow!])
+            do {
+                try diseaseInfo.managedObjectContext?.save()
+                diseases.remove(at: tableRow!)
+                diseaseTableView.reloadData()
+            } catch {
+                let saveError = error as NSError
+                print(saveError)
+            }
+        }
+        
     }
     
     ///////////////////////
@@ -90,6 +145,7 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
         return 1
     }
     
+    /*
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         var countrows : Int = diseaseList.count
         if (pickerView == severityLevelDropdown) {
@@ -121,9 +177,10 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
             self.severityLevelInput.text = self.severityLevelList[row]
             self.severityLevelDropdown.isHidden = true
         }
-    }
+    }*/
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        /*
         if(textField == self.dNameTextField){
             self.dNameDropdown.isHidden = false
             textField.endEditing(true)
@@ -131,7 +188,7 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
         else if(textField == self.severityLevelInput){
             self.severityLevelDropdown.isHidden = false
             textField.endEditing(true)
-        }
+        }*/
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
