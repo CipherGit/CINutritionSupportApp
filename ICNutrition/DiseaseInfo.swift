@@ -15,11 +15,12 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
     var diseases = Array<Disease>()
     
     var updateClosure:((_ patient : Patient)->Void)?
-    //var diseaseList = ["Burn","Trauma","Liver Disease"]
-    //var severityLevelList = ["Acute","Mild", "Moderate"]
     
     //Carry Patient Data 
     var insertedPatient : Patient?
+    
+    @IBOutlet weak var addbtn: UIButton!
+    @IBOutlet weak var removebtn: UIButton!
     
     @IBOutlet weak var dNameTextField: UITextField!
     @IBOutlet weak var dNameInput: UITextField!
@@ -27,10 +28,6 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
     @IBOutlet weak var notesInput: UITextView!
     
     @IBOutlet weak var diseaseTableView: UITableView!
-    
-    //@IBOutlet weak var dNameDropdown: UIPickerView!
-    
-    //@IBOutlet weak var severityLevelDropdown: UIPickerView!
     
     @IBAction func addButton(_ sender: UIButton) {
         //disease = Disease(diseaseName: dNameInput.text!, severityLevel: severityLevelInput.text!, notes: notesInput.text!)
@@ -45,8 +42,6 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
         //save disease info
         do{
             try disease?.managedObjectContext?.save()
-            self.navigationController?.dismiss(animated: true, completion: nil)
-            
         } catch {
             print("Error here")
         }
@@ -76,11 +71,17 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         print ("name :\(insertedPatient?.name)")
+        notesInput!.layer.borderWidth = 0.5
+        notesInput!.layer.borderColor = UIColor.init(red: 213.0/255.0, green: 213.0/255.0, blue: 213.0/255.0, alpha: 1).cgColor
+
+        
+        addbtn.backgroundColor = UIColor.init(red: 21.0/255.0, green: 126.0/255.0, blue: 251.0/255.0, alpha: 1)
+        removebtn.backgroundColor = UIColor.init(red: 21.0/255.0, green: 126.0/255.0, blue: 251.0/255.0, alpha: 1)
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -88,11 +89,6 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        /*
-         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
-         cell.textLabel?.text = diseases[indexPath.row]
-         return cell;*/
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath) as! DiseaseTableViewCell
         cell.diseaseLabel.text = diseases[indexPath.row].diseaseName
         cell.severityLabel.text = diseases[indexPath.row].diseaseSeverity
@@ -105,19 +101,8 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        //let patientInfo = Patient(context: context!)
         let diseaseInfo = Disease(context: context!)
         if editingStyle == .delete {
-//            patientInfo.managedObjectContext?.delete(diseases[indexPath.row])
-//            do {
-//                try patientInfo.managedObjectContext?.save()
-//                diseases.remove(at: indexPath.row)
-//                tableView.deleteRows(at: [indexPath], with: .fade)
-//            } catch {
-//                let saveError = error as NSError
-//                print(saveError)
-//            }
-//
             diseaseInfo.managedObjectContext?.delete(diseases[tableRow!])
             do {
                 try diseaseInfo.managedObjectContext?.save()
@@ -131,21 +116,19 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
         
     }
     
-    ///////////////////////
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         dNameInput.resignFirstResponder()
         severityLevelInput.resignFirstResponder()
         notesInput.resignFirstResponder()
-        
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        
-        return 1
     }
     
     /*
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         var countrows : Int = diseaseList.count
         if (pickerView == severityLevelDropdown) {
@@ -179,33 +162,10 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
         }
     }*/
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        /*
-        if(textField == self.dNameTextField){
-            self.dNameDropdown.isHidden = false
-            textField.endEditing(true)
-        }
-        else if(textField == self.severityLevelInput){
-            self.severityLevelDropdown.isHidden = false
-            textField.endEditing(true)
-        }*/
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        
-        //Go to patientTab
-        let view = segue.destination as! UITabBarController
-        let controller = view.viewControllers![1] as! PatientTab
-        controller.patient = insertedPatient
-        
         let backItem = UIBarButtonItem()
         backItem.title = "List"
         navigationItem.backBarButtonItem = backItem
-        
-        
-        // This will show in the next view controller being pushed
-        
     }
     
     
