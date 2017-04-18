@@ -773,7 +773,11 @@
         <image name="patient-1" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+<<<<<<< HEAD
         <segue reference="r3d-IE-0jx"/>
         <segue reference="1s0-SF-Gk8"/>
+=======
+        <segue reference="27a-6X-qAM"/>
+>>>>>>> master
     </inferredMetricsTieBreakers>
 </document>
