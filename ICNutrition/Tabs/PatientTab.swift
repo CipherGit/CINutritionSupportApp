@@ -8,17 +8,13 @@
 
 import UIKit
 
-class PatientTab: UIViewController {
+class PatientTab: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var patient : Patient?
+    var patientInformation : [String]!
+    var patientLabel : [String]!
     
-    @IBOutlet weak var nameText: UILabel!
-    @IBOutlet weak var genderText: UILabel!
-    @IBOutlet weak var ageText: UILabel!
-    @IBOutlet weak var weightText: UILabel!
-    @IBOutlet weak var heightText: UILabel!
-    @IBOutlet weak var admittedDate: UILabel!
-    @IBOutlet weak var icuWardText: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,16 +22,21 @@ class PatientTab: UIViewController {
         let tabCont = self.tabBarController  as! IcuTabController
         patient = tabCont.selectedPatient
         
+        patientLabel = ["Name","Gender","Age","Weight","Height","ICU Ward"]
+        
+        let  name = patient?.name
+        
+        let gender = patient?.gender
+        let age = String(describing: patient!.age)
+        
+        let weightText = String(describing: patient!.weight)
+        let heightText = String(describing: patient!.height)
+        
+        let icuWardText = patient!.patientToOne_Ward?.wardName
+        
+        patientInformation = [name!, gender!, age, weightText, heightText,icuWardText!]
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(addTapped))
-        nameText.text = patient?.name
-        genderText.text = patient?.gender
-        ageText.text = String(describing: patient!.age)
-        
-        weightText.text! = String(describing: patient!.weight)
-        
-        heightText.text! = String(describing: patient!.height)
-        
-        icuWardText.text = String(describing: patient!.patientToOne_Ward)
     }
     
     func addTapped(){
@@ -46,7 +47,22 @@ class PatientTab: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return self.patientInformation.count
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: "ElementCell")
+        
+        cell.textLabel?.text = self.patientLabel[indexPath.row]
+        
+        
+        cell.detailTextLabel?.text = self.patientInformation[indexPath.row]
+        return cell
+    
+    }
     /*
     // MARK: - Navigation
 
