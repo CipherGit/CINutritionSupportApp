@@ -25,8 +25,8 @@ class SummaryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
         //Retrieve patient and diseases
         selectedPatient = (tabBarController as! IcuTabController).selectedPatient
+        print(selectedPatient?.name)
         diseases = selectedPatient?.patientToMany_Disease?.allObjects as! [Disease]
-        
         //Combine disease information and tokenize
         for disease in diseases {
             let diseaseTokens = disease.diseaseName?.components(separatedBy: " ")

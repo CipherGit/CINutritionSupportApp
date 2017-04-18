@@ -14,6 +14,8 @@ class DiseaseTab: UIViewController, UITableViewDelegate, UITableViewDataSource
     var selectedPatient : Patient?
     var disease: Disease?
     var diseases = Array<Disease>()
+    //@IBOutlet weak var diseaseTableView: UITableView!
+    
     @IBOutlet weak var diseaseTableView: UITableView!
     
     override func viewDidLoad() {
@@ -28,6 +30,7 @@ class DiseaseTab: UIViewController, UITableViewDelegate, UITableViewDataSource
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return (diseases.count)
     }
@@ -38,7 +41,7 @@ class DiseaseTab: UIViewController, UITableViewDelegate, UITableViewDataSource
          cell.textLabel?.text = diseases[indexPath.row]
          return cell;*/
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath) as! DiseaseTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell1",for: indexPath) as! DiseaseTableViewCell
         cell.diseaseLabel.text = diseases[indexPath.row].diseaseName
         cell.severityLabel.text = diseases[indexPath.row].diseaseSeverity
         cell.notesLabel.text = diseases[indexPath.row].diseaseNotes
