@@ -126,7 +126,7 @@ class GuidelinesContent: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredGuidelines = guidelines.filter({ ($0.shortDesc?.contains(searchText))!})
+        filteredGuidelines = guidelines.filter({ ($0.glToOne_Index?.keywords?.contains(searchText))! || ($0.shortDesc?.contains(searchText))!})
         if(filteredGuidelines.count == 0){
             searchActive = false
         } else {

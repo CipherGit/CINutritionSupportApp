@@ -10,11 +10,13 @@ import UIKit
 import CoreData
 import Foundation
 
-class SummaryTab: UIViewController {
+class SummaryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     var selectedPatient : Patient?
     var diseases = [Disease]()
     var guidelines = [Guideline]()
+    var recommended = Set<Guideline>()
+    var recArr = [Guideline]()
     var tokenizedWords = [String]()
     
     @IBOutlet weak var Label: UILabel!
@@ -28,9 +30,9 @@ class SummaryTab: UIViewController {
         //Combine disease information and tokenize
         for disease in diseases {
             let diseaseTokens = disease.diseaseName?.components(separatedBy: " ")
-            let notesTokens = disease.diseaseNotes?.components(separatedBy: " ")
-            let combinedTokens = diseaseTokens! + notesTokens!
-            let tokenSet = Set(combinedTokens)
+            //let notesTokens = disease.diseaseNotes?.components(separatedBy: " ")
+            //let combinedTokens = diseaseTokens! + notesTokens!
+            let tokenSet = Set(diseaseTokens!)
             for token in tokenSet {
                 tokenizedWords.append(token)
             }
@@ -50,8 +52,32 @@ class SummaryTab: UIViewController {
         //Retrieve Guidelines
         retrieveGuidelines()
         
+        //Filter out Guidelines
+        for word in tokenizedWords {
+            print (word)
+            let gfilter = guidelines.filter({ ($0.glToOne_Index?.keywords?.contains(word))! || ($0.shortDesc?.contains(word))!})
+            for gline in gfilter {
+                recommended.insert(gline)
+            }
+        }
+        
+        //Convert to Array for easier access
+        recArr = Array(recommended)
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return recommended.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recCell", for: indexPath)
+        cell.textLabel?.text = recArr[indexPath.row].shortDesc
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        NSLog("Hello")
+    }
     
     func retrieveGuidelines(){
         let context = self.context
@@ -68,7 +94,6 @@ class SummaryTab: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-   
     /*
     // MARK: - Navigation
 
