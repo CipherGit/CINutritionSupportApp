@@ -2,7 +2,7 @@
 //  Patient+CoreDataClass.swift
 //  ICNutrition
 //
-//  Created by LwinLwin Oo on 30/3/17.
+//  Created by Justin Peña on 17/4/17.
 //  Copyright © 2017 Cipher. All rights reserved.
 //
 

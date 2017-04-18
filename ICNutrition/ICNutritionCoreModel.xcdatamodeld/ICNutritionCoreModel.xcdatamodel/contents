@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="15G31" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Calculator" representedClassName="Calculator" syncable="YES">
         <attribute name="calcID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="calcName" optional="YES" attributeType="String" syncable="YES"/>
@@ -17,7 +17,7 @@
     <entity name="GLSource" representedClassName="GLSource" syncable="YES">
         <attribute name="glName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="glSourceID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="glsToMany_gl" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Guideline" inverseName="glToOne_GLSource" inverseEntity="Guideline" syncable="YES"/>
+        <relationship name="glsToMany_gl" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Guideline" inverseName="glToOne_GLSource" inverseEntity="Guideline" syncable="YES"/>
     </entity>
     <entity name="Guideline" representedClassName="Guideline" syncable="YES">
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
@@ -46,6 +46,7 @@
         <attribute name="gender" attributeType="String" syncable="YES"/>
         <attribute name="height" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="nType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="patientID" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="weight" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="patientToMany_Disease" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Disease" inverseName="disToOne_Patient" inverseEntity="Disease" syncable="YES"/>
@@ -58,13 +59,13 @@
         <relationship name="recToOne_Patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="patientToMany_Rec" inverseEntity="Patient" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Calculator" positionX="-74" positionY="360" width="128" height="118"/>
+        <element name="Calculator" positionX="9" positionY="296" width="128" height="118"/>
         <element name="Disease" positionX="-441" positionY="-9" width="126" height="118"/>
         <element name="GLSource" positionX="-443" positionY="252" width="128" height="88"/>
-        <element name="Guideline" positionX="-270" positionY="216" width="128" height="103"/>
+        <element name="Guideline" positionX="-272" positionY="225" width="128" height="178"/>
         <element name="ICUWard" positionX="-432" positionY="135" width="126" height="88"/>
-        <element name="Index" positionX="-443" positionY="360" width="128" height="88"/>
-        <element name="Patient" positionX="-270" positionY="-10" width="128" height="195"/>
-        <element name="Recommendation" positionX="-65" positionY="144" width="128" height="73"/>
+        <element name="Index" positionX="-443" positionY="387" width="128" height="88"/>
+        <element name="Patient" positionX="-270" positionY="-10" width="128" height="210"/>
+        <element name="Recommendation" positionX="-54" positionY="44" width="128" height="73"/>
     </elements>
 </model>

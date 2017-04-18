@@ -68,17 +68,10 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
         let request : NSFetchRequest<Patient> = Patient.fetchRequest()
         do{
             self.patients = try (context!.fetch(request)) as [Patient]
-            
         }catch{
             let fetchError = error as NSError
             print(fetchError)
         }
-        print("In fetch data method")
-        for patient1 in patients{
-            print("name value value\(patient1.name)")
-        }
-        
-        
         self.tableView.reloadData()
     }
     
@@ -131,12 +124,10 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
         let backItem = UIBarButtonItem()
         backItem.title = "List"
         navigationItem.backBarButtonItem = backItem
-        
+
         if(segue.identifier == "TabBarSegue") {
-            print("In TabBarSegue")
-            let tabBarController : UITabBarController = segue.destination as! UITabBarController
-            let targetViewController : GuidelinesTab = tabBarController.viewControllers?[4] as! GuidelinesTab
-            targetViewController.targetPatient = sender as? Patient
+            let tabBarController : IcuTabController = segue.destination as! IcuTabController
+            tabBarController.selectedPatient = sender as? Patient
         }
     }
     
