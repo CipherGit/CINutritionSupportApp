@@ -106,6 +106,12 @@ class PatientInfo: UIViewController {
         
         if selectedPatient != nil {
             fillFromPatient(patient: selectedPatient!)
+            var diseases = Array<Disease>()
+            diseases = selectedPatient?.patientToMany_Disease?.allObjects as! [Disease]
+            var test: Disease?
+            for test in diseases{
+                print("disease \(test.diseaseID)")
+            }
         }
         
         createDatePicker()
@@ -114,6 +120,8 @@ class PatientInfo: UIViewController {
         self.weightInput.keyboardType = .numberPad
         self.heightInput.keyboardType = .numberPad
         self.icuInput.keyboardType = .numberPad
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -244,7 +252,7 @@ class PatientInfo: UIViewController {
         DestViewController.insertedPatient = patientInfo
 //
         let backItem = UIBarButtonItem()
-        backItem.title = "List"
+        backItem.title = "Patient"
         navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
         
     }
