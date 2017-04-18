@@ -9,11 +9,14 @@
 import UIKit
 import CoreData
 
-class GuidelinesTab: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class GuidelinesTab: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     var selectedPatient : Patient?
-    var guidelineSources = Array<GLSource>();
+    var guidelineSources = [GLSource]()
+    var glsFiltered = [GLSource]()
+    var searchActive : Bool = false
     @IBOutlet weak var glsTable: UITableView!
+    @IBOutlet weak var glsSearchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +29,11 @@ class GuidelinesTab: UIViewController, UITableViewDelegate, UITableViewDataSourc
             NSLog(glSource.glName!)
         }
         
-        //Set the Delagate and Data Source for the Table
+        //Set the Delagate and Data Source for the table and search bar
         glsTable.delegate = self
         glsTable.dataSource = self
+        glsSearchBar.delegate = self
         
-        // Do any additional setup after loading the view.
     }
     
     func fetchGLSources(){
@@ -38,7 +41,6 @@ class GuidelinesTab: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let request : NSFetchRequest<GLSource> = GLSource.fetchRequest()
         do{
             guidelineSources = try (context!.fetch(request)) as [GLSource]
-            NSLog("Loaded GLSources")
         }catch{
             let fetchError = error as NSError
             NSLog(fetchError.localizedDescription)
@@ -46,18 +48,32 @@ class GuidelinesTab: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return guidelineSources.count
+        if !searchActive {
+            return guidelineSources.count
+        } else {
+            return glsFiltered.count
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "glSourceCell", for: indexPath) as UITableViewCell
-        cell.textLabel?.text = guidelineSources[indexPath.row].glName
+        if !searchActive {
+            cell.textLabel?.text = guidelineSources[indexPath.row].glName
+        } else {
+            cell.textLabel?.text = glsFiltered[indexPath.row].glName
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NSLog(guidelineSources[indexPath.row].glName!)
-        performSegue(withIdentifier: "glContentsSegue", sender: guidelineSources[indexPath.row])
+        var data : GLSource
+        if !searchActive {
+            data = guidelineSources[indexPath.row]
+        } else {
+            data = glsFiltered[indexPath.row]
+        }
+        performSegue(withIdentifier: "glContentsSegue", sender: data)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -70,11 +86,33 @@ class GuidelinesTab: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true;
+    }
     
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        glsFiltered = guidelineSources.filter({($0.glName?.contains(searchText))!})
+        if glsFiltered.count == 0 {
+            searchActive = false
+        } else {
+            searchActive = true
+        }
+        glsTable.reloadData()
+    }
 
     /*
     // MARK: - Navigation

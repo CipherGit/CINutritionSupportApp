@@ -13,6 +13,9 @@
 		820C18001E77D46700C2B020 /* DiseaseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C17FF1E77D46700C2B020 /* DiseaseInfo.swift */; };
 		820C18041E77E05400C2B020 /* DiseaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C18031E77E05400C2B020 /* DiseaseTableViewCell.swift */; };
 		DE0936191EA4C30D0027B201 /* IcuTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0936181EA4C30D0027B201 /* IcuTabController.swift */; };
+		DE0936201EA4EC970027B201 /* Patient+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE09361E1EA4EC970027B201 /* Patient+CoreDataClass.swift */; };
+		DE0936211EA4EC970027B201 /* Patient+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE09361F1EA4EC970027B201 /* Patient+CoreDataProperties.swift */; };
+		DE0936231EA4F6910027B201 /* IcuSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0936221EA4F6910027B201 /* IcuSearchController.swift */; };
 		DE6504841E87609600410B34 /* CalculatorsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE65047F1E87609600410B34 /* CalculatorsTab.swift */; };
 		DE6504851E87609600410B34 /* DiseaseTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6504801E87609600410B34 /* DiseaseTab.swift */; };
 		DE6504861E87609600410B34 /* GuidelinesTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6504811E87609600410B34 /* GuidelinesTab.swift */; };
@@ -45,14 +48,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+<<<<<<< HEAD
 		8200A7A91EA4E470006E3C2B /* Patient+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Patient+CoreDataClass.swift"; path = "CoreData/Patient+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8200A7AA1EA4E470006E3C2B /* Patient+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Patient+CoreDataProperties.swift"; path = "CoreData/Patient+CoreDataProperties.swift"; sourceTree = "<group>"; };
+=======
+>>>>>>> master
 		820C17FF1E77D46700C2B020 /* DiseaseInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiseaseInfo.swift; sourceTree = "<group>"; };
 		820C18031E77E05400C2B020 /* DiseaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiseaseTableViewCell.swift; sourceTree = "<group>"; };
 		A8088D81B04F2ADC027702F4 /* Pods-ICNutrition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ICNutrition.release.xcconfig"; path = "Pods/Target Support Files/Pods-ICNutrition/Pods-ICNutrition.release.xcconfig"; sourceTree = "<group>"; };
 		C69DE7884F61511D73BBE6E8 /* Pods-ICNutrition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ICNutrition.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ICNutrition/Pods-ICNutrition.debug.xcconfig"; sourceTree = "<group>"; };
 		D5F43509DDF251D36C8ADF4A /* Pods_ICNutrition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ICNutrition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0936181EA4C30D0027B201 /* IcuTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IcuTabController.swift; sourceTree = "<group>"; };
+		DE09361E1EA4EC970027B201 /* Patient+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Patient+CoreDataClass.swift"; path = "CoreData/Patient+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DE09361F1EA4EC970027B201 /* Patient+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Patient+CoreDataProperties.swift"; path = "CoreData/Patient+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DE0936221EA4F6910027B201 /* IcuSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IcuSearchController.swift; sourceTree = "<group>"; };
 		DE65047F1E87609600410B34 /* CalculatorsTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorsTab.swift; sourceTree = "<group>"; };
 		DE6504801E87609600410B34 /* DiseaseTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiseaseTab.swift; sourceTree = "<group>"; };
 		DE6504811E87609600410B34 /* GuidelinesTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuidelinesTab.swift; sourceTree = "<group>"; };
@@ -156,6 +165,7 @@
 				820C18031E77E05400C2B020 /* DiseaseTableViewCell.swift */,
 				DEDD118A1E5F844A006DF4CF /* PatientInfo.swift */,
 				DEDD11751E5F7068006DF4CF /* PatientList.swift */,
+				DE0936221EA4F6910027B201 /* IcuSearchController.swift */,
 				DE0936181EA4C30D0027B201 /* IcuTabController.swift */,
 				DEDD117D1E5F7068006DF4CF /* Assets.xcassets */,
 				DEDD117F1E5F7068006DF4CF /* LaunchScreen.storyboard */,
@@ -169,6 +179,8 @@
 		DEE272031E88261A0084082A /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				DE09361E1EA4EC970027B201 /* Patient+CoreDataClass.swift */,
+				DE09361F1EA4EC970027B201 /* Patient+CoreDataProperties.swift */,
 				DE733F801EA3910800328761 /* GLSource+CoreDataClass.swift */,
 				8200A7A91EA4E470006E3C2B /* Patient+CoreDataClass.swift */,
 				8200A7AA1EA4E470006E3C2B /* Patient+CoreDataProperties.swift */,
@@ -326,11 +338,16 @@
 			files = (
 				820C18001E77D46700C2B020 /* DiseaseInfo.swift in Sources */,
 				DE0936191EA4C30D0027B201 /* IcuTabController.swift in Sources */,
+				DE0936231EA4F6910027B201 /* IcuSearchController.swift in Sources */,
 				DEE272141E8826470084082A /* ICUWard+CoreDataClass.swift in Sources */,
 				820C18041E77E05400C2B020 /* DiseaseTableViewCell.swift in Sources */,
 				DEDD11761E5F7068006DF4CF /* PatientList.swift in Sources */,
 				DE6504841E87609600410B34 /* CalculatorsTab.swift in Sources */,
+<<<<<<< HEAD
 				8200A7AB1EA4E470006E3C2B /* Patient+CoreDataClass.swift in Sources */,
+=======
+				DE0936201EA4EC970027B201 /* Patient+CoreDataClass.swift in Sources */,
+>>>>>>> master
 				DEE272151E8826470084082A /* ICUWard+CoreDataProperties.swift in Sources */,
 				DEE2721A1E8826470084082A /* Recommendation+CoreDataClass.swift in Sources */,
 				DEE272251E8826D80084082A /* CoreDataManagedObject.swift in Sources */,
@@ -340,7 +357,11 @@
 				DE733F831EA3910800328761 /* GLSource+CoreDataProperties.swift in Sources */,
 				DE6504861E87609600410B34 /* GuidelinesTab.swift in Sources */,
 				DEE272021E881B490084082A /* ICNutritionCoreModel.xcdatamodeld in Sources */,
+<<<<<<< HEAD
 				8200A7AC1EA4E470006E3C2B /* Patient+CoreDataProperties.swift in Sources */,
+=======
+				DE0936211EA4EC970027B201 /* Patient+CoreDataProperties.swift in Sources */,
+>>>>>>> master
 				DEE272231E8826470084082A /* Index+CoreDataProperties.swift in Sources */,
 				DEE272161E8826470084082A /* Disease+CoreDataClass.swift in Sources */,
 				DEE2721B1E8826470084082A /* Recommendation+CoreDataProperties.swift in Sources */,

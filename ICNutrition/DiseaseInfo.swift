@@ -77,7 +77,6 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
         
         addbtn.backgroundColor = UIColor.init(red: 21.0/255.0, green: 126.0/255.0, blue: 251.0/255.0, alpha: 1)
         removebtn.backgroundColor = UIColor.init(red: 21.0/255.0, green: 126.0/255.0, blue: 251.0/255.0, alpha: 1)
-        
     }
     
     override func didReceiveMemoryWarning() {

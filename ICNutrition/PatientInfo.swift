@@ -206,9 +206,6 @@ class PatientInfo: UIViewController {
                 patientInfo?.weight = Int16(weightInput.text!)!
                 patientInfo?.admitDate = dateFormatter.date(from: dateInput.text!)! as NSDate?
                 
-                //print date data
-                print("Date value\(patientInfo?.admitDate)")
-                
                 do{
                     try patientInfo?.managedObjectContext?.save()
                     //self.updateClosure!(patientInfo)
