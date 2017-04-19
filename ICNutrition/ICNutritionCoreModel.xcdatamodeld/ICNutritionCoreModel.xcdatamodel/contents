@@ -54,6 +54,7 @@
         <relationship name="patientToOne_Ward" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ICUWard" inverseName="wardToOne_Patient" inverseEntity="ICUWard" syncable="YES"/>
     </entity>
     <entity name="PatientCalculation" representedClassName=".PatientCalculation" syncable="YES">
+        <attribute name="formula" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="input" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="output" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="ptcToCalc" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Calculator" inverseName="calcToMany_ptc" inverseEntity="Calculator" syncable="YES"/>
@@ -73,6 +74,6 @@
         <element name="Index" positionX="-443" positionY="387" width="128" height="88"/>
         <element name="Patient" positionX="-270" positionY="-10" width="128" height="225"/>
         <element name="Recommendation" positionX="-54" positionY="44" width="128" height="73"/>
-        <element name="PatientCalculation" positionX="-234" positionY="144" width="128" height="105"/>
+        <element name="PatientCalculation" positionX="9" positionY="153" width="128" height="118"/>
     </elements>
 </model>

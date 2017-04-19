@@ -14,6 +14,7 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var selectedCalculator : Calculator?
     var calculatorInstance : CalculatorProtocol?
     var ptcInfo : PatientCalculation?
+    var ptcInfoAll : [PatientCalculation]?
     var options : [String : [String]] = [:]
     
     var outUI: [String : UILabel] = [:]
@@ -32,6 +33,13 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
         super.viewDidLoad()
         
         selectedPatient = (tabBarController as! IcuTabController).selectedPatient
+        ptcInfoAll = selectedPatient?.patientToMany_Ptc?.allObjects as? [PatientCalculation]
+        for ptc in ptcInfoAll! {
+            if(ptc.ptcToCalc?.calcName == selectedCalculator?.calcName){
+                ptcInfo = ptc
+                break
+            }
+        }
         
         //Log the calculator received
         NSLog("Calculator Name: %@", selectedCalculator?.calcName ?? "No Calculator")
@@ -51,6 +59,7 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
         //Create UI Based on the calculator
         input = (calculatorInstance?.input)!
         output = (calculatorInstance?.output)!
+        loadFromDb()
         
         //Find longest label in input for uniform field width
         for (key, _) in input {
@@ -101,7 +110,7 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         let frmField = UITextField(frame: CGRect(x: frmX+longestLabel+10, y: frmY+currentstep-(height/4), width: Int(screenWidth - CGFloat(longestLabel + stepVal)) , height: height))
         frmField.borderStyle = UITextBorderStyle.roundedRect
-        frmField.text = calculatorInstance?.formulas[0]
+        frmField.text = ptcInfo?.formula ?? calculatorInstance?.formulas[0]
         
         let frmPicker = UIPickerView()
         frmPicker.delegate = self
@@ -311,6 +320,7 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
             value.sizeToFit()
         }
         scrollView.setContentOffset(CGPoint.zero, animated: true)
+        saveToDb()
     }
     
     func saveToDb(){
@@ -338,9 +348,11 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
         
         if(ptcInfo == nil){
+            print("no ptcInfo")
             let ptCalc = PatientCalculation(context: context!)
             ptCalc.input = inputData
             ptCalc.output = outputData
+            ptCalc.formula = pickUI["Formulas"]?.0.text
             selectedPatient?.addToPatientToMany_Ptc(ptCalc)
             selectedCalculator?.addToCalcToMany_ptc(ptCalc)
             do{
@@ -353,8 +365,10 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 NSLog(fetchError.localizedDescription)
             }
         } else {
+            print("ptcInfo")
             ptcInfo?.input = inputData
             ptcInfo?.output = outputData
+            ptcInfo?.formula = pickUI["Formulas"]?.0.text
             do{
                 try ptcInfo?.context?.save()
             } catch {
@@ -364,6 +378,22 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
             }
         }
 
+    }
+    
+    func loadFromDb(){
+        let inputKV = ptcInfo?.input?.components(separatedBy: ",")
+        for inputPair in inputKV! {
+            let pair  = inputPair.components(separatedBy: ":")
+            print("input " + pair[0] + " " + pair[1])
+            input[pair[0]]?.value=pair[1]
+        }
+        
+        let outputKV = ptcInfo?.output?.components(separatedBy: ",")
+        for outputPair in outputKV! {
+            let pair  = outputPair.components(separatedBy: ":")
+            print("output " + pair[0] + " " + pair[1])
+            output[pair[0]]?.value=pair[1]
+        }
     }
     
     /*

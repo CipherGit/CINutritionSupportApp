@@ -18,6 +18,7 @@ extension PatientCalculation {
 
     @NSManaged public var input: String?
     @NSManaged public var output: String?
+    @NSManaged public var formula: String?
     @NSManaged public var ptcToPatient: Patient?
     @NSManaged public var ptcToCalc: Calculator?
 
