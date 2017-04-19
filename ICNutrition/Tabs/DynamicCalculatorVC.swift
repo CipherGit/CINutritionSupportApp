@@ -13,6 +13,7 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var selectedPatient : Patient?
     var selectedCalculator : Calculator?
     var calculatorInstance : CalculatorProtocol?
+    var ptcInfo : PatientCalculation?
     var options : [String : [String]] = [:]
     
     var outUI: [String : UILabel] = [:]
@@ -310,6 +311,59 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
             value.sizeToFit()
         }
         scrollView.setContentOffset(CGPoint.zero, animated: true)
+    }
+    
+    func saveToDb(){
+        
+        var inputData:String = ""
+        var first = false
+        for (key, value) in input {
+            if(!first){
+                inputData += key+":"+value.value
+                first = true
+                continue
+            }
+            inputData += ","+key+":"+value.value
+        }
+        
+        var outputData:String = ""
+        first = false
+        for (key, value) in output {
+            if(!first){
+                outputData += key+":"+value.value
+                first = true
+                continue
+            }
+            outputData += ","+key+":"+value.value
+        }
+        
+        if(ptcInfo == nil){
+            let ptCalc = PatientCalculation(context: context!)
+            ptCalc.input = inputData
+            ptCalc.output = outputData
+            selectedPatient?.addToPatientToMany_Ptc(ptCalc)
+            selectedCalculator?.addToCalcToMany_ptc(ptCalc)
+            do{
+                try ptCalc.context?.save()
+                try selectedPatient?.context?.save()
+                try selectedCalculator?.context?.save()
+            } catch {
+                let fetchError = error as NSError
+                NSLog("Failed to save calculation input")
+                NSLog(fetchError.localizedDescription)
+            }
+        } else {
+            ptcInfo?.input = inputData
+            ptcInfo?.output = outputData
+            do{
+                try ptcInfo?.context?.save()
+            } catch {
+                let fetchError = error as NSError
+                NSLog("Failed to save calculation input")
+                NSLog(fetchError.localizedDescription)
+            }
+        }
+
     }
     
     /*

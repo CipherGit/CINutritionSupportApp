@@ -2,7 +2,7 @@
 //  Patient+CoreDataProperties.swift
 //  ICNutrition
 //
-//  Created by Justin Peña on 17/4/17.
+//  Created by Justin Peña on 20/4/17.
 //  Copyright © 2017 Cipher. All rights reserved.
 //
 
@@ -21,12 +21,13 @@ extension Patient {
     @NSManaged public var gender: String?
     @NSManaged public var height: Int16
     @NSManaged public var name: String?
+    @NSManaged public var nType: String?
     @NSManaged public var patientID: Int64
     @NSManaged public var weight: Int16
-    @NSManaged public var nType: String?
     @NSManaged public var patientToMany_Disease: NSSet?
     @NSManaged public var patientToMany_Rec: NSSet?
     @NSManaged public var patientToOne_Ward: ICUWard?
+    @NSManaged public var patientToMany_Ptc: NSSet?
 
 }
 
@@ -61,5 +62,22 @@ extension Patient {
 
     @objc(removePatientToMany_Rec:)
     @NSManaged public func removeFromPatientToMany_Rec(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for patientToMany_Ptc
+extension Patient {
+
+    @objc(addPatientToMany_PtcObject:)
+    @NSManaged public func addToPatientToMany_Ptc(_ value: PatientCalculation)
+
+    @objc(removePatientToMany_PtcObject:)
+    @NSManaged public func removeFromPatientToMany_Ptc(_ value: PatientCalculation)
+
+    @objc(addPatientToMany_Ptc:)
+    @NSManaged public func addToPatientToMany_Ptc(_ values: NSSet)
+
+    @objc(removePatientToMany_Ptc:)
+    @NSManaged public func removeFromPatientToMany_Ptc(_ values: NSSet)
 
 }
