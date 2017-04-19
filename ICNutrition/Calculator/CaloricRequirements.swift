@@ -71,23 +71,23 @@ class CaloricRequirementCalculator : CalculatorProtocol {
             actKeyString +=  "," + key
         }
         
-        input = ["Age" : (value:"", type:"numeric", option:""),
-                 "Height" : (value:"", type:"numeric", option:""),
-                 "Weight" : (value:"", type:"numeric", option:""),
-                 "Gender" : (value:"", type:"string", option:"male,female"),
-                 "Activity Factor" : (value:"",type:"string", option:actKeyString),
-                 "Injury Factor" : (value:"",type:"string", option:injuryKeyString),
-                 "Carbohydrates" : (value:"",type:"slider", option:""),
-                 "Protein" : (value:"",type:"slider", option:""),
-                 "Fat" : (value:"",type:"slider", option:"")
+        input = ["Age" : (value:"0", type:"numeric", option:""),
+                 "Height" : (value:"0", type:"numeric", option:""),
+                 "Weight" : (value:"0", type:"numeric", option:""),
+                 "Gender" : (value:"0", type:"string", option:"male,female"),
+                 "Activity Factor" : (value:"Bedridden",type:"string", option:actKeyString),
+                 "Injury Factor" : (value:"Normal",type:"string", option:injuryKeyString),
+                 "Carbohydrates" : (value:"70",type:"slider", option:""),
+                 "Protein" : (value:"15",type:"slider", option:""),
+                 "Fat" : (value:"15",type:"slider", option:"")
         ]
         
-        output = ["BMI" : (value:"", units:""),
-                  "BMR" : (value:"", units:"kcal/d"),
-                  "TDEE" : (value:"", units:"kcal/d"),
-                  "Carbs" : (value:"", units:"grams"),
-                  "Proteins" : (value:"", units:"grams"),
-                  "Fats" : (value:"", units:"grams")
+        output = ["BMI" : (value:"0", units:""),
+                  "BMR" : (value:"0", units:"kcal/d"),
+                  "TDEE" : (value:"0", units:"kcal/d"),
+                  "Carbs" : (value:"0", units:"grams"),
+                  "Proteins" : (value:"0", units:"grams"),
+                  "Fats" : (value:"0", units:"grams")
         ]
     }
     

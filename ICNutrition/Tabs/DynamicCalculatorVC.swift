@@ -18,7 +18,7 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var numericTextfield: [String : UITextField] = [:]
     var pickUI: [String : (UITextField, UIPickerView)] = [:]
     var segUI: [String : UISegmentedControl] = [:]
-    var slidUI: [String : UISlider] = [:]
+    var slidUI: [String : (UILabel, UISlider)] = [:]
     var longestLabel : Int = 0
 
     override func viewDidLoad() {
@@ -33,6 +33,10 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
         switch (selectedCalculator?.calcName)! {
         case "Caloric Requirements":
             calculatorInstance = CaloricRequirementCalculator()
+            calculatorInstance?.input["Age"]?.value = String((selectedPatient?.age)!)
+            calculatorInstance?.input["Gender"]?.value = String((selectedPatient?.gender)!)
+            calculatorInstance?.input["Weight"]?.value = String((selectedPatient?.weight)!)
+            calculatorInstance?.input["Height"]?.value = String((selectedPatient?.height)!)
         default:
             NSLog("No Calculator Loaded!")
         }
@@ -53,7 +57,7 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
         let numX = 16, numY=100, height = 40
         let screenWidth = UIScreen.main.bounds.width
         var currentstep = 0, latestY = 0, stepVal = 50
-        for (key, _) in numericInputs! {
+        for (key, value) in numericInputs! {
             
             let label = UILabel(frame: CGRect(x: numX, y: numY+currentstep, width: 42, height: height))
             label.text = key + ":"
@@ -63,6 +67,7 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
             
             let myTextField = UITextField(frame: CGRect(x: numX+longestLabel+10, y: numY+currentstep-(height/4), width: Int(screenWidth - CGFloat(longestLabel + stepVal)) , height: height))
             myTextField.borderStyle = UITextBorderStyle.roundedRect
+            myTextField.text = value.value
             myTextField.keyboardType = .numberPad
             self.view.addSubview(myTextField)
             
@@ -79,7 +84,7 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
         //Render all string input fields
         let stringInputs = input?.filter({$0.value.type=="string" && $0.value.option == ""})
         for (key, _) in stringInputs! {
-            print(key)
+            NSLog(key)
         }
         
         //Render all segmented UI fields
@@ -97,16 +102,12 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
             let valArr = value.option.components(separatedBy: ",")
             let customSC = UISegmentedControl(items: valArr)
             customSC.frame = CGRect(x: segX+longestLabel+10, y: segY+currentstep-(height/4), width: Int(screenWidth - CGFloat(longestLabel + stepVal)), height: height)
+            customSC.selectedSegmentIndex = valArr.index(of: value.value)!
             self.view.addSubview(customSC)
             currentstep += stepVal
             latestY = segY+currentstep-(height/4)
             
             segUI.updateValue(customSC, forKey: key)
-            
-            //Find the longest label
-            if(Int(label.frame.width) > longestLabel) {
-                longestLabel = Int(label.frame.width)
-            }
         }
         
         //Render all picker fields
@@ -122,6 +123,7 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
             
             let myTextField = UITextField(frame: CGRect(x: pickX+longestLabel+10, y: pickY+currentstep-(height/4), width: Int(screenWidth - CGFloat(longestLabel + stepVal)) , height: height))
             myTextField.borderStyle = UITextBorderStyle.roundedRect
+            myTextField.text = value.value
             
             let customPicker = UIPickerView()
             customPicker.delegate = self
@@ -135,11 +137,6 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
             
             options.updateValue(value.option.components(separatedBy: ","), forKey: key)
             pickUI.updateValue((myTextField, customPicker), forKey: key)
-            
-            //Find the longest label
-            if(Int(label.frame.width) > longestLabel) {
-                longestLabel = Int(label.frame.width)
-            }
         }
         
         //Render all slider fields
@@ -147,10 +144,10 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
         var extraStep = 20
         currentstep = 0; stepVal = 65
         let sliderInputs = input?.filter({$0.value.type=="slider"})
-        for (key, _) in sliderInputs! {
+        for (key, value) in sliderInputs! {
             
             let label = UILabel(frame: CGRect(x: slidX, y: slidY+currentstep, width: 42, height: height))
-            label.text = key + ":"
+            label.text = key + ": " + value.value + "%"
             label.numberOfLines=1
             label.sizeToFit()
             self.view.addSubview(label)
@@ -158,18 +155,15 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
             let slider=UISlider(frame: CGRect(x: slidX+25, y: slidY+extraStep, width: Int(screenWidth*0.80) , height: height))
             slider.minimumValue = 0
             slider.maximumValue = 100
+            slider.value = Float(value.value)!
+            slider.addTarget(self, action: #selector(sliderValueDidChange), for: .valueChanged)
             
             self.view.addSubview(slider)
             currentstep += stepVal
             extraStep += stepVal
             latestY = pickY+currentstep-(height/4)
             
-            slidUI.updateValue(slider, forKey: key)
-            
-            //Find the longest label
-            if(Int(label.frame.width) > longestLabel) {
-                longestLabel = Int(label.frame.width)
-            }
+            slidUI.updateValue((label, slider), forKey: key)
         }
     }
 
@@ -193,7 +187,7 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         for (key, value) in pickUI {
-            if(value.1 == pickerView){
+            if value.1 == pickerView {
                 return (options[key]?[row])!
             }
         }
@@ -202,11 +196,20 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         for (key, value) in pickUI {
-            if(value.1 == pickerView){
+            if value.1 == pickerView {
                 value.0.text = (options[key]?[row])!
             }
         }
         self.view.endEditing(true)
+    }
+    
+    func sliderValueDidChange(slider: UISlider) {
+        for (key, value) in slidUI {
+            if value.1 == slider {
+                value.0.text = key + ": " + String(Int(slider.value)) + "%"
+                value.0.sizeToFit()
+            }
+        }
     }
     
     /*
