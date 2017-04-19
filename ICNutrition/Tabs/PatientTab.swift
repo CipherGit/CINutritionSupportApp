@@ -14,7 +14,7 @@ class PatientTab: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var patientInformation : [String]!
     var patientLabel : [String]!
     
-    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,12 +35,7 @@ class PatientTab: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let icuWardText = patient!.patientToOne_Ward?.wardName
         
         patientInformation = [name!, gender!, age, weightText, heightText,icuWardText!]
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(addTapped))
-    }
-    
-    func addTapped(){
-        print("tapped here")
+       
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,6 +50,12 @@ class PatientTab: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: "ElementCell")
+        
+        //Non clickable
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        
+        //Deleting the line 
+    
         
         cell.textLabel?.text = self.patientLabel[indexPath.row]
         

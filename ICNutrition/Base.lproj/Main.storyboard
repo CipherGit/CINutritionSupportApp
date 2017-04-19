@@ -417,7 +417,7 @@
             </objects>
             <point key="canvasLocation" x="2966" y="1714"/>
         </scene>
-        <!--Patient-->
+        <!--Title-->
         <scene sceneID="kKR-hz-VDH">
             <objects>
                 <viewController storyboardIdentifier="PatientTab" id="YmU-9f-rrb" customClass="PatientTab" customModule="ICNutrition" customModuleProvider="target" sceneMemberID="viewController">
@@ -429,8 +429,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RLm-ee-WyD">
-                                <rect key="frame" x="0.0" y="64" width="375" height="425"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RLm-ee-WyD">
+                                <rect key="frame" x="0.0" y="64" width="375" height="362"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -468,6 +468,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Patient" image="patient-1" id="7Pc-xi-CZd"/>
+                    <navigationItem key="navigationItem" title="Title" id="KG4-HY-Iri">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="fqf-QM-Qdg"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o6k-Th-cLQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
