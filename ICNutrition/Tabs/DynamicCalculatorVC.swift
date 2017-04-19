@@ -20,6 +20,8 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var segUI: [String : UISegmentedControl] = [:]
     var slidUI: [String : (UILabel, UISlider)] = [:]
     var longestLabel : Int = 0
+    
+    let scrollView = UIScrollView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +56,7 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
         
         //Render Calculator Name
-        let outX = 16, outY=75, height = 40
+        let outX = 16, outY=25, height = 40
         let screenWidth = UIScreen.main.bounds.width
         var currentstep = 50, latestY = 0, stepVal = 50, separator = 0
         let calcName = UILabel()
@@ -62,7 +64,7 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
         calcName.text = selectedCalculator?.calcName
         calcName.font = UIFont.boldSystemFont(ofSize: calcName.font.pointSize)
         calcName.sizeToFit()
-        self.view.addSubview(calcName)
+        scrollView.addSubview(calcName)
         
         //Render output fields
         for (key, value) in output! {
@@ -77,7 +79,7 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
             label.numberOfLines=1
             label.font = UIFont.boldSystemFont(ofSize: label.font.pointSize)
             label.sizeToFit()
-            self.view.addSubview(label)
+            scrollView.addSubview(label)
             separator += 1
             
             latestY = outY+currentstep-(height/4)
@@ -93,13 +95,13 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
             label.text = key + ":"
             label.numberOfLines=1
             label.sizeToFit()
-            self.view.addSubview(label)
+            scrollView.addSubview(label)
             
             let myTextField = UITextField(frame: CGRect(x: numX+longestLabel+10, y: numY+currentstep-(height/4), width: Int(screenWidth - CGFloat(longestLabel + stepVal)) , height: height))
             myTextField.borderStyle = UITextBorderStyle.roundedRect
             myTextField.text = value.value
             myTextField.keyboardType = .numberPad
-            self.view.addSubview(myTextField)
+            scrollView.addSubview(myTextField)
             
             numericTextfield.updateValue(myTextField, forKey: key)
             currentstep += stepVal
@@ -122,13 +124,13 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
             label.text = key + ":"
             label.numberOfLines=1
             label.sizeToFit()
-            self.view.addSubview(label)
+            scrollView.addSubview(label)
             
             let valArr = value.option.components(separatedBy: ",")
             let customSC = UISegmentedControl(items: valArr)
             customSC.frame = CGRect(x: segX+longestLabel+10, y: segY+currentstep-(height/4), width: Int(screenWidth - CGFloat(longestLabel + stepVal)), height: height)
             customSC.selectedSegmentIndex = valArr.index(of: value.value)!
-            self.view.addSubview(customSC)
+            scrollView.addSubview(customSC)
             currentstep += stepVal
             latestY = segY+currentstep-(height/4)
             
@@ -144,7 +146,7 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
             label.text = key + ":"
             label.numberOfLines=1
             label.sizeToFit()
-            self.view.addSubview(label)
+            scrollView.addSubview(label)
             
             let myTextField = UITextField(frame: CGRect(x: pickX+longestLabel+10, y: pickY+currentstep-(height/4), width: Int(screenWidth - CGFloat(longestLabel + stepVal)) , height: height))
             myTextField.borderStyle = UITextBorderStyle.roundedRect
@@ -156,7 +158,7 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
             customPicker.backgroundColor = UIColor.white
             myTextField.inputView = customPicker
             
-            self.view.addSubview(myTextField)
+            scrollView.addSubview(myTextField)
             currentstep += stepVal
             latestY = pickY+currentstep-(height/4)
             
@@ -175,7 +177,7 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
             label.text = key + ": " + value.value + "%"
             label.numberOfLines=1
             label.sizeToFit()
-            self.view.addSubview(label)
+            scrollView.addSubview(label)
             
             let slider=UISlider(frame: CGRect(x: slidX+25, y: slidY+extraStep, width: Int(screenWidth*0.80) , height: height))
             slider.minimumValue = 0
@@ -183,7 +185,7 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
             slider.value = Float(value.value)!
             slider.addTarget(self, action: #selector(sliderValueDidChange), for: .valueChanged)
             
-            self.view.addSubview(slider)
+            scrollView.addSubview(slider)
             currentstep += stepVal
             extraStep += stepVal
             latestY = slidY+currentstep-(height/4)
@@ -192,16 +194,26 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
         
         //Render Calculate Button
-        let button = UIButton(type: .system)
+        let button = UIButton()
         let buttonY=latestY + 25
         button.frame = CGRect(x: Int(self.view.center.x*0.55), y: buttonY, width: Int(screenWidth*0.50), height: height)
-        button.backgroundColor = .clear
         button.layer.cornerRadius = 5
         button.backgroundColor = self.view.tintColor
         button.setTitle("Calculate", for: .normal)
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        self.view.addSubview(button)
+        scrollView.addSubview(button)
+        
+        scrollView.contentSize = CGSize(width: Int(self.view.frame.width), height: buttonY+height+25)
+        self.view.addSubview(scrollView)
     }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        scrollView.frame = view.bounds
+        //containerView.frame = CGRectMake(0, 0, scrollView.contentSize.width, scrollView.contentSize.height)
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
