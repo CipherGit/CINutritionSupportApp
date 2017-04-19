@@ -29,40 +29,52 @@ class CaloricRequirementCalculator : CalculatorProtocol {
         
         //Source: https://www.med-ed.virginia.edu/pda/refcards/criticalcare/Cal.htm
         injuryFactors = ["Normal" : 1.0,
-                         "Infection, mild" : 1.1,
-                         "Infection, moderate" : 1.25,
-                         "Infection, severe" : 1.45,
-                         "Infection, peritonitis" : 1.15,
-                         "Operation, minor" : 1.1,
-                         "Operation, major" : 1.15,
+                         "Infection - Mild" : 1.1,
+                         "Infection - Moderate" : 1.25,
+                         "Infection - Severe" : 1.45,
+                         "Infection - Peritonitis" : 1.15,
+                         "Operation - Minor" : 1.1,
+                         "Operation - Major" : 1.15,
                          "Post-op" : 1.05,
                          "Burns < 20%" : 1.5,
                          "Burns 20%-40%" : 1.7,
                          "Burns > 40%" : 2.0,
-                         "Trauma, multiple" : 1.3,
-                         "Trauma, blunt" : 1.4,
-                         "Trauma, skeletal" : 1.2,
-                         "Trauma, long-bone fracture" : 1.25,
+                         "Trauma - Multiple" : 1.3,
+                         "Trauma - Blunt" : 1.4,
+                         "Trauma - Skeletal" : 1.2,
+                         "Trauma - Long-bone fracture" : 1.25,
                          "Cancer" : 1.15]
         activityFactors = ["Bedridden" : 1.2,
                            "Ambulating" : 1.25]
         
         let injKeyArr = Array(injuryFactors.keys)
         var injuryKeyString = ""
+        var first = false
         for key in injKeyArr {
-            injuryKeyString += key + " "
+            if(!first) {
+                injuryKeyString += key
+                first = true
+                continue
+            }
+            injuryKeyString += "," + key
         }
         
         let actKeyArr = Array(activityFactors.keys)
         var actKeyString = ""
+        first = false
         for key in actKeyArr {
-            actKeyString += key + " "
+            if(!first){
+                actKeyString += key
+                first = true
+                continue
+            }
+            actKeyString +=  "," + key
         }
         
         input = ["Age" : (value:"", type:"numeric", option:""),
                  "Height" : (value:"", type:"numeric", option:""),
                  "Weight" : (value:"", type:"numeric", option:""),
-                 "Gender" : (value:"", type:"string", option:"male female"),
+                 "Gender" : (value:"", type:"string", option:"male,female"),
                  "Activity Factor" : (value:"",type:"string", option:actKeyString),
                  "Injury Factor" : (value:"",type:"string", option:injuryKeyString),
                  "Carbohydrates" : (value:"",type:"slider", option:""),
