@@ -43,8 +43,9 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         //Create UI Based on the calculator
         let input = calculatorInstance?.input
+        let output = calculatorInstance?.output
         
-        //Find longest label for uniform field width
+        //Find longest label in input for uniform field width
         for (key, _) in input! {
             let labelWidth = Int(key.width(withConstrainedHeight: 40))
             if( labelWidth > longestLabel){
@@ -52,11 +53,40 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
             }
         }
         
+        //Render Calculator Name
+        let outX = 16, outY=75, height = 40
+        let screenWidth = UIScreen.main.bounds.width
+        var currentstep = 50, latestY = 0, stepVal = 50, separator = 0
+        let calcName = UILabel()
+        calcName.frame = CGRect(x: outX, y: outY, width: 42, height: height)
+        calcName.text = selectedCalculator?.calcName
+        calcName.font = UIFont.boldSystemFont(ofSize: calcName.font.pointSize)
+        calcName.sizeToFit()
+        self.view.addSubview(calcName)
+        
+        //Render output fields
+        for (key, value) in output! {
+            let label = UILabel()
+            if separator%2 == 0 {
+                label.frame = CGRect(x: outX, y: outY+currentstep, width: 42, height: height)
+            } else {
+                label.frame = CGRect(x: Int(self.view.center.x), y: outY+currentstep, width: 42, height: height)
+                currentstep += stepVal
+            }
+            label.text = key + ": " + value.value + " " + value.units
+            label.numberOfLines=1
+            label.font = UIFont.boldSystemFont(ofSize: label.font.pointSize)
+            label.sizeToFit()
+            self.view.addSubview(label)
+            separator += 1
+            
+            latestY = outY+currentstep-(height/4)
+        }
+        
         //Render all numeric input fields
         let numericInputs  = input?.filter({$0.value.type=="numeric"})
-        let numX = 16, numY=100, height = 40
-        let screenWidth = UIScreen.main.bounds.width
-        var currentstep = 0, latestY = 0, stepVal = 50
+        let numX = outX, numY=latestY + 25
+        currentstep = 0
         for (key, value) in numericInputs! {
             
             let label = UILabel(frame: CGRect(x: numX, y: numY+currentstep, width: 42, height: height))
@@ -74,11 +104,6 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
             numericTextfield.updateValue(myTextField, forKey: key)
             currentstep += stepVal
             latestY = numY+currentstep-(height/4)
-            
-            //Find the longest label
-            if(Int(label.frame.width) > longestLabel) {
-                longestLabel = Int(label.frame.width)
-            }
         }
         
         //Render all string input fields
@@ -161,15 +186,25 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
             self.view.addSubview(slider)
             currentstep += stepVal
             extraStep += stepVal
-            latestY = pickY+currentstep-(height/4)
+            latestY = slidY+currentstep-(height/4)
             
             slidUI.updateValue((label, slider), forKey: key)
         }
+        
+        //Render Calculate Button
+        let button = UIButton(type: .system)
+        let buttonY=latestY + 25
+        button.frame = CGRect(x: Int(self.view.center.x*0.55), y: buttonY, width: Int(screenWidth*0.50), height: height)
+        button.backgroundColor = .clear
+        button.layer.cornerRadius = 5
+        button.backgroundColor = self.view.tintColor
+        button.setTitle("Calculate", for: .normal)
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        self.view.addSubview(button)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -210,6 +245,10 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 value.0.sizeToFit()
             }
         }
+    }
+    
+    func buttonAction(sender: UIButton) {
+        print("Button tapped")
     }
     
     /*
