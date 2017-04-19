@@ -22,6 +22,7 @@
 		DE733F7F1EA38D4600328761 /* GuidelinesContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE733F7E1EA38D4600328761 /* GuidelinesContent.swift */; };
 		DE733F821EA3910800328761 /* GLSource+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE733F801EA3910800328761 /* GLSource+CoreDataClass.swift */; };
 		DE733F831EA3910800328761 /* GLSource+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE733F811EA3910800328761 /* GLSource+CoreDataProperties.swift */; };
+		DE903F261EA710AF00EDBA6F /* DynamicCalculatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE903F251EA710AE00EDBA6F /* DynamicCalculatorVC.swift */; };
 		DEDD11741E5F7068006DF4CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD11731E5F7068006DF4CF /* AppDelegate.swift */; };
 		DEDD11761E5F7068006DF4CF /* PatientList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD11751E5F7068006DF4CF /* PatientList.swift */; };
 		DEDD11791E5F7068006DF4CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDD11771E5F7068006DF4CF /* Main.storyboard */; };
@@ -65,6 +66,7 @@
 		DE733F7E1EA38D4600328761 /* GuidelinesContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuidelinesContent.swift; sourceTree = "<group>"; };
 		DE733F801EA3910800328761 /* GLSource+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GLSource+CoreDataClass.swift"; path = "CoreData/GLSource+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DE733F811EA3910800328761 /* GLSource+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GLSource+CoreDataProperties.swift"; path = "CoreData/GLSource+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DE903F251EA710AE00EDBA6F /* DynamicCalculatorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicCalculatorVC.swift; sourceTree = "<group>"; };
 		DEDD11701E5F7068006DF4CF /* ICNutrition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ICNutrition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDD11731E5F7068006DF4CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEDD11751E5F7068006DF4CF /* PatientList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientList.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				DE6504821E87609600410B34 /* PatientTab.swift */,
 				DE6504831E87609600410B34 /* SummaryTab.swift */,
 				DE733F7E1EA38D4600328761 /* GuidelinesContent.swift */,
+				DE903F251EA710AE00EDBA6F /* DynamicCalculatorVC.swift */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				DE733F821EA3910800328761 /* GLSource+CoreDataClass.swift in Sources */,
 				DE733F831EA3910800328761 /* GLSource+CoreDataProperties.swift in Sources */,
 				DEE8661D1EA6246900546A53 /* CalculatorProtocol.swift in Sources */,
+				DE903F261EA710AF00EDBA6F /* DynamicCalculatorVC.swift in Sources */,
 				DE6504861E87609600410B34 /* GuidelinesTab.swift in Sources */,
 				DEE272021E881B490084082A /* ICNutritionCoreModel.xcdatamodeld in Sources */,
 				DE0936211EA4EC970027B201 /* Patient+CoreDataProperties.swift in Sources */,

@@ -24,7 +24,7 @@ class CaloricRequirementCalculator : CalculatorProtocol {
     let protein = 4
     let fat = 9
     
-    func CaloricRequirementCalculator(){
+    init(){
         formulas = ["Harris-Benedict (1919)", "Roza-Shizgal (1984)", "Mifflin-St Jeor (1990)"]
         
         //Source: https://www.med-ed.virginia.edu/pda/refcards/criticalcare/Cal.htm
@@ -62,12 +62,12 @@ class CaloricRequirementCalculator : CalculatorProtocol {
         input = ["Age" : (value:"", type:"numeric", option:""),
                  "Height" : (value:"", type:"numeric", option:""),
                  "Weight" : (value:"", type:"numeric", option:""),
-                 "Gender" : (value:"", type:"string", option:""),
-                 "Activity Factor" : (value:"",type:"picker", option:actKeyString),
-                 "Injury Factor" : (value:"",type:"picker", option:injuryKeyString),
-                 "Carbohydrates" : (value:"",type:"numeric", option:""),
-                 "Protein" : (value:"",type:"numeric", option:""),
-                 "Fat" : (value:"",type:"numeric", option:"")
+                 "Gender" : (value:"", type:"string", option:"male female"),
+                 "Activity Factor" : (value:"",type:"string", option:actKeyString),
+                 "Injury Factor" : (value:"",type:"string", option:injuryKeyString),
+                 "Carbohydrates" : (value:"",type:"slider", option:""),
+                 "Protein" : (value:"",type:"slider", option:""),
+                 "Fat" : (value:"",type:"slider", option:"")
         ]
         
         output = ["BMI" : (value:"", units:""),
