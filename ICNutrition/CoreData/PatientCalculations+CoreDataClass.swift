@@ -1,5 +1,5 @@
 //
-//  GLSource+CoreDataClass.swift
+//  PatientCalculations+CoreDataClass.swift
 //  ICNutrition
 //
 //  Created by Justin Peña on 20/4/17.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-
-public class GLSource: NSManagedObject {
+@objc(PatientCalculations)
+public class PatientCalculations: NSManagedObject {
 
 }

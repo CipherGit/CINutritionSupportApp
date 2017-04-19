@@ -20,9 +20,11 @@
 		DE6504871E87609600410B34 /* PatientTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6504821E87609600410B34 /* PatientTab.swift */; };
 		DE6504881E87609600410B34 /* SummaryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6504831E87609600410B34 /* SummaryTab.swift */; };
 		DE733F7F1EA38D4600328761 /* GuidelinesContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE733F7E1EA38D4600328761 /* GuidelinesContent.swift */; };
-		DE733F821EA3910800328761 /* GLSource+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE733F801EA3910800328761 /* GLSource+CoreDataClass.swift */; };
-		DE733F831EA3910800328761 /* GLSource+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE733F811EA3910800328761 /* GLSource+CoreDataProperties.swift */; };
 		DE903F261EA710AF00EDBA6F /* DynamicCalculatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE903F251EA710AE00EDBA6F /* DynamicCalculatorVC.swift */; };
+		DE903F311EA7D62400EDBA6F /* PatientCalculation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE903F2F1EA7D62400EDBA6F /* PatientCalculation+CoreDataClass.swift */; };
+		DE903F321EA7D62400EDBA6F /* PatientCalculation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE903F301EA7D62400EDBA6F /* PatientCalculation+CoreDataProperties.swift */; };
+		DE903F351EA7D8E500EDBA6F /* GLSource+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE903F331EA7D8E500EDBA6F /* GLSource+CoreDataClass.swift */; };
+		DE903F361EA7D8E500EDBA6F /* GLSource+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE903F341EA7D8E500EDBA6F /* GLSource+CoreDataProperties.swift */; };
 		DEDD11741E5F7068006DF4CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD11731E5F7068006DF4CF /* AppDelegate.swift */; };
 		DEDD11761E5F7068006DF4CF /* PatientList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD11751E5F7068006DF4CF /* PatientList.swift */; };
 		DEDD11791E5F7068006DF4CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDD11771E5F7068006DF4CF /* Main.storyboard */; };
@@ -64,9 +66,11 @@
 		DE6504821E87609600410B34 /* PatientTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientTab.swift; sourceTree = "<group>"; };
 		DE6504831E87609600410B34 /* SummaryTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryTab.swift; sourceTree = "<group>"; };
 		DE733F7E1EA38D4600328761 /* GuidelinesContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuidelinesContent.swift; sourceTree = "<group>"; };
-		DE733F801EA3910800328761 /* GLSource+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GLSource+CoreDataClass.swift"; path = "CoreData/GLSource+CoreDataClass.swift"; sourceTree = "<group>"; };
-		DE733F811EA3910800328761 /* GLSource+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GLSource+CoreDataProperties.swift"; path = "CoreData/GLSource+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DE903F251EA710AE00EDBA6F /* DynamicCalculatorVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicCalculatorVC.swift; sourceTree = "<group>"; };
+		DE903F2F1EA7D62400EDBA6F /* PatientCalculation+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PatientCalculation+CoreDataClass.swift"; path = "CoreData/PatientCalculation+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DE903F301EA7D62400EDBA6F /* PatientCalculation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PatientCalculation+CoreDataProperties.swift"; path = "CoreData/PatientCalculation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DE903F331EA7D8E500EDBA6F /* GLSource+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GLSource+CoreDataClass.swift"; path = "CoreData/GLSource+CoreDataClass.swift"; sourceTree = "<group>"; };
+		DE903F341EA7D8E500EDBA6F /* GLSource+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GLSource+CoreDataProperties.swift"; path = "CoreData/GLSource+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DEDD11701E5F7068006DF4CF /* ICNutrition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ICNutrition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDD11731E5F7068006DF4CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEDD11751E5F7068006DF4CF /* PatientList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientList.swift; sourceTree = "<group>"; };
@@ -180,10 +184,12 @@
 		DEE272031E88261A0084082A /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				DE903F331EA7D8E500EDBA6F /* GLSource+CoreDataClass.swift */,
+				DE903F341EA7D8E500EDBA6F /* GLSource+CoreDataProperties.swift */,
+				DE903F2F1EA7D62400EDBA6F /* PatientCalculation+CoreDataClass.swift */,
+				DE903F301EA7D62400EDBA6F /* PatientCalculation+CoreDataProperties.swift */,
 				DE09361E1EA4EC970027B201 /* Patient+CoreDataClass.swift */,
 				DE09361F1EA4EC970027B201 /* Patient+CoreDataProperties.swift */,
-				DE733F801EA3910800328761 /* GLSource+CoreDataClass.swift */,
-				DE733F811EA3910800328761 /* GLSource+CoreDataProperties.swift */,
 				DEE272241E8826D80084082A /* CoreDataManagedObject.swift */,
 				DEE272041E8826460084082A /* ICUWard+CoreDataClass.swift */,
 				DEE272051E8826470084082A /* ICUWard+CoreDataProperties.swift */,
@@ -353,12 +359,12 @@
 				DE6504841E87609600410B34 /* CalculatorsTab.swift in Sources */,
 				DE0936201EA4EC970027B201 /* Patient+CoreDataClass.swift in Sources */,
 				DEE272151E8826470084082A /* ICUWard+CoreDataProperties.swift in Sources */,
+				DE903F321EA7D62400EDBA6F /* PatientCalculation+CoreDataProperties.swift in Sources */,
 				DEE2721A1E8826470084082A /* Recommendation+CoreDataClass.swift in Sources */,
 				DEE272251E8826D80084082A /* CoreDataManagedObject.swift in Sources */,
 				DE6504871E87609600410B34 /* PatientTab.swift in Sources */,
+				DE903F361EA7D8E500EDBA6F /* GLSource+CoreDataProperties.swift in Sources */,
 				DEDD11741E5F7068006DF4CF /* AppDelegate.swift in Sources */,
-				DE733F821EA3910800328761 /* GLSource+CoreDataClass.swift in Sources */,
-				DE733F831EA3910800328761 /* GLSource+CoreDataProperties.swift in Sources */,
 				DEE8661D1EA6246900546A53 /* CalculatorProtocol.swift in Sources */,
 				DE903F261EA710AF00EDBA6F /* DynamicCalculatorVC.swift in Sources */,
 				DE6504861E87609600410B34 /* GuidelinesTab.swift in Sources */,
@@ -366,6 +372,7 @@
 				DE0936211EA4EC970027B201 /* Patient+CoreDataProperties.swift in Sources */,
 				DEE272231E8826470084082A /* Index+CoreDataProperties.swift in Sources */,
 				DEE272161E8826470084082A /* Disease+CoreDataClass.swift in Sources */,
+				DE903F311EA7D62400EDBA6F /* PatientCalculation+CoreDataClass.swift in Sources */,
 				DEE2721B1E8826470084082A /* Recommendation+CoreDataProperties.swift in Sources */,
 				DE733F7F1EA38D4600328761 /* GuidelinesContent.swift in Sources */,
 				DE6504881E87609600410B34 /* SummaryTab.swift in Sources */,
@@ -376,6 +383,7 @@
 				DEE8661F1EA6279500546A53 /* CaloricRequirements.swift in Sources */,
 				DEE272221E8826470084082A /* Index+CoreDataClass.swift in Sources */,
 				DEE272171E8826470084082A /* Disease+CoreDataProperties.swift in Sources */,
+				DE903F351EA7D8E500EDBA6F /* GLSource+CoreDataClass.swift in Sources */,
 				DEDD118B1E5F844A006DF4CF /* PatientInfo.swift in Sources */,
 				DEE2721D1E8826470084082A /* Calculator+CoreDataProperties.swift in Sources */,
 			);

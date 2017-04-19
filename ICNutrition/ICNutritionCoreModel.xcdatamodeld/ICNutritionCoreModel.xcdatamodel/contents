@@ -3,9 +3,8 @@
     <entity name="Calculator" representedClassName="Calculator" syncable="YES">
         <attribute name="calcID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="calcName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="input" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="output" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="calcToMany_gl" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Guideline" inverseName="glToOne_Calc" inverseEntity="Guideline" syncable="YES"/>
+        <relationship name="calcToMany_ptc" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PatientCalculation" inverseName="ptcToCalc" inverseEntity="PatientCalculation" syncable="YES"/>
     </entity>
     <entity name="Disease" representedClassName="Disease" syncable="YES">
         <attribute name="diseaseID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -14,7 +13,7 @@
         <attribute name="diseaseSeverity" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="disToOne_Patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="patientToMany_Disease" inverseEntity="Patient" syncable="YES"/>
     </entity>
-    <entity name="GLSource" representedClassName="GLSource" syncable="YES">
+    <entity name="GLSource" representedClassName=".GLSource" syncable="YES">
         <attribute name="glName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="glSourceID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="glsToMany_gl" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Guideline" inverseName="glToOne_GLSource" inverseEntity="Guideline" syncable="YES"/>
@@ -50,8 +49,15 @@
         <attribute name="patientID" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="weight" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="patientToMany_Disease" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Disease" inverseName="disToOne_Patient" inverseEntity="Disease" syncable="YES"/>
+        <relationship name="patientToMany_Ptc" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PatientCalculation" inverseName="ptcToPatient" inverseEntity="PatientCalculation" syncable="YES"/>
         <relationship name="patientToMany_Rec" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Recommendation" inverseName="recToOne_Patient" inverseEntity="Recommendation" syncable="YES"/>
         <relationship name="patientToOne_Ward" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ICUWard" inverseName="wardToOne_Patient" inverseEntity="ICUWard" syncable="YES"/>
+    </entity>
+    <entity name="PatientCalculation" representedClassName=".PatientCalculation" syncable="YES">
+        <attribute name="input" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="output" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="ptcToCalc" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Calculator" inverseName="calcToMany_ptc" inverseEntity="Calculator" syncable="YES"/>
+        <relationship name="ptcToPatient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="patientToMany_Ptc" inverseEntity="Patient" syncable="YES"/>
     </entity>
     <entity name="Recommendation" representedClassName="Recommendation" syncable="YES">
         <attribute name="recID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -59,13 +65,14 @@
         <relationship name="recToOne_Patient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Patient" inverseName="patientToMany_Rec" inverseEntity="Patient" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Calculator" positionX="9" positionY="296" width="128" height="118"/>
+        <element name="Calculator" positionX="9" positionY="296" width="128" height="105"/>
         <element name="Disease" positionX="-441" positionY="-9" width="126" height="118"/>
-        <element name="GLSource" positionX="-443" positionY="252" width="128" height="88"/>
+        <element name="GLSource" positionX="-443" positionY="252" width="128" height="90"/>
         <element name="Guideline" positionX="-272" positionY="225" width="128" height="178"/>
         <element name="ICUWard" positionX="-432" positionY="135" width="126" height="88"/>
         <element name="Index" positionX="-443" positionY="387" width="128" height="88"/>
-        <element name="Patient" positionX="-270" positionY="-10" width="128" height="210"/>
+        <element name="Patient" positionX="-270" positionY="-10" width="128" height="225"/>
         <element name="Recommendation" positionX="-54" positionY="44" width="128" height="73"/>
+        <element name="PatientCalculation" positionX="-234" positionY="144" width="128" height="105"/>
     </elements>
 </model>
