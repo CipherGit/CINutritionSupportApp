@@ -15,11 +15,15 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var calculatorInstance : CalculatorProtocol?
     var options : [String : [String]] = [:]
     
-    var numericTextfield: [String : UITextField] = [:]
+    var outUI: [String : UILabel] = [:]
+    var numUI: [String : UITextField] = [:]
     var pickUI: [String : (UITextField, UIPickerView)] = [:]
     var segUI: [String : UISegmentedControl] = [:]
     var slidUI: [String : (UILabel, UISlider)] = [:]
     var longestLabel : Int = 0
+    
+    var input: [String : (value: String, type: String, option: String)] = [:]
+    var output: [String : (value: String, units: String)] = [:]
     
     let scrollView = UIScrollView()
 
@@ -44,11 +48,11 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
         
         //Create UI Based on the calculator
-        let input = calculatorInstance?.input
-        let output = calculatorInstance?.output
+        input = (calculatorInstance?.input)!
+        output = (calculatorInstance?.output)!
         
         //Find longest label in input for uniform field width
-        for (key, _) in input! {
+        for (key, _) in input {
             let labelWidth = Int(key.width(withConstrainedHeight: 40))
             if( labelWidth > longestLabel){
                 longestLabel = labelWidth
@@ -67,7 +71,7 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
         scrollView.addSubview(calcName)
         
         //Render output fields
-        for (key, value) in output! {
+        for (key, value) in output {
             let label = UILabel()
             if separator%2 == 0 {
                 label.frame = CGRect(x: outX, y: outY+currentstep, width: 42, height: height)
@@ -81,15 +85,41 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
             label.sizeToFit()
             scrollView.addSubview(label)
             separator += 1
-            
+            outUI.updateValue(label, forKey: key)
             latestY = outY+currentstep-(height/4)
         }
         
-        //Render all numeric input fields
-        let numericInputs  = input?.filter({$0.value.type=="numeric"})
-        let numX = outX, numY=latestY + 25
+        //Render Formula Selector
+        let frmX = outX, frmY=latestY + 25
         currentstep = 0
-        for (key, value) in numericInputs! {
+        let label = UILabel(frame: CGRect(x: frmX, y: frmY+currentstep, width: 42, height: height))
+        label.text = "Formulas" + ":"
+        label.numberOfLines=1
+        label.sizeToFit()
+        scrollView.addSubview(label)
+        
+        let frmField = UITextField(frame: CGRect(x: frmX+longestLabel+10, y: frmY+currentstep-(height/4), width: Int(screenWidth - CGFloat(longestLabel + stepVal)) , height: height))
+        frmField.borderStyle = UITextBorderStyle.roundedRect
+        frmField.text = calculatorInstance?.formulas[0]
+        
+        let frmPicker = UIPickerView()
+        frmPicker.delegate = self
+        frmPicker.dataSource = self
+        frmPicker.backgroundColor = UIColor.white
+        frmField.inputView = frmPicker
+        
+        scrollView.addSubview(frmField)
+        currentstep += stepVal
+        latestY = frmY+currentstep-(height/4)
+        
+        options.updateValue((calculatorInstance?.formulas)!, forKey: "Formulas")
+        pickUI.updateValue((frmField, frmPicker), forKey: "Formulas")
+        
+        //Render all numeric input fields
+        let numericInputs  = input.filter({$0.value.type=="numeric"})
+        let numX = frmX, numY=latestY + 25
+        currentstep = 0
+        for (key, value) in numericInputs {
             
             let label = UILabel(frame: CGRect(x: numX, y: numY+currentstep, width: 42, height: height))
             label.text = key + ":"
@@ -103,22 +133,22 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
             myTextField.keyboardType = .numberPad
             scrollView.addSubview(myTextField)
             
-            numericTextfield.updateValue(myTextField, forKey: key)
+            numUI.updateValue(myTextField, forKey: key)
             currentstep += stepVal
             latestY = numY+currentstep-(height/4)
         }
         
         //Render all string input fields
-        let stringInputs = input?.filter({$0.value.type=="string" && $0.value.option == ""})
-        for (key, _) in stringInputs! {
+        let stringInputs = input.filter({$0.value.type=="string" && $0.value.option == ""})
+        for (key, _) in stringInputs {
             NSLog(key)
         }
         
         //Render all segmented UI fields
         let segX = numX, segY=latestY + 25
         currentstep = 0
-        let segUIInputs = input?.filter({$0.value.type=="string" && $0.value.option.components(separatedBy: ",").count == 2})
-        for (key, value) in segUIInputs! {
+        let segUIInputs = input.filter({$0.value.type=="string" && $0.value.option.components(separatedBy: ",").count == 2})
+        for (key, value) in segUIInputs {
             
             let label = UILabel(frame: CGRect(x: segX, y: segY+currentstep, width: 42, height: height))
             label.text = key + ":"
@@ -140,8 +170,8 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
         //Render all picker fields
         let pickX = segX, pickY=latestY + 25
         currentstep = 0
-        let pickerInputs = input?.filter({$0.value.type=="string" && $0.value.option.components(separatedBy: ",").count > 2})
-        for (key, value) in pickerInputs! {
+        let pickerInputs = input.filter({$0.value.type=="string" && $0.value.option.components(separatedBy: ",").count > 2})
+        for (key, value) in pickerInputs {
             let label = UILabel(frame: CGRect(x: pickX, y: pickY+currentstep, width: 42, height: height))
             label.text = key + ":"
             label.numberOfLines=1
@@ -170,8 +200,8 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
         let slidX = pickX, slidY=latestY + 25
         var extraStep = 20
         currentstep = 0; stepVal = 65
-        let sliderInputs = input?.filter({$0.value.type=="slider"})
-        for (key, value) in sliderInputs! {
+        let sliderInputs = input.filter({$0.value.type=="slider"})
+        for (key, value) in sliderInputs {
             
             let label = UILabel(frame: CGRect(x: slidX, y: slidY+currentstep, width: 42, height: height))
             label.text = key + ": " + value.value + "%"
@@ -209,9 +239,7 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
         scrollView.frame = view.bounds
-        //containerView.frame = CGRectMake(0, 0, scrollView.contentSize.width, scrollView.contentSize.height)
     }
 
 
@@ -260,7 +288,28 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     func buttonAction(sender: UIButton) {
-        print("Button tapped")
+        for (key, value) in numUI {
+            input[key]?.value = value.text!
+        }
+        for (key, value) in segUI {
+            input[key]?.value = value.titleForSegment(at: value.selectedSegmentIndex)!
+        }
+        for (key, value) in pickUI {
+            input[key]?.value = value.0.text!
+        }
+        for (key, value) in slidUI {
+            input[key]?.value = String(Int(value.1.value))
+        }
+        
+        calculatorInstance?.calculate(formula: (pickUI["Formulas"]?.0.text)!, input: input)
+        output = (calculatorInstance?.output)!
+        
+        //Update UI
+        for (key, value) in outUI {
+            value.text = key + ": " + (output[key]?.value)! + " " + (output[key]?.units)!
+            value.sizeToFit()
+        }
+        scrollView.setContentOffset(CGPoint.zero, animated: true)
     }
     
     /*

@@ -104,7 +104,6 @@ class CaloricRequirementCalculator : CalculatorProtocol {
         let prot = Float((input["Protein"]?.value)!)
         let fat = Float((input["Fat"]?.value)!)
         
-        
         let bmiResult = bmi(height: height!, weight: weight!)
         
         //Calculate Basal Metabolic Rate
@@ -135,7 +134,7 @@ class CaloricRequirementCalculator : CalculatorProtocol {
     }
     
     func bmi(height: Int, weight: Int) -> Float {
-        return Float(weight) / powf(Float(weight), 2.0)
+        return Float(weight) / powf(Float(height)*0.01, 2.0)
     }
     
     func hbe(age: Int, gender: String, height: Int, weight: Int) -> Float{
@@ -182,14 +181,14 @@ class CaloricRequirementCalculator : CalculatorProtocol {
     }
     
     func carbs(tdee: Float, carbPercentage: Float) -> Float {
-        return (tdee*carbPercentage)/Float(carbohydrate)
+        return (tdee*carbPercentage*0.01)/Float(carbohydrate)
     }
     
     func proteins(tdee: Float, proteinPercentage: Float) -> Float {
-        return (tdee*proteinPercentage)/Float(protein)
+        return (tdee*proteinPercentage*0.01)/Float(protein)
     }
     
     func fats(tdee: Float, fatPercentage: Float) -> Float {
-        return (tdee*fatPercentage)/Float(fat)
+        return (tdee*fatPercentage*0.01)/Float(fat)
     }
 }
