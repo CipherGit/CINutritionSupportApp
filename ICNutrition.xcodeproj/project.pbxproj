@@ -27,6 +27,8 @@
 		DE903F3E1EA7DD2600EDBA6F /* Calculator+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE903F3C1EA7DD2600EDBA6F /* Calculator+CoreDataProperties.swift */; };
 		DE903F411EA7E73700EDBA6F /* PatientCalculation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE903F3F1EA7E73700EDBA6F /* PatientCalculation+CoreDataClass.swift */; };
 		DE903F421EA7E73700EDBA6F /* PatientCalculation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE903F401EA7E73700EDBA6F /* PatientCalculation+CoreDataProperties.swift */; };
+		DE903F441EA7F0BA00EDBA6F /* RecommendationDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE903F431EA7F0BA00EDBA6F /* RecommendationDetail.swift */; };
+		DE903F461EA7F0D100EDBA6F /* GuidelineDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE903F451EA7F0D100EDBA6F /* GuidelineDetail.swift */; };
 		DEDD11741E5F7068006DF4CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD11731E5F7068006DF4CF /* AppDelegate.swift */; };
 		DEDD11761E5F7068006DF4CF /* PatientList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD11751E5F7068006DF4CF /* PatientList.swift */; };
 		DEDD11791E5F7068006DF4CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDD11771E5F7068006DF4CF /* Main.storyboard */; };
@@ -73,6 +75,8 @@
 		DE903F3C1EA7DD2600EDBA6F /* Calculator+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Calculator+CoreDataProperties.swift"; path = "CoreData/Calculator+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DE903F3F1EA7E73700EDBA6F /* PatientCalculation+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PatientCalculation+CoreDataClass.swift"; path = "CoreData/PatientCalculation+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DE903F401EA7E73700EDBA6F /* PatientCalculation+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PatientCalculation+CoreDataProperties.swift"; path = "CoreData/PatientCalculation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		DE903F431EA7F0BA00EDBA6F /* RecommendationDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationDetail.swift; sourceTree = "<group>"; };
+		DE903F451EA7F0D100EDBA6F /* GuidelineDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuidelineDetail.swift; sourceTree = "<group>"; };
 		DEDD11701E5F7068006DF4CF /* ICNutrition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ICNutrition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDD11731E5F7068006DF4CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEDD11751E5F7068006DF4CF /* PatientList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientList.swift; sourceTree = "<group>"; };
@@ -128,6 +132,8 @@
 				DE6504831E87609600410B34 /* SummaryTab.swift */,
 				DE733F7E1EA38D4600328761 /* GuidelinesContent.swift */,
 				DE903F251EA710AE00EDBA6F /* DynamicCalculatorVC.swift */,
+				DE903F431EA7F0BA00EDBA6F /* RecommendationDetail.swift */,
+				DE903F451EA7F0D100EDBA6F /* GuidelineDetail.swift */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -356,6 +362,7 @@
 				DE0936231EA4F6910027B201 /* IcuSearchController.swift in Sources */,
 				DEE272141E8826470084082A /* ICUWard+CoreDataClass.swift in Sources */,
 				820C18041E77E05400C2B020 /* DiseaseTableViewCell.swift in Sources */,
+				DE903F441EA7F0BA00EDBA6F /* RecommendationDetail.swift in Sources */,
 				DEDD11761E5F7068006DF4CF /* PatientList.swift in Sources */,
 				DE6504841E87609600410B34 /* CalculatorsTab.swift in Sources */,
 				DEE272151E8826470084082A /* ICUWard+CoreDataProperties.swift in Sources */,
@@ -382,6 +389,7 @@
 				DEE272201E8826470084082A /* Guideline+CoreDataClass.swift in Sources */,
 				DEE8661F1EA6279500546A53 /* CaloricRequirements.swift in Sources */,
 				DE903F391EA7DCC000EDBA6F /* Patient+CoreDataClass.swift in Sources */,
+				DE903F461EA7F0D100EDBA6F /* GuidelineDetail.swift in Sources */,
 				DEE272221E8826470084082A /* Index+CoreDataClass.swift in Sources */,
 				DEE272171E8826470084082A /* Disease+CoreDataProperties.swift in Sources */,
 				DE903F351EA7D8E500EDBA6F /* GLSource+CoreDataClass.swift in Sources */,
