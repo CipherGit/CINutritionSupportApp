@@ -10,39 +10,49 @@ import UIKit
 
 class CalculatorsTab: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var calculator = Array<String>()
-    var filteredCalculator = [Calculator]()
+    var calculators = [Calculator]()
+    var filteredCalculators = [Calculator]()
 
+    @IBOutlet weak var calcTable: UITableView!
+    @IBOutlet weak var calcSearch: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        calculator = ["Calcoric calculation"]
-
-        // Do any additional setup after loading the view.
+        //Temporarily Create a Calculator Object
+        let calc = Calculator(context: context!)
+        calc.calcID = 1
+        calc.calcName = "Caloric Requirements"
+        
+        calculators.append(calc)
+        
+        calcTable.delegate = self
+        calcTable.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-            return self.calculator.count
-        
+            return self.calculators.count
     }
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        
-            cell.textLabel?.text = self.calculator[indexPath.row]
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "calcCell", for: indexPath)
+        cell.textLabel?.text = self.calculators[indexPath.row].calcName
         return cell
     }
     
-    // Click on the cell list --> carry index row and go to detail
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "DetailSegue", sender: calculator[indexPath.row])
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "calcSegue", sender: calculators[indexPath.row])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "calcSegue"){
+            let dynamicCalc = segue.destination as! DynamicCalculatorVC
+            dynamicCalc.selectedCalculator = sender as? Calculator
+        }
     }
 
     /*
