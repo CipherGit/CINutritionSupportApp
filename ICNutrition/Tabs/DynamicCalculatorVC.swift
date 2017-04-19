@@ -40,6 +40,14 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
         //Create UI Based on the calculator
         let input = calculatorInstance?.input
         
+        //Find longest label for uniform field width
+        for (key, _) in input! {
+            let labelWidth = Int(key.width(withConstrainedHeight: 40))
+            if( labelWidth > longestLabel){
+                longestLabel = labelWidth
+            }
+        }
+        
         //Render all numeric input fields
         let numericInputs  = input?.filter({$0.value.type=="numeric"})
         let numX = 16, numY=100, height = 40
@@ -53,7 +61,7 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
             label.sizeToFit()
             self.view.addSubview(label)
             
-            let myTextField = UITextField(frame: CGRect(x: numX+Int(label.frame.width + 10), y: numY+currentstep-(height/4), width: Int(screenWidth - (CGFloat(numX) + label.frame.width + 25)) , height: height))
+            let myTextField = UITextField(frame: CGRect(x: numX+longestLabel+10, y: numY+currentstep-(height/4), width: Int(screenWidth - CGFloat(longestLabel + stepVal)) , height: height))
             myTextField.borderStyle = UITextBorderStyle.roundedRect
             myTextField.keyboardType = .numberPad
             self.view.addSubview(myTextField)
@@ -88,7 +96,7 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
             
             let valArr = value.option.components(separatedBy: ",")
             let customSC = UISegmentedControl(items: valArr)
-            customSC.frame = CGRect(x: segX+Int(label.frame.width + 10), y: segY+currentstep-(height/4), width: Int(screenWidth - (CGFloat(numX) + label.frame.width + 25)), height: height)
+            customSC.frame = CGRect(x: segX+longestLabel+10, y: segY+currentstep-(height/4), width: Int(screenWidth - CGFloat(longestLabel + stepVal)), height: height)
             self.view.addSubview(customSC)
             currentstep += stepVal
             latestY = segY+currentstep-(height/4)
@@ -112,7 +120,7 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
             label.sizeToFit()
             self.view.addSubview(label)
             
-            let myTextField = UITextField(frame: CGRect(x: pickX+Int(label.frame.width + 10), y: pickY+currentstep-(height/4), width: Int(screenWidth - (CGFloat(pickX) + label.frame.width + 25)) , height: height))
+            let myTextField = UITextField(frame: CGRect(x: pickX+longestLabel+10, y: pickY+currentstep-(height/4), width: Int(screenWidth - CGFloat(longestLabel + stepVal)) , height: height))
             myTextField.borderStyle = UITextBorderStyle.roundedRect
             
             let customPicker = UIPickerView()
@@ -214,12 +222,12 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
 }
 
 extension String {
-    func height(constraintedWidth width: CGFloat, font: UIFont) -> CGFloat {
-        let label =  UILabel(frame: CGRect(x: 0, y: 0, width: width, height: .greatestFiniteMagnitude))
+    func width(withConstrainedHeight height: CGFloat) -> CGFloat {
+        let label =  UILabel(frame: CGRect(x: 0, y: 0, width: .greatestFiniteMagnitude, height: height))
         label.numberOfLines = 0
         label.text = self
         label.sizeToFit()
         
-        return label.frame.height
+        return label.frame.width
     }
 }
