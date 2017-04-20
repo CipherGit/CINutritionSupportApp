@@ -76,7 +76,7 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
         if(insertedPatient == nil){
             insertedPatient = (tabBarController as! IcuTabController).selectedPatient
         }
-        print ("name :\(insertedPatient?.name)")
+        self.tabBarController?.navigationItem.title = insertedPatient?.name
         diseases = insertedPatient?.patientToMany_Disease?.allObjects as! [Disease]
         notesInput!.layer.borderWidth = 0.5
         notesInput!.layer.borderColor = UIColor.init(red: 213.0/255.0, green: 213.0/255.0, blue: 213.0/255.0, alpha: 1).cgColor

@@ -9,11 +9,19 @@
 import UIKit
 
 class RecommendationDetail: UIViewController {
-
+    
+    var guideline : Guideline?
+    @IBOutlet weak var glShortHand: UILabel!
+    @IBOutlet weak var glContent: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.tabBarController?.navigationItem.title = (guideline?.identifier)! + " " + (guideline?.glToOne_GLSource?.glName)!
+        glShortHand.text = guideline?.shortDesc
+        glShortHand.sizeToFit()
+        glContent.text = guideline?.fullDesc
+        glContent.sizeToFit()
     }
 
     override func didReceiveMemoryWarning() {

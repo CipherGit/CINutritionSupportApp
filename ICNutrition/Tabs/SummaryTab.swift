@@ -134,7 +134,7 @@ class SummaryTab: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NSLog("Hello")
+        performSegue(withIdentifier: "recGlSegue", sender: recArr[indexPath.row])
     }
     
     func retrieveGuidelines(){
@@ -145,6 +145,13 @@ class SummaryTab: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }catch{
             let fetchError = error as NSError
             NSLog(fetchError.localizedDescription)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "recGlSegue"){
+            let recDetail = segue.destination as! RecommendationDetail
+            recDetail.guideline = sender as! Guideline
         }
     }
 

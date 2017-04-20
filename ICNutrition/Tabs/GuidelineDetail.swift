@@ -9,16 +9,23 @@
 import UIKit
 
 class GuidelineDetail: UIViewController {
-
+    
+    var guideline : Guideline?
+    
+    @IBOutlet weak var glContent: UILabel!
+    @IBOutlet weak var glShorthand: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        self.tabBarController?.navigationItem.title = (guideline?.identifier)! + " " + (guideline?.glToOne_GLSource?.glName)!
+        glShorthand.text = guideline?.shortDesc
+        glContent.text = guideline?.fullDesc
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
 
