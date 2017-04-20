@@ -10,29 +10,83 @@ import UIKit
 import CoreData
 import Foundation
 
-class SummaryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class SummaryTab: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var selectedPatient : Patient?
+    var patientCalc : PatientCalculation?
     var diseases = [Disease]()
     var guidelines = [Guideline]()
     var recommended = Set<Guideline>()
     var recArr = [Guideline]()
     var tokenizedWords = [String]()
     
-    @IBOutlet weak var Label: UILabel!
+    
+    @IBOutlet weak var bmiLabel: UILabel!
+    
+    @IBOutlet weak var tdeeLabel: UILabel!
+    
+    @IBOutlet weak var carbsLabel: UILabel!
+    
+    @IBOutlet weak var proteinLabel: UILabel!
+    
+    @IBOutlet weak var fatLabel: UILabel!
+    
+    @IBOutlet weak var recTable: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Retrieve patient and diseases
+        //Retrieve data        
         selectedPatient = (tabBarController as! IcuTabController).selectedPatient
-        print(selectedPatient?.name)
         diseases = selectedPatient?.patientToMany_Disease?.allObjects as! [Disease]
+        let ptcAll = selectedPatient?.patientToMany_Ptc?.allObjects as! [PatientCalculation]
+        
+
+        for calc in ptcAll {
+            if(calc.ptcToCalc?.calcName=="Caloric Requirements"){
+                patientCalc = calc
+                break
+            }
+        }
+         
+        
+        if(patientCalc == nil){
+            let alert = UIAlertController(title: "Greetings!", message: "Please click on the calculator tab to make nutrition calculations", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let outputString = patientCalc?.output?.components(separatedBy: ",")
+            for pair in outputString! {
+                let splitResult = pair.components(separatedBy: ":")
+                switch splitResult[0] {
+                case "BMI":
+                    bmiLabel.text = "BMI: " + splitResult[1]
+                    bmiLabel.sizeToFit()
+                case "TDEE":
+                    tdeeLabel.text = "TDEE: " + splitResult[1] + " kcal/d"
+                    tdeeLabel.sizeToFit()
+                case "Carbs":
+                    carbsLabel.text = "Carbs: " + splitResult[1] + " g/d"
+                    carbsLabel.sizeToFit()
+                case "Proteins":
+                    proteinLabel.text = "Proteins: " + splitResult[1] + " g/d"
+                    proteinLabel.sizeToFit()
+                case "Fats":
+                    fatLabel.text = "Fats: " + splitResult[1] + " g/d"
+                    fatLabel.sizeToFit()
+                default:
+                    NSLog("No label for key: %@", splitResult[1])
+                }
+            }
+        }
+
+
         //Combine disease information and tokenize
         for disease in diseases {
             let diseaseTokens = disease.diseaseName?.components(separatedBy: " ")
-            //let notesTokens = disease.diseaseNotes?.components(separatedBy: " ")
-            //let combinedTokens = diseaseTokens! + notesTokens!
-            let tokenSet = Set(diseaseTokens!)
+            let notesTokens = disease.diseaseNotes?.components(separatedBy: " ")
+            let combinedTokens = diseaseTokens! + notesTokens!
+            let tokenSet = Set(combinedTokens)
             for token in tokenSet {
                 tokenizedWords.append(token)
             }
@@ -54,7 +108,6 @@ class SummaryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
         //Filter out Guidelines
         for word in tokenizedWords {
-            print (word)
             let gfilter = guidelines.filter({ ($0.glToOne_Index?.keywords?.contains(word))! || ($0.shortDesc?.contains(word))!})
             for gline in gfilter {
                 recommended.insert(gline)
@@ -63,10 +116,15 @@ class SummaryTab: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
         //Convert to Array for easier access
         recArr = Array(recommended)
+        
+        print(recArr.count)
+        
+        recTable.delegate = self
+        recTable.dataSource = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recommended.count
+        return recArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
