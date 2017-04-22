@@ -22,6 +22,7 @@ class DiseaseTab: UIViewController, UITableViewDelegate, UITableViewDataSource
         super.viewDidLoad()
         
         selectedPatient = (tabBarController as! IcuTabController).selectedPatient
+        self.tabBarController?.navigationItem.title = selectedPatient?.name
         
         diseases = selectedPatient?.patientToMany_Disease?.allObjects as! [Disease]
     }

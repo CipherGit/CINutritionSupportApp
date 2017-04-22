@@ -106,7 +106,19 @@ class GuidelinesContent: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NSLog("Hello")
+        if !searchActive {
+            performSegue(withIdentifier: "glDetailSegue", sender: sectionItems[indexPath.section][indexPath.row])
+        } else {
+            performSegue(withIdentifier: "glDetailSegue", sender: filteredGuidelines[indexPath.row])
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "glDetailSegue" {
+            let gDetail = segue.destination as! GuidelineDetail
+            gDetail.guideline = sender as? Guideline
+        }
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
