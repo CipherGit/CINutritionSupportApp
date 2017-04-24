@@ -31,7 +31,6 @@ class PatientInfo: UIViewController {
     @IBOutlet weak var icuInput: UITextField!
     @IBOutlet weak var genderToggle: UISegmentedControl!
     
-    
     @IBAction func genderToggleInput(_ sender: UISegmentedControl) {
         if (sender.selectedSegmentIndex == 0){
             self.gender = "Male"
@@ -48,70 +47,11 @@ class PatientInfo: UIViewController {
         }
     }
     
-//    @IBAction func saveButton(_ sender: Any) {
-//        
-//        print ("save button called !!")
-//        
-//        let patientInfo = Patient(context: context!)
-//        if selectedPatient != nil {
-//            selectedPatient?.name = self.pNameInput.text
-//            let ageString = ageInput.text!
-//            selectedPatient?.age = Int16(ageString)!
-//            selectedPatient?.gender = self.gender
-//            selectedPatient?.height = Int16(heightInput.text!)!
-//            selectedPatient?.weight = Int16(weightInput.text!)!
-//            //selectedPatient?.admitDate = dateInput.text
-//            //selectedPatient?.patientToOne_Ward = icuInput.text
-//            
-//            do{
-//                try selectedPatient?.managedObjectContext?.save()
-//                //self.updateClosure!()
-//                self.navigationController?.dismiss(animated: true, completion: nil)
-//                
-//            } catch {
-//                print("Error here edit")
-//            }
-//            
-//        }
-//        else{
-//            
-//            let dateFormatter=DateFormatter()
-//            dateFormatter.dateStyle = .short
-//            dateFormatter.timeStyle = .short
-//            
-//            patientInfo.name = self.pNameInput.text
-//            let ageString = ageInput.text!
-//            patientInfo.age = Int16(ageString)!
-//            patientInfo.gender = self.gender
-//            patientInfo.height = Int16(heightInput.text!)!
-//            patientInfo.weight = Int16(weightInput.text!)!
-//            patientInfo.admitDate = dateFormatter.date(from: dateInput.text!)! as NSDate?
-//            //patientInfo.patientToOne_Ward = icuInput.text
-//            do{
-//                try patientInfo.managedObjectContext?.save()
-//                self.updateClosure!(patientInfo)
-//                self.navigationController?.dismiss(animated: true, completion: nil)
-//                
-//            } catch {
-//                print("Error here insert")
-//            }
-//        }
-//        
-//        
-//        self.navigationController?.dismiss(animated: true, completion: nil)
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if selectedPatient != nil {
             fillFromPatient(patient: selectedPatient!)
-            var diseases = Array<Disease>()
-            diseases = selectedPatient?.patientToMany_Disease?.allObjects as! [Disease]
-            var test: Disease?
-            for test in diseases{
-                print("disease \(test.diseaseID)")
-            }
         }
         
         createDatePicker()
@@ -119,9 +59,6 @@ class PatientInfo: UIViewController {
         self.ageInput.keyboardType = .numberPad
         self.weightInput.keyboardType = .numberPad
         self.heightInput.keyboardType = .numberPad
-        self.icuInput.keyboardType = .numberPad
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -137,8 +74,6 @@ class PatientInfo: UIViewController {
         toolbar.setItems([doneButton],animated:false)
         dateInput.inputAccessoryView=toolbar
         dateInput.inputView=datePicker
-        
-        
     }
     
     func donePressed(){
@@ -162,8 +97,8 @@ class PatientInfo: UIViewController {
         }
         weightInput.text = String(patient.weight)
         heightInput.text = String(patient.height)
-        dateInput.text = dateFormatter.string(from: patient.admitDate as! Date)
-        //icuInput.text = String(patient.patientToOne_Ward)
+        dateInput.text = dateFormatter.string(from: patient.admitDate! as Date)
+        icuInput.text = patient.patientToOne_Ward?.wardName!
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -185,26 +120,25 @@ class PatientInfo: UIViewController {
         else{
             if selectedPatient != nil {
                 selectedPatient?.name = self.pNameInput.text
-                           let ageString = ageInput.text!
-                            selectedPatient?.age = Int16(ageString)!
-                            selectedPatient?.gender = self.gender
-                            selectedPatient?.height = Int16(heightInput.text!)!
-                            selectedPatient?.weight = Int16(weightInput.text!)!
-                            selectedPatient?.admitDate = dateFormatter.date(from: dateInput.text!)! as NSDate?
-                            //selectedPatient?.patientToOne_Ward = icuInput.text
+                let ageString = ageInput.text!
+                selectedPatient?.age = Int16(ageString)!
+                selectedPatient?.gender = self.gender
+                selectedPatient?.height = Int16(heightInput.text!)!
+                selectedPatient?.weight = Int16(weightInput.text!)!
+                selectedPatient?.admitDate = dateFormatter.date(from: dateInput.text!)! as NSDate?
                 
-                       do{
-                                try selectedPatient?.managedObjectContext?.save()
-                                //self.updateClosure!()
-                                //self.navigationController?.dismiss(animated: true, completion: nil)
-                        
-                        } catch {
-                                print("Error here edit")
-                            }
-
+                let newWard = ICUWard(context: context!)
+                newWard.wardName = icuInput.text
+                selectedPatient?.patientToOne_Ward = newWard
+                
+                do{
+                    try newWard.managedObjectContext?.save()
+                    try selectedPatient?.managedObjectContext?.save()
+                } catch {
+                    print("Error here edit")
+                }
+                
             }else{
-                
-                
                 patientInfo = Patient(context: context!)
                 patientInfo?.name = self.pNameInput.text
                 let ageString = ageInput.text!
@@ -214,46 +148,29 @@ class PatientInfo: UIViewController {
                 patientInfo?.weight = Int16(weightInput.text!)!
                 patientInfo?.admitDate = dateFormatter.date(from: dateInput.text!)! as NSDate?
                 
+                let newWard = ICUWard(context: context!)
+                newWard.wardName = icuInput.text
+                patientInfo?.patientToOne_Ward = newWard
+                
                 do{
+                    try newWard.managedObjectContext?.save()
                     try patientInfo?.managedObjectContext?.save()
-                    //self.updateClosure!(patientInfo)
-                    //self.navigationController?.dismiss(animated: true, completion: nil)
-                    
                 } catch {
                     print("Error here insert")
                 }
-
+                
             }
-            
-            //            if let vc = storyboard?.instantiateViewController(withIdentifier: "addDisease") as? DiseaseInfo {
-//                vc.insertedPatient = patientInfo
-//                //self.performSegueWithIdentifier("SegueAdd", sender: indexPath.row)
-//                navigationController?.pushViewController(vc, animated: true)
-//            }
             return true
-            
         }
-        
-//       let backItem = UIBarButtonItem()
-//            backItem.title = "List"
-//           navigationItem.backBarButtonItem = backItem
-        
-      //  return true
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let check = validate()
-//        if ((segue.identifier == "addDisease") && (check != false)) {
-//            print("go to segue")
-//            let _controller = segue.destination as! DiseaseInfo
-//        }
         let DestViewController : DiseaseInfo = segue.destination as! DiseaseInfo
         DestViewController.insertedPatient = patientInfo
-//
         let backItem = UIBarButtonItem()
         backItem.title = "Patient"
-        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+        navigationItem.backBarButtonItem = backItem
         
     }
     
