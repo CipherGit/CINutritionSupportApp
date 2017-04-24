@@ -22,8 +22,6 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
     
     @IBOutlet weak var removebtn: UIButton!
     @IBOutlet weak var addbtn: UIButton!
-    //@IBOutlet weak var addbtn: UIButton!
-    //@IBOutlet weak var removebtn: UIButton!
     
     @IBOutlet weak var dNameTextField: UITextField!
     @IBOutlet weak var dNameInput: UITextField!
@@ -32,11 +30,10 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
     
     @IBOutlet weak var diseaseTableView: UITableView!
     
+    @IBAction func SaveButton(_ sender: UIBarButtonItem) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
     @IBAction func addButton(_ sender: UIButton) {
-        //disease = Disease(diseaseName: dNameInput.text!, severityLevel: severityLevelInput.text!, notes: notesInput.text!)
-        //diseases.append(disease!)
-        //diseaseTableView.reloadData()
-        
         disease = Disease(context: context!)
         disease?.diseaseName = dNameTextField.text
         disease?.diseaseSeverity = severityLevelInput.text
@@ -99,6 +96,9 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
         cell.diseaseLabel.text = diseases[indexPath.row].diseaseName
         cell.severityLabel.text = diseases[indexPath.row].diseaseSeverity
         cell.notesLabel.text = diseases[indexPath.row].diseaseNotes
+        
+        cell.diseaseLabel.sizeToFit()
+        cell.severityLabel.sizeToFit()
         return cell
     }
     
@@ -129,55 +129,7 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
         notesInput.resignFirstResponder()
     }
     
-    /*
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        var countrows : Int = diseaseList.count
-        if (pickerView == severityLevelDropdown) {
-            countrows = severityLevelList.count
-        }
-        return countrows
-    }
-    
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if (pickerView == dNameDropdown){
-            let titleRow = diseaseList[row]
-            return titleRow
-        }
-        else if pickerView == severityLevelDropdown{
-            let titleRow = severityLevelList[row]
-            return titleRow
-        }
-        
-        return ""
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if (pickerView == dNameDropdown){
-            self.dNameInput.text = self.diseaseList[row]
-            self.dNameDropdown.isHidden = true
-        }
-        else if pickerView == severityLevelDropdown{
-            self.severityLevelInput.text = self.severityLevelList[row]
-            self.severityLevelDropdown.isHidden = true
-        }
-    }*/
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        /*
-        let backItem = UIBarButtonItem()
-        backItem.title = "List"
-        navigationItem.backBarButtonItem = backItem*/
-        /*
-        let view = segue.destination as! UITabBarController
-        let controller = view.viewControllers![1] as! PatientTab
-        controller.patient = insertedPatient*/
-        
         let backItem = UIBarButtonItem()
         backItem.title = "List"
         navigationItem.backBarButtonItem = backItem
@@ -191,10 +143,5 @@ class DiseaseInfo: UIViewController, UITableViewDataSource, UITableViewDelegate,
         }
         let tabCtrl = segue.destination as! IcuTabController
         tabCtrl.selectedPatient = self.insertedPatient
-  
-
-
     }
-    
-    
 }

@@ -111,7 +111,7 @@
                                         <rect key="frame" x="0.0" y="28" width="384" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vXN-nz-4Wv" id="Gsr-lS-wfN">
-                                            <rect key="frame" x="0.0" y="0.0" width="384" height="51.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="384" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Disease" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYK-MC-pew">
@@ -128,14 +128,20 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gnv-LR-PNr">
-                                                    <rect key="frame" x="280" y="15" width="46" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gnv-LR-PNr">
+                                                    <rect key="frame" x="230" y="15" width="136" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="136" id="mSc-hG-0xM"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Gnv-LR-PNr" firstAttribute="centerY" secondItem="Gsr-lS-wfN" secondAttribute="centerY" id="ezg-9H-vf5"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Gnv-LR-PNr" secondAttribute="trailing" constant="10" id="gDV-GA-q9B"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="diseaseLabel" destination="wYK-MC-pew" id="nVS-Sn-Q40"/>
@@ -200,7 +206,7 @@
                     <navigationItem key="navigationItem" title="Disease Information" id="4ab-6Q-5vk">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="zFg-ij-aPR">
                             <connections>
-                                <segue destination="JfI-nD-iUV" kind="show" id="r3d-IE-0jx"/>
+                                <action selector="SaveButton:" destination="WU4-tb-pAT" id="cRu-mZ-DG9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -216,7 +222,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QY1-UK-SaD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2966" y="681"/>
+            <point key="canvasLocation" x="2965.5999999999999" y="680.5097451274363"/>
         </scene>
         <!--Patient Information-->
         <scene sceneID="gRY-7O-CkQ">
@@ -995,7 +1001,6 @@
         <image name="patient-1" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="r3d-IE-0jx"/>
         <segue reference="t0A-5G-ugY"/>
     </inferredMetricsTieBreakers>
 </document>
