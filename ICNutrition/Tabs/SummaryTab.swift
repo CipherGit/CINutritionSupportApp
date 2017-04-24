@@ -39,47 +39,6 @@ class SummaryTab: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //Retrieve data        
         selectedPatient = (tabBarController as! IcuTabController).selectedPatient
         diseases = selectedPatient?.patientToMany_Disease?.allObjects as! [Disease]
-        let ptcAll = selectedPatient?.patientToMany_Ptc?.allObjects as! [PatientCalculation]
-        
-
-        for calc in ptcAll {
-            if(calc.ptcToCalc?.calcName=="Caloric Requirements"){
-                patientCalc = calc
-                break
-            }
-        }
-         
-        
-        if(patientCalc == nil){
-            let alert = UIAlertController(title: "Greetings!", message: "Please click on the calculator tab to make nutrition calculations", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        } else {
-            let outputString = patientCalc?.output?.components(separatedBy: ",")
-            for pair in outputString! {
-                let splitResult = pair.components(separatedBy: ":")
-                switch splitResult[0] {
-                case "BMI":
-                    bmiLabel.text = "BMI: " + splitResult[1]
-                    bmiLabel.sizeToFit()
-                case "TDEE":
-                    tdeeLabel.text = "TDEE: " + splitResult[1] + " kcal/d"
-                    tdeeLabel.sizeToFit()
-                case "Carbs":
-                    carbsLabel.text = "Carbs: " + splitResult[1] + " g/d"
-                    carbsLabel.sizeToFit()
-                case "Proteins":
-                    proteinLabel.text = "Proteins: " + splitResult[1] + " g/d"
-                    proteinLabel.sizeToFit()
-                case "Fats":
-                    fatLabel.text = "Fats: " + splitResult[1] + " g/d"
-                    fatLabel.sizeToFit()
-                default:
-                    NSLog("No label for key: %@", splitResult[1])
-                }
-            }
-        }
-
 
         //Combine disease information and tokenize
         for disease in diseases {
@@ -153,6 +112,53 @@ class SummaryTab: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let recDetail = segue.destination as! RecommendationDetail
             recDetail.guideline = sender as? Guideline
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let ptcAll = selectedPatient?.patientToMany_Ptc?.allObjects as! [PatientCalculation]
+        
+        
+        for calc in ptcAll {
+            if(calc.ptcToCalc?.calcName=="Caloric Requirements"){
+                patientCalc = calc
+                break
+            }
+        }
+        
+        
+        if(patientCalc == nil){
+            let alert = UIAlertController(title: "Greetings!", message: "Please click on the calculator tab to make nutrition calculations", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let outputString = patientCalc?.output?.components(separatedBy: ",")
+            for pair in outputString! {
+                let splitResult = pair.components(separatedBy: ":")
+                switch splitResult[0] {
+                case "BMI":
+                    bmiLabel.text = "BMI: " + splitResult[1]
+                    bmiLabel.sizeToFit()
+                case "TDEE":
+                    tdeeLabel.text = "TDEE: " + splitResult[1] + " kcal/d"
+                    tdeeLabel.sizeToFit()
+                case "Carbs":
+                    carbsLabel.text = "Carbs: " + splitResult[1] + " g/d"
+                    carbsLabel.sizeToFit()
+                case "Proteins":
+                    proteinLabel.text = "Proteins: " + splitResult[1] + " g/d"
+                    proteinLabel.sizeToFit()
+                case "Fats":
+                    fatLabel.text = "Fats: " + splitResult[1] + " g/d"
+                    fatLabel.sizeToFit()
+                default:
+                    NSLog("No label for key: %@", splitResult[1])
+                }
+            }
+        }
+        
+        recTable.reloadData()
     }
 
     override func didReceiveMemoryWarning() {

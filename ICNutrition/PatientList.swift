@@ -112,11 +112,6 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
     // Click on the cell list --> carry index row and go to detail
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "TabBarSegue", sender: patients[indexPath.row])
-//        if let vc = storyboard?.instantiateViewController(withIdentifier: "PInfo") as? PatientInfo {
-//            vc.selectedPatient = patients[indexPath.row]
-//            //self.performSegueWithIdentifier("SegueAdd", sender: indexPath.row)
-//            navigationController?.pushViewController(vc, animated: true)
-//        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -139,37 +134,20 @@ class PatientList: UITableViewController, UISearchResultsUpdating {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         let context = self.context
-        //let patientInfo = Patient(context: context!)
-        
         if editingStyle == .delete {
-            
             let patientTest = patients[indexPath.row]
-            
             //Using delete method from managedObjectContext
-            
             context?.delete(patientTest)
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
-            
-            //patientInfo.managedObjectContext?.delete(patients[indexPath.row])
-            //            do {
-            //                //******
-            //                patients.remove(at: indexPath.row)
-            //                tableView.deleteRows(at: [indexPath], with: .fade)
-            //                try
-            //                    patientInfo.managedObjectContext?.save()
-            //            } catch {
-            //                let saveError = error as NSError
-            //                print(saveError)
-            //            }
-            
             fetchData()
             self.tableView.reloadData()
-            
         }
-        
-        
-        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fetchData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
