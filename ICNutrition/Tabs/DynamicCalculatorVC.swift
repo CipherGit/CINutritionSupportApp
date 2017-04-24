@@ -59,7 +59,9 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
         //Create UI Based on the calculator
         input = (calculatorInstance?.input)!
         output = (calculatorInstance?.output)!
-        loadFromDb()
+        if(ptcInfo?.input != nil){
+            loadFromDb()
+        }
         
         //Find longest label in input for uniform field width
         for (key, _) in input {
@@ -169,7 +171,9 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
             let valArr = value.option.components(separatedBy: ",")
             let customSC = UISegmentedControl(items: valArr)
             customSC.frame = CGRect(x: segX+longestLabel+10, y: segY+currentstep-(height/4), width: Int(screenWidth - CGFloat(longestLabel + stepVal)), height: height)
-            customSC.selectedSegmentIndex = valArr.index(of: value.value)!
+            let indexVal = valArr.index(of: value.value)
+            customSC.selectedSegmentIndex = indexVal!
+            
             scrollView.addSubview(customSC)
             currentstep += stepVal
             latestY = segY+currentstep-(height/4)
@@ -381,6 +385,7 @@ class DynamicCalculatorVC: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     func loadFromDb(){
+        print("LoadDB")
         let inputKV = ptcInfo?.input?.components(separatedBy: ",")
         for inputPair in inputKV! {
             let pair  = inputPair.components(separatedBy: ":")

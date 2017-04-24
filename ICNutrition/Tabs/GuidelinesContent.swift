@@ -25,9 +25,6 @@ class GuidelinesContent: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Change Title
-        glContentLabel.text = guideLineSource?.glName
-        
         //Check guidelines in GLSource
         NSLog("Number of Guidelines: " + String(describing: guideLineSource?.glsToMany_gl?.count))
         

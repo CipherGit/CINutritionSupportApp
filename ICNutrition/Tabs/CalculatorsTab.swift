@@ -26,9 +26,6 @@ class CalculatorsTab: UIViewController, UITableViewDataSource, UITableViewDelega
         
         calculators.append(calc)
         
-        let patient = (tabBarController as! IcuTabController).selectedPatient
-        self.tabBarController?.navigationItem.title = patient?.name
-        
         calcTable.delegate = self
         calcTable.dataSource = self
     }

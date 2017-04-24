@@ -17,7 +17,7 @@ class RecommendationDetail: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tabBarController?.navigationItem.title = (guideline?.identifier)! + " " + (guideline?.glToOne_GLSource?.glName)!
+        //self.tabBarController?.navigationItem.title = (guideline?.identifier)! + " " + (guideline?.glToOne_GLSource?.glName)!
         glShortHand.text = guideline?.shortDesc
         glShortHand.sizeToFit()
         glContent.text = guideline?.fullDesc

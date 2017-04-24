@@ -21,7 +21,6 @@ class PatientTab: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         let tabCont = self.tabBarController  as! IcuTabController
         patient = tabCont.selectedPatient
-        self.tabBarController?.navigationItem.title = patient?.name
         
         patientLabel = ["Name","Gender","Age","Weight","Height","ICU Ward"]
         

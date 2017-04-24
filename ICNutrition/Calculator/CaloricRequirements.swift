@@ -74,7 +74,7 @@ class CaloricRequirementCalculator : CalculatorProtocol {
         input = ["Age" : (value:"0", type:"numeric", option:""),
                  "Height" : (value:"0", type:"numeric", option:""),
                  "Weight" : (value:"0", type:"numeric", option:""),
-                 "Gender" : (value:"0", type:"string", option:"male,female"),
+                 "Gender" : (value:"Male", type:"string", option:"Male,Female"),
                  "Activity Factor" : (value:"Bedridden",type:"string", option:actKeyString),
                  "Injury Factor" : (value:"Normal",type:"string", option:injuryKeyString),
                  "Carbohydrates" : (value:"70",type:"slider", option:""),

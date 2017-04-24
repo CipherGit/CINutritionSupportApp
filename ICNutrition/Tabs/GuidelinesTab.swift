@@ -21,8 +21,6 @@ class GuidelinesTab: UIViewController, UITableViewDelegate, UITableViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tabBarController?.navigationItem.title = "Guidelines"
-        
         //Fetch GLSources
         fetchGLSources()
         for glSource in guidelineSources {

@@ -151,7 +151,7 @@ class SummaryTab: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "recGlSegue"){
             let recDetail = segue.destination as! RecommendationDetail
-            recDetail.guideline = sender as! Guideline
+            recDetail.guideline = sender as? Guideline
         }
     }
 
